@@ -1,4 +1,4 @@
 # ws-houston-doc
 Houston.chm, extracted with archmage.
 
-Mostly for personal use.
+Accessible at http://ilazki.github.io for personal use.
