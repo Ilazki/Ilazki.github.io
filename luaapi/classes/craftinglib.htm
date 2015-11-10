@@ -1,0 +1,769 @@
+<html>
+	<head>
+	<link rel="stylesheet" type="text/css" href="/style.css">
+	</head>
+	<body><script language="javascript">
+		if ((window.name != "content") && (navigator.userAgent.indexOf("Opera") <= -1) )
+		document.write("<center><a href='../../index.html?page=LuaAPI/Classes/CraftingLib.htm'>show framing</a></center>")
+		</script>
+	<h1>
+		CraftingLib	</h1>
+<h3>Description</h3>
+<p>This library is the primary way that the UI interacts with various tradeskills and schematics.  This includes tradeskills that the player has chosen, as well as ones that they are automatically granted such as cooking and runecrafting.</p>
+<a name="Enums"/><hr><a name="CodeEnumCraftingDirection"><h3>Enum</h3><br><h2>CodeEnumCraftingDirection</h2>
+<h3>Description</h3>
+<p>A list of directions used when performing non-equipment based tradeskills.</p>
+<ul>
+<li><b>None</b>
+<li><b>N</b>
+<li><b>NE</b>
+<li><b>E</b>
+<li><b>SE</b>
+<li><b>S</b>
+<li><b>SW</b>
+<li><b>W</b>
+<li><b>NW</b>
+</ul>
+<hr><a name="CodeEnumCraftingDiscoveryHotCold"><h3>Enum</h3><br><h2>CodeEnumCraftingDiscoveryHotCold</h2>
+<h3>Description</h3>
+<p>A set of enums representing how close a player was to discovering a schematic while performing non-equipment based tradeskills.</p>
+<ul>
+<li><b>Cold</b>
+<li><b>Warm</b>
+<li><b>Hot</b>
+<li><b>Success</b>
+</ul>
+<hr><a name="CodeEnumItemCraftingGroupFlag"><h3>Enum</h3><br><h2>CodeEnumItemCraftingGroupFlag</h2>
+<ul>
+<li><b>Air</b>
+<li><b>Water</b>
+<li><b>Earth</b>
+<li><b>Fire</b>
+<li><b>Logic</b>
+<li><b>Life</b>
+<li><b>Fusion</b>
+</ul>
+<hr><a name="CodeEnumItemStatType"><h3>Enum</h3><br><h2>CodeEnumItemStatType</h2>
+<ul>
+<li><b>None</b>
+<li><b>UnitProperty</b>
+<li><b>Random</b>
+<li><b>Set</b>
+<li><b>UnlockedGroup</b>
+<li><b>UNUSED03</b>
+</ul>
+<hr><a name="CodeEnumTradeskill"><h3>Enum</h3><br><h2>CodeEnumTradeskill</h2>
+<h3>Description</h3>
+<p>A list of the different tradeskills available to the player.  Augmentor, Farmer, and Fishing are not currently used.</p>
+<ul>
+<li><b>Weaponsmith</b>
+<li><b>Cooking</b>
+<li><b>Armorer</b>
+<li><b>Mining</b>
+<li><b>Outfitter</b>
+<li><b>Survivalist</b>
+<li><b>Augmentor</b>
+<li><b>Architect</b>
+<li><b>Relic_Hunter</b>
+<li><b>Fishing</b>
+<li><b>Farmer</b>
+<li><b>Tailor</b>
+<li><b>Runecrafting</b>
+</ul>
+<hr><a name="CodeEnumTradeskillResult"><h3>Enum</h3><br><h2>CodeEnumTradeskillResult</h2>
+<h3>Description</h3>
+<p>A list of possible outcomes for several tradeskill actions.</p>
+<ul>
+<li><b>Success</b>
+<li><b>InsufficentFund</b>
+<li><b>InvalidItem</b>
+<li><b>InvalidSlot</b>
+<li><b>MissingEngravingStation</b>
+<li><b>Unlocked</b>
+<li><b>UnknownError</b>
+<li><b>GlyphExists</b>
+<li><b>MissingGlyph</b>
+<li><b>DuplicateGlyph</b>
+<li><b>AttemptFailed</b>
+<li><b>GlyphSlotLimit</b>
+<li><b>RuneExists</b>
+<li><b>MissingRune</b>
+<li><b>DuplicateRune</b>
+<li><b>RuneSlotLimit</b>
+</ul>
+<hr><a name="CodeEnumTradeskillTier"><h3>Enum</h3><br><h2>CodeEnumTradeskillTier</h2>
+<h3>Description</h3>
+<p>These values represent the various tradeskill tiers.</p>
+<ul>
+<li><b>Novice</b>
+<li><b>Apprentice</b>
+<li><b>Journeyman</b>
+<li><b>Expert</b>
+<li><b>Artisan</b>
+<li><b>Zero</b>
+<li><b>Master</b>
+<li><b>GrandMaster</b>
+</ul>
+<a name=">Functions"/>
+<hr><a name="AddAdditive"><h3>Function</h3><br><h2>AddAdditive(itemAdditive)</h2>
+<h3>Description</h3>
+<p>Attempts to add an additive to the current crafting attempt.</p>
+<h3>Params</h3>
+<ul>
+<li><b>itemAdditive</b><b> (<a href="../classes/item.htm">Item</a>)</b> - The additive that should be used for the current crafting session.
+</ul>
+<h3>Usage/Example</h3>
+<pre>If the function is successful, the CraftingUpdateCurrent event will fire.  Otherwise, the client will show the appropriate error message.</pre>
+<hr><a name="AddRuneSlot"><h3>Function</h3><br><h2>AddRuneSlot(nNewSlotCount) (Deprecated)</h2>
+<h3>Description</h3>
+<p>Attempts to add a rune slot to an item.</p>
+<h3>Params</h3>
+<ul>
+<li><b>nNewSlotCount</b><b> (Integer)</b> - The number of rune slots on the item after adding a new one.
+</ul>
+<hr><a name="ClearRuneSlot"><h3>Function</h3><br><h2>ClearRuneSlot(nSlotIdx) (Deprecated)</h2>
+<h3>Description</h3>
+<p>Attempts to remove the rune in the specified rune slot.</p>
+<h3>Params</h3>
+<ul>
+<li><b>nSlotIdx</b><b> (Integer)</b> - The index of the rune slot that the function will attempt to clear.
+</ul>
+<hr><a name="CompleteCraft"><h3>Function</h3><br><h2>CompleteCraft(tCrafting)</h2>
+<h3>Description</h3>
+<p>Tells the client to complete the current schematic.  If this is called on a non-equipment based crafting schematic, no parameters are needed.</p>
+<h3>Params</h3>
+<ul>
+<li><b>tCrafting</b><b> (Table)</b> - The parameters representing the player's chooses while crafting.
+<ul>
+<li><b>nApSpSplitDelta</b><b> (Integer)</b> - The number of Ap/Sp increments to use when calculating the split.  A positive number will make the item more support based.
+<li><b>itemPowerCore</b><b> (<a href="../classes/item.htm">Item</a>)</b> - The item to use as the power core.  This must be a valid power core for the item.
+<li><b>arStats</b><b> (Array of Table)</b> - An array representing the player's crafting chooses per stat.
+<ul>
+<li><b>nChargeDelta</b><b> (Integer)</b> - A number representing the number of charge increments to adjust the budget of the stat by.
+<li><b>eProperty</b><b> (Unit.CodeEnumProperties)</b> - The property selected for this stat during crafting.
+</ul>
+</ul>
+</ul>
+<h3>Return Value</h3>
+<ul>
+<li><b>Bool</b> - Returns true if the request was sent to the server.
+</ul>
+<h3>Usage/Example</h3>
+<pre>This function will fire the CraftingSchematicComplete event if it is successful.</pre>
+<hr><a name="CompleteRerollRuneType"><h3>Function</h3><br><h2>CompleteRerollRuneType() (Deprecated)</h2>
+<hr><a name="CraftItem"><h3>Function</h3><br><h2>CraftItem(idSchematic)</h2>
+<h3>Description</h3>
+<p>Begins a crafting attempt for the specified schematic.</p>
+<h3>Params</h3>
+<ul>
+<li><b>idSchematic</b><b> (Integer)</b> - The schematic that the player is trying to craft.
+</ul>
+<h3>Usage/Example</h3>
+<pre>If the crafting attempt is successfully started, then the CraftingUpdateCurrent event will fire and the materials for the schematic will be consumed.</pre>
+<hr><a name="ForgetTradeskill"><h3>Function</h3><br><h2>ForgetTradeskill() (Deprecated)</h2>
+<h3>Description</h3>
+<p>This function has no code and does nothing.</p>
+<hr><a name="GetAchievementCategoryForTier"><h3>Function</h3><br><h2>GetAchievementCategoryForTier(eTradeskill, eTier)</h2>
+<h3>Description</h3>
+<p>Gets the achievement category id for the tradeskill tier's associated achievement.</p>
+<h3>Params</h3>
+<ul>
+<li><b>eTradeskill</b><b> (CraftingLib.CodeEnumTradeskill)</b> - The tradeskill that the function will use to find the achievement category.
+<li><b>eTier</b><b> (CraftingLib.CodeEnumTradeskillTier)</b> - The tier that the function will return the achievement category id for.
+</ul>
+<h3>Return Value</h3>
+<ul>
+<li><b>Integer</b> - The id number for the achievement category that the tradeskill tier belongs to.
+</ul>
+<hr><a name="GetAvailableAdditives"><h3>Function</h3><br><h2>GetAvailableAdditives(eTradeskill, idSchematic)</h2>
+<h3>Description</h3>
+<p>Gets a list of the additives that are available for the specified schematic.</p>
+<h3>Params</h3>
+<ul>
+<li><b>eTradeskill</b><b> (CraftingLib.CodeEnumTradeskill)</b> - The tradeskill that the schematic belongs to.
+<li><b>idSchematic</b><b> (Integer)</b> - The function will get the additives that can be used with the schematic with this id.
+</ul>
+<h3>Return Value</h3>
+<ul>
+<li><b>Array of <a href="../classes/item.htm">Item</a></b> - An array of the different additives that can be used with the schematic.
+</ul>
+<hr><a name="GetAvailableCatalysts"><h3>Function</h3><br><h2>GetAvailableCatalysts(eTradeskill, idSchematic)</h2>
+<h3>Description</h3>
+<p>Gets a list of the catalysts that are in the player's inventory and can be used with the specified schematic.</p>
+<h3>Params</h3>
+<ul>
+<li><b>eTradeskill</b><b> (CraftingLib.CodeEnumTradeskill)</b> - The tradeskill that the schematic belongs to.
+<li><b>idSchematic</b><b> (Integer)</b> - The function will get a list of the catalysts that can be used with the schematic with this id.
+</ul>
+<h3>Return Value</h3>
+<ul>
+<li><b>Array of Table</b> - An array that contains both the catalyst items that can be used with the schematic and the number that the player has in their inventory.
+<ul>
+<li><b>nCount</b><b> (Integer)</b> - The number of this catalyst that is in the player's inventory.
+<li><b>itemCatalyst</b><b> (<a href="../classes/item.htm">Item</a>)</b> - The catalyst that is in the player's inventory.
+</ul>
+</ul>
+<hr><a name="GetAvailableMicrochips"><h3>Function</h3><br><h2>GetAvailableMicrochips(idSchematic, eUnitProperty, nOffset, nCount, nPowerCoreId) (Deprecated)</h2>
+<h3>Description</h3>
+<p>Gets a list of the microchips that can be used with the specified schematic.</p>
+<h3>Params</h3>
+<ul>
+<li><b>idSchematic</b><b> (Integer)</b> - The schematic that the function will poll for the microchips that can be used.
+<li><b>eUnitProperty</b><b> (Unit.CodeEnumProperties)</b> - The microchips that are returned all share this property.
+<li><b>nOffset</b><b> (Integer)</b> - The starting index of the returned table.
+<li><b>nCount</b><b> (Integer)</b> - The number of entries in the table that is returned by the function.  This value defaults to 1 if none is passed in.
+<li><b>nPowerCoreId</b><b> (Integer)</b> - The item id of the power core that is slotted for the recipe.  This will affect the microchips that are returned.  If no value is passed in, it defaults to 0.
+</ul>
+<h3>Return Value</h3>
+<ul>
+<li><b>Array of <a href="../classes/item.htm">Item</a></b> - A table that contains a list of microchips that are available for the schematic.
+</ul>
+<hr><a name="GetAvailablePowerCores"><h3>Function</h3><br><h2>GetAvailablePowerCores(idSchematic)</h2>
+<h3>Description</h3>
+<p>Gets a list of power cores that can be used with the specified schematic.</p>
+<h3>Params</h3>
+<ul>
+<li><b>idSchematic</b><b> (Integer)</b> - The function will return a list of power cores that are compatable with the schematic with this id.
+</ul>
+<h3>Return Value</h3>
+<ul>
+<li><b>Array of <a href="../classes/item.htm">Item</a></b> - A table that contains the item information for power cores that can be used for the specified schematic.
+</ul>
+<hr><a name="GetAvailableProperties"><h3>Function</h3><br><h2>GetAvailableProperties()</h2>
+<h3>Description</h3>
+<p>Gets details of of all craftable properties. During a crafting session then this will include the properties that the player has learned.</p>
+<h3>Return Value</h3>
+<ul>
+<li><b>Array of Table</b> - An array of tables representing each group of properties.
+<ul>
+<li><b>eCraftingGroup</b><b> (CraftingLib.CodeEnumItemCraftingGroupFlag)</b> - The group identifing this set of properties.  The Fusion group will contain all properties.
+<li><b>arProperties</b><b> (Array of Unit.CodeEnumProperties)</b> - The set of properties within this crafting group.
+</ul>
+</ul>
+<hr><a name="GetCurrentCraft"><h3>Function</h3><br><h2>GetCurrentCraft()</h2>
+<h3>Description</h3>
+<p>If the player has an unfinished crafting attempt, this function will return information on that craft.</p>
+<h3>Return Value</h3>
+<ul>
+<li><b>Table</b> - A table that contains information on the player's last crafting attempt.  The variables in the table will differ based on what type of schematic the player was attempting to craft.
+<ul>
+<li><b>nSchematicId</b><b> (Itneger)</b> - The id number for the schematic that the player was trying to craft.
+<li><b>nSchematicCount</b><b> (Integer)</b> - The number of items created ty the schematic.
+<li><b>fVectorX</b><b> (Float)</b> - The X coordinate of the target marker for Coordinate Crafting.  This variable is only used if the schematic that is referenced uses Coordinate Crafting.
+<li><b>fVectorY</b><b> (Float)</b> - The Y coordinate of the target marker in Coordinate Crafting.  This variable is only used if the schematic that is referenced uses Coordinate Crafting.
+<li><b>nSubSchematicId</b><b> (Integer)</b> - The id number of a sub schematic that the player has landed the target marker on.  This variable is only used if the schematic that is referenced uses Coordinate Crafting.
+<li><b>nAdditiveCount</b><b> (Integer)</b> - The number of additives that the player has used on the schematic so far.  This variable is only used if the schematic that is referenced uses Coordinate Crafting.
+<li><b>itemGlobalCatalyst</b><b> (<a href="../classes/item.htm">Item</a>)</b> - The global catalyst that the player used on the schematic.  This variable is only used if the schematic that is referenced uses Coordinate Crafting.
+<li><b>arStats</b><b> (Array of Table)</b> - An array of tables representing the results of the player's crafting chooses and server forced chooses.
+<ul>
+<li><b>nBudget</b><b> (Float)</b> - Amount of budget normally applied to this stat.
+<li><b>eProperty</b><b> (Unit.CodeEnumProperties)</b> - The current selected property.
+<li><b>nUsedBudget</b><b> (Float)</b> - Amount of budget allocated to this stat.
+<li><b>nCraftingBudget</b><b> (Float)</b> - Amount of budget used when determine overcharge.  This will be greater than nUsedBudget if there's slot mismatch.
+<li><b>eCraftingGroup</b><b> (CraftingLib.CodeEnumItemCraftingGroupFlag)</b> - The server selected crafting group for this stat.
+</ul>
+<li><b>tSettings</b><b> (Table)</b> - A table representing the settings for circuitboard crafting.
+<ul>
+<li><b>nApSpSplitIncrement</b><b> (Float)</b> - The amount of ApSp split per ApSp split delta point.
+<li><b>nApSpSplitCap</b><b> (Float)</b> - The absolute range of the ApSp split.
+<li><b>nApSpSplitMaxDelta</b><b> (Integer)</b> - The number of ApSp split deltas possible.  A delta can be a negative number of these.
+<li><b>nChargeIncrement</b><b> (Integer)</b> - The amount of charge per charge delta.
+<li><b>nChargeCap</b><b> (Integer)</b> - The absolute range of charge.
+<li><b>nChargeMaxDelta</b><b> (Integer)</b> - The number of charge deltas possible.  A delta can be a negative number of these.
+<li><b>nMismatchPenalty</b><b> (Float)</b> - Percentage of penalty budget incurred when mismatching crafting group properties.
+</ul>
+<li><b>tResult</b><b> (Table)</b> - A table representing the current calculate results.
+<ul>
+<li><b>nCraftedBudget</b><b> (Float)</b> - The current crafted budget including penalties due to mismatch.
+<li><b>nFailCap</b><b> (Float)</b> - The maximum failure percentage allowed.
+<li><b>nFailChance</b><b> (Float)</b> - The current failure percentage.
+<li><b>bIsValidCraft</b><b> (Integer)</b> - A basic validation against the parameters.
+<li><b>nBudget</b><b> (Float)</b> - The normally expected budget for this item.
+<li><b>monCraftingCost</b><b> (<a href="../classes/money.htm">Money</a>)</b> - If there is a cost to craft then this will be the currenct cost to complete the crafting process.
+</ul>
+</ul>
+</ul>
+<hr><a name="GetCurrentOverchargeInfo"><h3>Function</h3><br><h2>GetCurrentOverchargeInfo(arMicrochipIds, arThresholds) (Deprecated)</h2>
+<h3>Description</h3>
+<p>Gets information on the current overcharge and various overcharge limits of the current Circuit Board schematic.</p>
+<h3>Params</h3>
+<ul>
+<li><b>arMicrochipIds</b><b> (Array of Integer)</b> - An array that contains the item ids of each microchip set in the schematic.
+<li><b>arThresholds</b><b> (Array of Integer)</b> - An array that contains the thresholds used for each microchip slot.
+</ul>
+<h3>Return Value</h3>
+<ul>
+<li><b>Table</b> - A table that contains information on all things overcharge related to the current schematic.
+<ul>
+<li><b>arMultipliers</b><b> (Array of Float)</b> - The property multipliers used for each microchip where the player matched the color of the chip with the slot.
+<li><b>fOverchargeCompleteSuccess</b><b> (Float)</b> - The maximum amount of overcharge where the chance of success is 100%.
+<li><b>fOverchargeCompleteFailure</b><b> (Float)</b> - The amount of overcharge where the chance to fail will reach 100%.
+<li><b>fCraftingOvercharge</b><b> (Float)</b> - The current amount of overcharge for the schematic.
+<li><b>fOverchargeAllowable</b><b> (Float)</b> - The maximum amount of overcharge that is allowed for the schematic.
+<li><b>fCraftingFailChance</b><b> (Float)</b> - The chance that the crafting attempt will fail with the current amount of overcharge.
+<li><b>fFailureAtAllowable</b><b> (Float)</b> - The failure chance when the maximum amount of overcharge is set for the schematic.
+</ul>
+</ul>
+<hr><a name="GetEngravingInfo"><h3>Function</h3><br><h2>GetEngravingInfo(itemSource)</h2>
+<h3>Description</h3>
+<p>Gets information about adding, clearing, rerolling, and unlocking Rune Slots in an item.</p>
+<h3>Params</h3>
+<ul>
+<li><b>itemSource</b><b> (<a href="../classes/item.htm">Item</a>)</b> - The item that the function will query for information on its Rune Slots.
+</ul>
+<h3>Return Value</h3>
+<ul>
+<li><b>Table</b> - A table that contains information on the requirements to modify an item's Rune Slots.
+<ul>
+<li><b>tAddInfo</b><b> (Table)</b> - Information on adding Rune Slots to the item.
+<ul>
+<li><b>tReagent</b><b> (Table)</b> - Information on the reagent used for adding a rune slot.  Includes owned count, cost, and allowed usage.
+<ul>
+<li><b>nOwnedCount</b><b> (Integer)</b> - Quantity owned by the character.
+<li><b>itemReagent</b><b> (<a href="../classes/item.htm">Item</a>)</b> - The object representing the reagent used for adding a rune slot.
+<li><b>nSuccessChance</b><b> (Float)</b> - Provided if the success chance of adding the rune is not 100%.
+<li><b>nMaximumRuneSlots</b><b> (Integer)</b> - Maximum number of rune slots that this item can have.
+<li><b>nCost</b><b> (Integer)</b> - The number of reagents necessary to add a slot.
+</ul>
+</ul>
+<li><b>tClearInfo</b><b> (Table)</b> - Information on clearing a Rune from a Rune Slot.
+<ul>
+<li><b>arSlot</b><b> (Array of Table)</b> - Details for clearing each rune slot.
+<ul>
+<li><b>bAllowed</b><b> (Boolean)</b> - If true then this rune slot can be cleared.
+<li><b>monCost</b><b> (<a href="../classes/money.htm">Money</a>)</b> - The cost to clear this rune slot.
+</ul>
+</ul>
+<li><b>tRerollInfo</b><b> (Table)</b> - Information on rerolling a Rune Slot on the item.
+<ul>
+<li><b>tReagent</b><b> (Table)</b> - Description about the reagent use and costs.
+<ul>
+<li><b>nOwnedCount</b><b> (Integer)</b> - The quantity of reagents owned by the character.
+<li><b>itemReagent</b><b> (<a href="../classes/item.htm">Item</a>)</b> - The item represents the reagent used for reroll.
+<li><b>nCost</b><b> (Integer)</b> - The number of reagents needed to do a reroll.
+<li><b>nSuccessChance</b><b> (Float)</b> - The chance of sucess if success is not 100%.
+</ul>
+<li><b>arAllowed</b><b> (Array of Boolean)</b> - Used to determine if the corresponding rune slot can be rerolled.
+</ul>
+</ul>
+</ul>
+<hr><a name="GetItemsWithRuneSlots"><h3>Function</h3><br><h2>GetItemsWithRuneSlots(bIncludeEquipped, bIncludeBags)</h2>
+<h3>Description</h3>
+<p>Gets a list of each item with rune slots that the player owns.</p>
+<h3>Params</h3>
+<ul>
+<li><b>bIncludeEquipped</b><b> (Boolean)</b> - Whether items that the player has equipped should be included in the list or not.
+<li><b>bIncludeBags</b><b> (Boolean)</b> - Whether items that are in the player's bags should be included in the list or not.
+</ul>
+<h3>Return Value</h3>
+<ul>
+<li><b>Array of <a href="../classes/item.htm">Item</a></b> - An array of items that have rune slots and are in the specified locations.
+</ul>
+<h3>Remarks</h3>
+<p>If neither variable that is passed in is set to true, the list of items will be empty.</p>
+<hr><a name="GetItemsWithRuneSlots"><h3>Function</h3><br><h2>GetItemsWithRuneSlots() (Deprecated)</h2>
+<hr><a name="GetKnownTradeskills"><h3>Function</h3><br><h2>GetKnownTradeskills()</h2>
+<h3>Description</h3>
+<p>Gets the id numbers and names of the tradeskills known by the character.</p>
+<h3>Return Value</h3>
+<ul>
+<li><b>Array of Table</b> - The names and id numbers of tradeskills that are active for the character.
+<ul>
+<li><b>eId</b><b> (CraftingLib.CodeEnumTradeskill)</b> - The tradeskill's id.
+<li><b>strName</b><b> (String)</b> - The name of the tradeskill.
+</ul>
+</ul>
+<hr><a name="GetModSchematicInfo"><h3>Function</h3><br><h2>GetModSchematicInfo(itemCrafting) (Deprecated)</h2>
+<h3>Description</h3>
+<p>Gets information on the item's schematic and microchip sockets.</p>
+<h3>Params</h3>
+<ul>
+<li><b>itemCrafting</b><b> (<a href="../classes/item.htm">Item</a>)</b> - The item that the player is trying to craft.
+</ul>
+<h3>Return Value</h3>
+<ul>
+<li><b>Table</b>
+<ul>
+<li><b>nSchematicId</b><b> (Integer)</b> - The schematic's id number.
+<li><b>eTradeskillId</b><b> (CraftingLib.CodeEnumTradeskill)</b> - The id number of the tradeskill that can make this schematic.
+<li><b>strName</b><b> (String)</b> - The name of the item made by this schematic.
+<li><b>tSockets</b><b> (Array of Table)</b> - Information on each of the sockets in the schematic.
+<ul>
+<li><b>eType</b><b> (Item.CodeEnumMicrochipType)</b> - The type of microchip that can be slotted in this socket.
+<li><b>nParent</b><b> (Integer)</b> - The index of the socket that must be set before this one.
+<li><b>fRatio</b><b> (Float)</b> - The modifier applied to the value of the microchip in this slot.
+<li><b>itemDefaultChip</b><b> (<a href="../classes/item.htm">Item</a>)</b> - The microchip that was set in this slot by the game.
+<li><b>itemCurrentChip</b><b> (<a href="../classes/item.htm">Item</a>)</b> - The microchip currently in this slot.
+<li><b>bIsChangeable</b><b> (Boolean)</b> - Whether the microchip set in this slot is locked or not.
+<li><b>nThreshold</b><b> (Integer)</b> - The threshold value for this microchip slot.
+</ul>
+<li><b>itemOutput</b><b> (<a href="../classes/item.htm">Item</a>)</b> - The item that will be created by this schematic.
+</ul>
+</ul>
+<hr><a name="GetPreviewInfo"><h3>Function</h3><br><h2>GetPreviewInfo(nSchematicId, tCrafting)</h2>
+<h3>Description</h3>
+<p>Gets information to draw a preview of the item that will be created by the specified schematic.</p>
+<h3>Params</h3>
+<ul>
+<li><b>nSchematicId</b><b> (Integer)</b> - The id number for the schematic that we want to preview.
+<li><b>tCrafting</b><b> (Table)</b> - The parameters representing the player's chooses while crafting.
+<ul>
+<li><b>nApSpSplitDelta</b><b> (Integer)</b> - The number of Ap/Sp increments to use when calculating the split.  A positive number will make the item more support based.
+<li><b>itemPowerCore</b><b> (<a href="../classes/item.htm">Item</a>)</b> - The item to use as the power core.  This must be a valid power core for the item.
+<li><b>arStats</b><b> (Array of Table)</b> - An array representing the player's crafting chooses per stat.
+<ul>
+<li><b>nChargeDelta</b><b> (Integer)</b> - A number representing the number of charge increments to adjust the budget of the stat by.
+<li><b>eProperty</b><b> (Unit.CodeEnumProperties)</b> - The property selected for this stat during crafting.
+</ul>
+</ul>
+</ul>
+<h3>Return Value</h3>
+<ul>
+<li><b><a href="../classes/item.htm">Item</a></b> - The expected resulting item based on the provided parameters.  If nSchematicId is also the current crafting schematic then the this result be more complete.
+</ul>
+<hr><a name="GetPropertyChipType"><h3>Function</h3><br><h2>GetPropertyChipType() (Deprecated)</h2>
+<hr><a name="GetRelearnCooldown"><h3>Function</h3><br><h2>GetRelearnCooldown()</h2>
+<h3>Description</h3>
+<p>Gets the amount of time (in milliseconds) before the player can swap their tradeskills.</p>
+<h3>Return Value</h3>
+<ul>
+<li><b>Integer</b> - The amount of time (in milliseconds) before the player can swap their tradeskills again.
+</ul>
+<hr><a name="GetRelearnCost"><h3>Function</h3><br><h2>GetRelearnCost(eTradeskillId)</h2>
+<h3>Description</h3>
+<p>The amount of currency the player will have to spend to swap one of their tradeskills with another.</p>
+<h3>Params</h3>
+<ul>
+<li><b>eTradeskillId</b><b> (CraftingLib.CodeEnumTradeskill)</b> - The id of the tradeskill that the player wants to learn.
+</ul>
+<h3>Return Value</h3>
+<ul>
+<li><b><a href="../classes/money.htm">Money</a></b> - The price to swap tradeskills.
+</ul>
+<hr><a name="GetRunecraftingLevels"><h3>Function</h3><br><h2>GetRunecraftingLevels()</h2>
+<hr><a name="GetRunecraftingPropertyIds"><h3>Function</h3><br><h2>GetRunecraftingPropertyIds()</h2>
+<hr><a name="GetRunecraftingSchematicFilters"><h3>Function</h3><br><h2>GetRunecraftingSchematicFilters()</h2>
+<hr><a name="GetRunecraftingSchematicList"><h3>Function</h3><br><h2>GetRunecraftingSchematicList()</h2>
+<hr><a name="GetRuneSets"><h3>Function</h3><br><h2>GetRuneSets()</h2>
+<hr><a name="GetRuneSetSchematicFilters"><h3>Function</h3><br><h2>GetRuneSetSchematicFilters()</h2>
+<hr><a name="GetRuneSetSchematicList"><h3>Function</h3><br><h2>GetRuneSetSchematicList()</h2>
+<hr><a name="GetSchematicCraftableCount"><h3>Function</h3><br><h2>GetSchematicCraftableCount(idSchematic) (Deprecated)</h2>
+<h3>Description</h3>
+<p>Gets the number of times a specified schematic can be crafted based on the items in the player's inventory, supply satchel, and bank.</p>
+<h3>Params</h3>
+<ul>
+<li><b>idSchematic</b><b> (Integer)</b> - The id number of the schematic.
+</ul>
+<h3>Return Value</h3>
+<ul>
+<li><b>Integer</b> - The number of times the schematic can be created based on the items in the player's inventory, supply satchel, and bank.
+</ul>
+<hr><a name="GetSchematicInfo"><h3>Function</h3><br><h2>GetSchematicInfo(idSchematic)</h2>
+<h3>Description</h3>
+<p>Gets information on a specific schematic.</p>
+<h3>Params</h3>
+<ul>
+<li><b>idSchematic</b><b> (Integer)</b> - The id number of the schematic that the function will look at.
+</ul>
+<h3>Return Value</h3>
+<ul>
+<li><b>Table</b> - A table containing detailed information on the specified schematic, including information on any sub-schematics the schematic may have.
+<ul>
+<li><b>nSchematicId</b><b> (Integer)</b> - The schematic's id number.
+<li><b>eTradeskillId</b><b> (CraftingLib.CodeEnumTradeskill)</b> - The id number of the tradeskill that uses the schematic.
+<li><b>eTier</b><b> (CraftingLib.CodeEnumTradeskillTier)</b> - The tradeskill tier that the schematic belongs to.
+<li><b>strName</b><b> (String)</b> - The name of the item created by the schematic.
+<li><b>fVectorX</b><b> (Float)</b> - The x distance from the center of the coordinate crafting map that this schematic can be found.  This is only useful for sub-schematics.
+<li><b>fVectorY</b><b> (Float)</b> - The y distance from the center of the coordinate crafting map that this schematic can be found.  This is only useful for sub-schematics.
+<li><b>fRadius</b><b> (Float)</b> - The radius of the schematic on the coordinate crafting grid.  This is only useful for sub-schematics.
+<li><b>nParentSchematicId</b><b> (Integer)</b> - The id number for this schematic's parent schematic.  This is only useful for sub-schematics.
+<li><b>itemOutput</b><b> (<a href="../classes/item.htm">Item</a>)</b> - The item that is made if this schematic is successfully crafted.
+<li><b>achSource</b><b> (<a href="../classes/achievement.htm">Achievement</a>)</b> - The achievement (read Tech Tree node) that unlocks this schematic.
+<li><b>achTier</b><b> (<a href="../classes/achievement.htm">Achievement</a>)</b> - If the schematic is automatically learned, this variable contains the achievement for the tradeskill tier that the schematic belongs to.
+<li><b>nCraftXp</b><b> (Integer)</b> - The amount of tradeskill XP the player gains when they successfully craft this schematic.
+<li><b>nFailXp</b><b> (Integer)</b> - The amount of XP the player gains if their crafting attempt fails.
+<li><b>nLearnXp</b><b> (Integer)</b>
+<li><b>bIsKnown</b><b> (Boolean)</b> - Whether the player already knows the schematic or not.
+<li><b>bIsOneUse</b><b> (Boolean)</b> - Whether the schematic is a one-time use schematic or not.
+<li><b>bIsAutoCraft</b><b> (Boolean)</b> - Whether the schematic can be automatically crafted without doing coordinate / circuit board crafting.
+<li><b>bIsAutoLearn</b><b> (Boolean)</b> - Whether the player automatically learns the schematic upon reaching the appropriate tradeskill tier or not.
+<li><b>nCraftAtOnceMax</b><b> (Integer)</b> - The number of times the player can craft the schematic in one attempt.  This variable is depricated.
+<li><b>arMaterials</b><b> (Array of Table)</b> - Information on the materials needed to craft this schematic.
+<ul>
+<li><b>nAmount</b><b> (Integer)</b> - The number of this particular item needed to craft this schematic.
+<li><b>itemMaterial</b><b> (<a href="../classes/item.htm">Item</a>)</b> - An item needed to craft this schematic.
+</ul>
+<li><b>nCreateCount</b><b> (Integer)</b> - The number of items created when the player crafts the schematic.
+<li><b>nMaxAdditives</b><b> (Integer)</b> - The number of additives that can be applied to the schematic per crafting attempt.
+<li><b>tSubRecipes</b><b> (Array of Table)</b> - An array that contains info on each of the sub-schematics associated with this schematic.
+<ul>
+<li><b>nSchematicId</b><b> (Integer)</b> - The id number of the sub-schematic.
+<li><b>strName</b><b> (String)</b> - The name of this sub-schematic.
+<li><b>bIsKnown</b><b> (Boolean)</b> - Whether the player has learned this sub-schematic or not.
+<li><b>fDiscoveryAngle</b><b> (Float)</b> - The angle of the starting edge of a discoverable area, in degrees.  
+<li><b>fDiscoveryDistanceMin</b><b> (Float)</b> - The distance from the center of the coordinate crafting grid to the closest point in the discoverable area.
+<li><b>fDiscoveryDistanceMax</b><b> (Float)</b> - The distance from the center of the coordinate crafting grid to the furthest point in a discoverable area.
+<li><b>bIsUndiscovered</b><b> (Boolean)</b> - If the player has not discovered the sub-schematic, this will be true.  Otherwise, it will be false.
+<li><b>fVectorX</b><b> (Float)</b> - The sub-schematic's X position on the coordinate crafting grid.
+<li><b>fVectorY</b><b> (Float)</b> - The sub-schematic's Y position on the coordinate crafting grid.
+<li><b>fRadius</b><b> (Float)</b> - The radius of the sub schematic on the coordinate crafting grid.
+<li><b>itemOutput</b><b> (<a href="../classes/item.htm">Item</a>)</b> - The item created by the sub-schematic.
+<li><b>nCount</b><b> (Integer)</b> - The number of items created by this sub schematic.
+</ul>
+<li><b>arStats</b><b> (Array of Table)</b> - An array that contains infor on each stat associated with this circuit board schematic.
+<ul>
+<li><b>nRatio</b><b> (Float)</b> - Percentage of the budget normally spent on this stat.
+<li><b>eItemStatType</b><b> (CraftingLib.CodeEnumItemStatType)</b> - The type of stat.
+<li><b>eProperty</b><b> (Unit.CodeEnumProperties)</b> - The property this stat provides. Provided for stat types of UnitProperty.
+<li><b>arCraftingGroups</b><b> (Array of CraftingLib.CodeEnumItemCraftingGroupFlag)</b> - The list of groups that this schematic supports. Provided for UnlockedGroup type stats.
+</ul>
+<li><b>monMaxCraftingCost</b><b> (<a href="../classes/money.htm">Money</a>)</b> - If the schematic has a crafting cost then this will be the maximum crafting cost.
+</ul>
+</ul>
+<hr><a name="GetSchematicList"><h3>Function</h3><br><h2>GetSchematicList(eTradeskillId, nItemCategory, eTier, bShowUnknown)</h2>
+<h3>Description</h3>
+<p>Gets a list of schematics that meet the requirements that are passed into this function.</p>
+<h3>Params</h3>
+<ul>
+<li><b>eTradeskillId</b><b> (CraftingLib.CodeEnumTradeskill)</b> - The function will return the schematics that the player knows for this tradeskill.
+<li><b>nItemCategory</b><b> (Integer)</b> - The function will only return schematics that create items that fall under this category.
+<li><b>eTier</b><b> (CraftingLib.CodeEnumTradeskillTier)</b> - The function will return schematics that belong to this tradeskill tier.
+<li><b>bShowUnknown</b><b> (Boolean)</b> - Whether the function should return schematics that the player has not unlocked or not.
+</ul>
+<h3>Return Value</h3>
+<ul>
+<li><b>Array of Table</b> - An array that contains info on each of the schematics that meet the requirements passed into the function.
+<ul>
+<li><b>nSchematicId</b><b> (Integer)</b> - The schematic's id number.
+<li><b>strName</b><b> (String)</b> - The name of the schematic.
+<li><b>eItemType</b><b> (Item.CodeEnumItemType)</b> - The type of the item that is created by the schematic.
+<li><b>eTier</b><b> (CraftingLib.CodeEnumTradeskillTier)</b> - The tradeskill tier that the schematic belongs to.
+<li><b>bIsKnown</b><b> (Boolean)</b> - Whether the player has learned the schematic or not.
+<li><b>bIsOneUse</b><b> (Boolean)</b> - Whether the schematic can only be used once or not.
+<li><b>strItemTypeName</b><b> (String)</b> - The item's type, in string form.
+<li><b>tSubRecipes</b><b> (Array of Table)</b> - An array that contains info on this schematic's sub-schematics.
+<ul>
+<li><b>nSchematicId</b><b> (Integer)</b> - The id number for the sub-schematic.
+<li><b>strName</b><b> (String)</b> - The name of the schematic.
+<li><b>bIsKnown</b><b> (Boolean)</b> - Whether the player has learned the sub-schematic or not.
+</ul>
+</ul>
+</ul>
+<hr><a name="GetTierForAchievementCategory"><h3>Function</h3><br><h2>GetTierForAchievementCategory(idCategory)</h2>
+<h3>Description</h3>
+<p>Gets the tradeskill tier that matches the achievement category that is passed in.</p>
+<h3>Params</h3>
+<ul>
+<li><b>idCategory</b><b> (Integer)</b> - The id for the achievement category that the function will match to a tradeskill tier.
+</ul>
+<h3>Return Value</h3>
+<ul>
+<li><b>CraftingLib.CodeEnumTradeskillTier</b> - The tier that corresponds with the achievement category that was passed in.
+</ul>
+<hr><a name="GetTradeskillInfo"><h3>Function</h3><br><h2>GetTradeskillInfo(eTradeskillId)</h2>
+<h3>Description</h3>
+<p>Returns a table with info about the chosen tradeskill</p>
+<h3>Params</h3>
+<ul>
+<li><b>eTradeskillId</b><b> (CraftingLib.CodeEnumTradeskill)</b> - The id for the tradeskill that the function will return info on.
+</ul>
+<h3>Return Value</h3>
+<ul>
+<li><b>Table</b> - Detailed information on the tradeskill, including its description, XP requirements, requirements to relearn, and talents.
+<ul>
+<li><b>strName</b><b> (String)</b> - The tradeskill's name.
+<li><b>strDescription</b><b> (String)</b> - A description of the tradeskill.
+<li><b>nXpMax</b><b> (Integer)</b> - The maximum amount of XP the player can earn for this tradeskill.
+<li><b>nTierMax</b><b> (Integer)</b> - The number of tiers the tradeskill has.
+<li><b>bIsHobby</b><b> (Boolean)</b> - Whether the tradeskill is a hobby or not.  The only hobby currently in game is Cooking.
+<li><b>bIsAutoLearn</b><b> (Boolean)</b> - Whether the tradeskill is automatically learned by the player at a certain level or not.
+<li><b>bIsHarvesting</b><b> (Boolean)</b> - Whether the tradeskill is a harvesting tradeskill or not.
+<li><b>bIsCircuitBoardCrafting</b><b> (Boolean)</b> - Whether the tradeskill's schematics use Circuit Board Crafting or not.
+<li><b>bIsCoordinateCrafting</b><b> (Boolean)</b> - Whether the tradeskill's schematics use Coordinate Crafting or not.
+<li><b>tXpTiers</b><b> (Array of Integer)</b> - An array that contains the amount of XP required to reach each tier of the tradeskill.
+<li><b>tAxisNames</b><b> (Array of String)</b> - The names of the directions in the coordinate crafting grid for this tradeskill.
+<li><b>bIsActive</b><b> (Boolean)</b> - Whether the player currently knows the tradeskill or not.
+<li><b>nXP</b><b> (Integer)</b> - The amount of XP the player has earned for this tradeskill.
+<li><b>eTier</b><b> (CraftingLib.CodeEnumTradeskillTier)</b> - The tier that the player has reached in the tradeskill.
+<li><b>nXpForTier</b><b> (Integer)</b> - The amount of XP the player has earned while in the current tier.
+<li><b>nXpForNextTier</b><b> (Integer)</b> - The amount of XP the player needs to reach their next tradeskill tier.
+<li><b>nTalentPoints</b><b> (Integer)</b> - The number of talent points the player has unlocked.
+<li><b>monRelearnCost</b><b> (<a href="../classes/money.htm">Money</a>)</b> - The amount and type of currency needed to relearn this tradeskill
+<li><b>nRelearnCooldownDays</b><b> (Integer)</b> - The number of days until the player can relearn this tradeskill.
+<li><b>tTalentTiers</b><b> (Array of Table)</b> - Information on each tier of talents for this tradeskill.
+<ul>
+<li><b>Array of Table</b> - These tables have no name.  They are indexed by sequential numbers, starting at 1.
+<ul>
+<li><b>nId</b><b> (Integer)</b> - The id number of the talent.
+<li><b>bIsActive</b><b> (Boolean)</b> - Whether the player has activated this talent or not.
+</ul>
+<li><b>nId</b><b> (Integer)</b> - The talent tier's id.
+<li><b>nPointsNeeded</b><b> (Integer)</b> - The number of talent points that are needed to unlock this tier of talents.
+</ul>
+</ul>
+</ul>
+<hr><a name="GetTradeskillTalentRespecCost"><h3>Function</h3><br><h2>GetTradeskillTalentRespecCost(eTradeskillId)</h2>
+<h3>Description</h3>
+<p>Gets the amount and type of currency needed to reset the tradeskill's talents.</p>
+<h3>Params</h3>
+<ul>
+<li><b>eTradeskillId</b><b> (CraftingLib.CodeEnumTradeskill)</b> - The function will check the talent respec cost for this tradeskill.
+</ul>
+<h3>Return Value</h3>
+<ul>
+<li><b><a href="../classes/money.htm">Money</a></b> - The type and amount of currency needed to reset the tradeskill's talents.
+</ul>
+<hr><a name="GetTradeskillTalents"><h3>Function</h3><br><h2>GetTradeskillTalents(eTradeskillId, bDebugPrint)</h2>
+<h3>Description</h3>
+<p>Gets a list of all the talents for a particular tradeskill.</p>
+<h3>Params</h3>
+<ul>
+<li><b>eTradeskillId</b><b> (CraftingLib.CodeEnumTradeskill)</b> - The function will get the talents for the tradeskill with this ID.
+<li><b>bDebugPrint</b><b> (Boolean)</b> - If this is set to true, then the player will see debug information in their chat log.
+</ul>
+<h3>Return Value</h3>
+<ul>
+<li><b>Array of Table</b> - Information on each of the talent tiers for the tradeskill that was passed in to this function.
+<ul>
+<li><b>nPointsRequired</b><b> (Integer)</b> - The number of points required to reach this talent tier.
+<li><b>tTalents</b><b> (Array of Table)</b> - Information on each talent in this tier.
+<ul>
+<li><b>nTalentId</b><b> (Integer)</b> - The id number for the talent.
+<li><b>bActive</b><b> (Boolean)</b> - Whether the player has activated this talent or not.
+<li><b>strIcon</b><b> (String)</b> - The name of the icon that should be displayed for the talent.
+<li><b>strName</b><b> (String)</b> - The talent's name.
+<li><b>strTooltip</b><b> (String)</b> - The tooltip that should be displayed for the talent.
+</ul>
+</ul>
+</ul>
+<h3>Usage/Example</h3>
+<pre>If bDebugPrint is set to true, each talent tier for the tradeskill will be listed in chat in sequential order.  The format for each line is:
+&lt;Number of points needed to reach this talent tier&gt;: &lt;ID numbers for each talent in this tier&gt;
+
+Numbers with a * next to it are tiers that the player has reached, or talents that they have selected, depending on what type of number it is next to.</pre>
+<hr><a name="GetTradeskillTierXp"><h3>Function</h3><br><h2>GetTradeskillTierXp(eTradeskillId, eTradeskillTier)</h2>
+<h3>Description</h3>
+<p>Gets the amount of XP required to reach a specific tradeskill tier.</p>
+<h3>Params</h3>
+<ul>
+<li><b>eTradeskillId</b><b> (CraftingLib.CodeEnumTradeskill)</b> - The id number of the Tradeskill that this function query.
+<li><b>eTradeskillTier</b><b> (CraftingLib.CodeEnumTradeskillTier)</b> - The function will return the XP amount required to reach this tier.
+</ul>
+<h3>Return Value</h3>
+<ul>
+<li><b>Integer</b> - The amount of XP required to reach the tradeskill / tier combination that was passed into the function.
+</ul>
+<hr><a name="GetUniversalSchematicsOwned"><h3>Function</h3><br><h2>GetUniversalSchematicsOwned()</h2>
+<hr><a name="GetValidRuneItems"><h3>Function</h3><br><h2>GetValidRuneItems(itemSelected, nSlot)</h2>
+<h3>Description</h3>
+<p>Gets a list of all of the valid runes for a specific rune slot.  This list filters based on slot type and removes duplicate runes.</p>
+<h3>Params</h3>
+<ul>
+<li><b>itemSelected</b><b> (<a href="../classes/item.htm">Item</a>)</b> - The function will return the valid runes for this item.
+<li><b>nSlot</b><b> (Integer)</b> - The function will return all of the valid runes for the rune slot at this index.
+</ul>
+<h3>Return Value</h3>
+<ul>
+<li><b>Array of <a href="../classes/item.htm">Item</a></b> - An array of runes that can be set to the specified rune slot.
+</ul>
+<hr><a name="GetValidSocketItems"><h3>Function</h3><br><h2>GetValidSocketItems(idSchematic, nSocketIdx) (Deprecated)</h2>
+<h3>Description</h3>
+<p>Gets a list of microchips that are valid for a specific socket in a schematic.</p>
+<h3>Params</h3>
+<ul>
+<li><b>idSchematic</b><b> (Integer)</b> - The function will use the schematic with this id, in combination with the socket index, to get the list of valid items that can be added to the socket.
+<li><b>nSocketIdx</b><b> (Integer)</b> - The function will get a list of items that can be added to this socket.
+</ul>
+<h3>Return Value</h3>
+<ul>
+<li><b>Table</b> - A table that contains an array with every microchip in it.
+<ul>
+<li><b>arSkill</b><b> (Array of <a href="../classes/item.htm">Item</a>)</b> - An array that contains all the microchips available.
+</ul>
+</ul>
+<hr><a name="InstallRuneIntoSlot"><h3>Function</h3><br><h2>InstallRuneIntoSlot(itemSource, tInstalledRunes)</h2>
+<h3>Description</h3>
+<p>Attempts to update the runes that should be installed on an item.</p>
+<h3>Params</h3>
+<ul>
+<li><b>itemSource</b><b> (<a href="../classes/item.htm">Item</a>)</b> - The item that the rune will be installed in.
+<li><b>tInstalledRunes</b><b> (Array of Integer)</b> - An array of item ids for runes that should be installed on the item after the operation is complete.
+</ul>
+<h3>Usage/Example</h3>
+<pre>If the operation is successful, the ItemModified event should fire.</pre>
+<hr><a name="IsAtCraftingStation"><h3>Function</h3><br><h2>IsAtCraftingStation()</h2>
+<h3>Description</h3>
+<p>Checks if the player is within range of a crafting station.</p>
+<h3>Return Value</h3>
+<ul>
+<li><b>Boolean</b> - Determines whether the player is within range of a crafting station or not.
+</ul>
+<hr><a name="IsAtEngravingStation"><h3>Function</h3><br><h2>IsAtEngravingStation()</h2>
+<hr><a name="IsAtMasterCraftsman"><h3>Function</h3><br><h2>IsAtMasterCraftsman()</h2>
+<hr><a name="kfCoordinateBonusLoyaltyRadius"><h3>Function</h3><br><h2>kfCoordinateBonusLoyaltyRadius() (Deprecated)</h2>
+<hr><a name="LearnTradeskill"><h3>Function</h3><br><h2>LearnTradeskill(eTradeskillId, eDroppedTradeskillId)</h2>
+<h3>Description</h3>
+<p>Grants the character the chosen tradeskill.  If the character is already at the maximum number of tradeskills allowed, this function also drops a chosen tradeskill.</p>
+<h3>Params</h3>
+<ul>
+<li><b>eTradeskillId</b><b> (CraftingLib.CodeEnumTradeskill)</b> - The id of the Tradeskill that the player will learn.
+<li><b>eDroppedTradeskillId</b><b> (CraftingLib.CodeEnumTradeskill)</b> - The id of the tradeskill that the player wants to drop in order to learn the new one.
+</ul>
+<h3>Usage/Example</h3>
+<pre>Fires the Tradeskills_Learned event when successful.</pre>
+<hr><a name="PickTradeskillTalent"><h3>Function</h3><br><h2>PickTradeskillTalent(eTradeskillId, nTalentTier, idTalent)</h2>
+<h3>Description</h3>
+<p>Attempts to activate the specified talent.</p>
+<h3>Params</h3>
+<ul>
+<li><b>eTradeskillId</b><b> (CraftingLib.CodeEnumTradeskill)</b> - The id of the tradeskill that the talent belongs to.
+<li><b>nTalentTier</b><b> (Integer)</b> - The talent tier that the talent belongs to.
+<li><b>idTalent</b><b> (Integer)</b> - The id number for the talent that was chosen.
+</ul>
+<h3>Usage/Example</h3>
+<pre>If the talent is successfully activated, the TalentsChanged event will fire.
+
+Note: Only one talent can be selected per tier.  If one is already selected in this tier, </pre>
+<hr><a name="RerollRuneSlot"><h3>Function</h3><br><h2>RerollRuneSlot(itemSource, nSlotIdx) (Deprecated)</h2>
+<h3>Description</h3>
+<p>Attempts to change a rune slot to a different type.</p>
+<h3>Params</h3>
+<ul>
+<li><b>itemSource</b><b> (<a href="../classes/item.htm">Item</a>)</b> - The item that contains the rune slot that the function will attempt to reroll.
+<li><b>nSlotIdx</b><b> (Integer)</b> - The index of the rune slot that the function will attempt to reroll.
+</ul>
+<h3>Usage/Example</h3>
+<pre>If this function is successful, the ItemModified event will fire.</pre>
+<hr><a name="ResetTradeskillTalents"><h3>Function</h3><br><h2>ResetTradeskillTalents(eTradeskillId)</h2>
+<h3>Description</h3>
+<p>Attempts to reset the talents that are set for the specified tradeskill.</p>
+<h3>Params</h3>
+<ul>
+<li><b>eTradeskillId</b><b> (CraftingLib.CodeEnumTradeskill)</b> - The function will attempt to reset the talents of the tradeskill with this id.
+</ul>
+<h3>Usage/Example</h3>
+<pre>No event is fired if this function is successful.  Instead, CraftingLib.GetTradeskillTalents should return a talent list where no talents are set.</pre>
+<hr><a name="ShowTradeskillTutorial"><h3>Function</h3><br><h2>ShowTradeskillTutorial()</h2>
+<h3>Description</h3>
+<p>Starts up the tutorial for tradeskills if tutorials are not disabled and the tutorial is not flagged as "seen".</p>
+<h3>Usage/Example</h3>
+<pre>This will fire the ShowTutorial event if the player has not disabled tutorials and the tradeskill tutorial is not flagged as "seen".  Otherwise, nothing will happen.</pre>
+<hr><a name="UnlockRuneSlot"><h3>Function</h3><br><h2>UnlockRuneSlot(itemSource, nSlotIdx) (Deprecated)</h2>
+<h3>Description</h3>
+<p>Attempts to unlock a rune slot on an item.</p>
+<h3>Params</h3>
+<ul>
+<li><b>itemSource</b><b> (<a href="../classes/item.htm">Item</a>)</b> - The function will attempt to unlock a rune slot that belongs to this item.
+<li><b>nSlotIdx</b><b> (Integer)</b> - The index of the rune slot that the function will attempt to unlock.
+</ul>
+<h3>Usage/Example</h3>
+<pre>Fires the ItemModified event if the slot is successfully unlocked.</pre>
+<hr><a name="ValidateSocketItem"><h3>Function</h3><br><h2>ValidateSocketItem(idSchematic, nSocketIdx, idInventory) (Deprecated)</h2>
+<h3>Params</h3>
+<ul>
+<li><b>idSchematic</b><b> (Integer)</b> - The id for the schematic that the socket belongs to.
+<li><b>nSocketIdx</b><b> (Integer)</b> - The index of the socket that the function will validate.
+<li><b>idInventory</b><b> (Integer)</b> - The id number for the inventory slot that this item is in.
+</ul>
+	</body>
+</html>

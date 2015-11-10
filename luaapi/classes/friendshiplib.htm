@@ -1,0 +1,107 @@
+<html>
+	<head>
+	<link rel="stylesheet" type="text/css" href="/style.css">
+	</head>
+	<body><script language="javascript">
+		if ((window.name != "content") && (navigator.userAgent.indexOf("Opera") <= -1) )
+		document.write("<center><a href='../../index.html?page=LuaAPI/Classes/FriendshipLib.htm'>show framing</a></center>")
+		</script>
+	<h1>
+		FriendshipLib	</h1>
+<h3>Description</h3>
+<p>A library that contains functions for interacting with the game's Friend and Account Friend systems.  </p>
+<a name=">Functions"/>
+<hr><a name="AccountAddByEmail"><h3>Function</h3><br><h2>AccountAddByEmail(strAddress, strNote)</h2>
+<h3>Description</h3>
+<p>Attempts to send an account friend invite to the account that is registered to the specified email address.</p>
+<h3>Params</h3>
+<ul>
+<li><b>strAddress</b><b> (String)</b> - The email address associated with the account that the player wants to send the invite to.
+<li><b>strNote</b><b> (String)</b> - A note that will be sent to the player that receives the account friend invite.
+</ul>
+<hr><a name="AccountAddByUpgrade"><h3>Function</h3><br><h2>AccountAddByUpgrade(idFriend, strNote)</h2>
+<h3>Description</h3>
+<p>Attempts to send an invitation to upgrade a Friend to an Account Friend.</p>
+<h3>Params</h3>
+<ul>
+<li><b>idFriend</b><b> (Integer)</b> - The Friend id of the player that will receive the Account Friend Invite.
+<li><b>strNote</b><b> (String)</b> - A note that the person who receives the Account Friend invite will see in the invite.
+</ul>
+<hr><a name="AccountInviteMarkSeen"><h3>Function</h3><br><h2>AccountInviteMarkSeen()</h2>
+<h3>Description</h3>
+<p>Marks an account invite as "Seen" by the system.</p>
+<h3>Remarks</h3>
+<p>This flag has no set use, however the UI tends to use it to inform the player that they have pending invites.</p>
+<hr><a name="AccountInviteRespond"><h3>Function</h3><br><h2>AccountInviteRespond(idFriend, bAccepted)</h2>
+<h3>Description</h3>
+<p>Sends a response to an Account Invite that the player has received.</p>
+<h3>Params</h3>
+<ul>
+<li><b>idFriend</b><b> (Integer)</b> - The id of the friend invite that the player is responding to.
+<li><b>bAccepted</b><b> (Boolean)</b> - Whether the player accepted the invite or not.
+</ul>
+<hr><a name="AccountRemove"><h3>Function</h3><br><h2>AccountRemove(idFriend)</h2>
+<h3>Description</h3>
+<p>Removes the specified Account Friend from the player's friends' list</p>
+<h3>Params</h3>
+<ul>
+<li><b>idFriend</b><b> (Integer)</b> - The Friend id of the Account Friend that the player wants to remove.
+</ul>
+<hr><a name="AddByGroupIndex"><h3>Function</h3><br><h2>AddByGroupIndex(eType, nMemberIdx)</h2>
+<h3>Description</h3>
+<p>Attempts to change the friendship status of a player in your current group.</p>
+<h3>Params</h3>
+<ul>
+<li><b>eType</b><b> (Integer)</b> - The friendship status that the player wants to add to the specified group member.  This value lines up with the FriendshipLib.CharacterFriendshipType set of constants.
+<li><b>nMemberIdx</b><b> (Integer)</b> - The index of the player within the group.
+</ul>
+<h3>Usage/Example</h3>
+<pre>This will send an invite if the type sent is Friend or Account friend.</pre>
+<hr><a name="AddByName"><h3>Function</h3><br><h2>AddByName(eFriendshipType, strName, strRealmName, strNote)</h2>
+<h3>Description</h3>
+<p>Changes the friendship type with the  player with the specified name.</p>
+<h3>Params</h3>
+<ul>
+<li><b>eFriendshipType</b><b> (Integer)</b> - The friendship type that the player will change to.  This value lines up with FriendshipLib.CharacterFriendshipType set of constants.
+<li><b>strName</b><b> (String)</b> - The name of the player whose friendship type will be updated.
+<li><b>strRealmName</b><b> (String)</b> - The name of the realm that the player is on.  This is only necessary for players that are not on the same realm.
+<li><b>strNote</b><b> (String)</b> - A note that will be sent to the specified player if the friendship type is either Friend or Account Friend.  This note will be visible in the invite that the player receives.
+</ul>
+<h3>Usage/Example</h3>
+<pre>If the Friendship Type is Friend or Account Friend, an invite will be sent to the player.  Other changes in Friend status do not need confirmation from the other player.</pre>
+<hr><a name="AddBySuggested"><h3>Function</h3><br><h2>AddBySuggested()</h2>
+<hr><a name="AddByUnit"><h3>Function</h3><br><h2>AddByUnit()</h2>
+<hr><a name="GetAccountById"><h3>Function</h3><br><h2>GetAccountById()</h2>
+<hr><a name="GetAccountInviteById"><h3>Function</h3><br><h2>GetAccountInviteById()</h2>
+<hr><a name="GetAccountInviteList"><h3>Function</h3><br><h2>GetAccountInviteList()</h2>
+<hr><a name="GetAccountList"><h3>Function</h3><br><h2>GetAccountList()</h2>
+<hr><a name="GetById"><h3>Function</h3><br><h2>GetById()</h2>
+<hr><a name="GetInviteById"><h3>Function</h3><br><h2>GetInviteById()</h2>
+<hr><a name="GetInviteList"><h3>Function</h3><br><h2>GetInviteList()</h2>
+<hr><a name="GetList"><h3>Function</h3><br><h2>GetList()</h2>
+<hr><a name="GetLocations"><h3>Function</h3><br><h2>GetLocations()</h2>
+<hr><a name="GetPersonalStatus"><h3>Function</h3><br><h2>GetPersonalStatus()</h2>
+<hr><a name="GetSuggestedById"><h3>Function</h3><br><h2>GetSuggestedById()</h2>
+<hr><a name="GetSuggestedList"><h3>Function</h3><br><h2>GetSuggestedList()</h2>
+<hr><a name="GetUnitById"><h3>Function</h3><br><h2>GetUnitById()</h2>
+<hr><a name="InviteMarkSeen"><h3>Function</h3><br><h2>InviteMarkSeen()</h2>
+<hr><a name="IsLoaded"><h3>Function</h3><br><h2>IsLoaded()</h2>
+<hr><a name="IsLocked"><h3>Function</h3><br><h2>IsLocked()</h2>
+<hr><a name="NeighborInvite"><h3>Function</h3><br><h2>NeighborInvite()</h2>
+<hr><a name="PrepareInfractionReportInvite"><h3>Function</h3><br><h2>PrepareInfractionReportInvite()</h2>
+<hr><a name="Remove"><h3>Function</h3><br><h2>Remove()</h2>
+<hr><a name="RespondToInvite"><h3>Function</h3><br><h2>RespondToInvite()</h2>
+<hr><a name="SetAutoResponseMessages"><h3>Function</h3><br><h2>SetAutoResponseMessages()</h2>
+<hr><a name="SetAwayFromKeyboardMessage"><h3>Function</h3><br><h2>SetAwayFromKeyboardMessage()</h2>
+<hr><a name="SetDoNotDisturbMessage"><h3>Function</h3><br><h2>SetDoNotDisturbMessage()</h2>
+<hr><a name="SetFriendPrivateData"><h3>Function</h3><br><h2>SetFriendPrivateData()</h2>
+<hr><a name="SetLock"><h3>Function</h3><br><h2>SetLock()</h2>
+<hr><a name="SetNote"><h3>Function</h3><br><h2>SetNote()</h2>
+<hr><a name="SetPersonalIgnoreStrangersState"><h3>Function</h3><br><h2>SetPersonalIgnoreStrangersState()</h2>
+<hr><a name="SetPersonalPresenceState"><h3>Function</h3><br><h2>SetPersonalPresenceState()</h2>
+<hr><a name="SetPublicDisplayName"><h3>Function</h3><br><h2>SetPublicDisplayName()</h2>
+<hr><a name="SetPublicNote"><h3>Function</h3><br><h2>SetPublicNote()</h2>
+<hr><a name="SetType"><h3>Function</h3><br><h2>SetType()</h2>
+<hr><a name="VisitResidence"><h3>Function</h3><br><h2>VisitResidence()</h2>
+	</body>
+</html>

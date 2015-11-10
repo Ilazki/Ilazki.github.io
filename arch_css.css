@@ -1,0 +1,12 @@
+body {
+	font-family: sans-serif;
+}
+
+a { font-size: 11pt;
+	text-decoration: none;
+	color: #333333;
+  }
+
+
+.small { font-size: small; }
+.htable { margin: 0; border: none; padding: 0 }

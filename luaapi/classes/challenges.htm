@@ -1,0 +1,255 @@
+<html>
+	<head>
+	<link rel="stylesheet" type="text/css" href="/style.css">
+	</head>
+	<body><script language="javascript">
+		if ((window.name != "content") && (navigator.userAgent.indexOf("Opera") <= -1) )
+		document.write("<center><a href='../../index.html?page=LuaAPI/Classes/Challenges.htm'>show framing</a></center>")
+		</script>
+	<h1>
+		Challenges	</h1>
+<h3>Prefix: clg</h3>
+<h3>Description</h3>
+<p>Challenges are timed goals that the player will unlock as they kill NPCs and explore Nexus.  Most challenges are repeatable and offer rewards, such as crafting materials, decor, and equipment.</p>
+<a name=">Functions"/>
+<hr><a name="is"><h3>Function</h3><br><h2>is(oVariable)</h2>
+<h3>Description</h3>
+<p>Determines if the variable is a Challenge or not.</p>
+<h3>Params</h3>
+<ul>
+<li><b>oVariable</b><b> (Variable)</b> - The variable that the function will check.
+</ul>
+<h3>Return Value</h3>
+<ul>
+<li><b>Boolean</b> - Whether the variable is a Challenge or not.
+</ul>
+<a name=">Methods"/>
+<hr><a name="__eq"><h3>Method</h3><br><h2>__eq() (Deprecated)</h2>
+<hr><a name="__gc"><h3>Method</h3><br><h2>__gc() (Deprecated)</h2>
+<h3>Description</h3>
+<p>Challenge's garbage collection function.  This will delete the Challenge from memory.</p>
+<hr><a name="GetAllTierCounts"><h3>Method</h3><br><h2>GetAllTierCounts()</h2>
+<h3>Description</h3>
+<p>Returns the goal number for each tier of the Challenge</p>
+<h3>Return Value</h3>
+<ul>
+<li><b>Array of Table</b> - An array that contains the amount of progress that the player must reach for each of the Challenge's tiers.
+<ul>
+<li><b>nGoalCount</b><b> (Integer)</b> - The amount of progression required for the challenge.  If the challenge is percentage based, this value is 100.  Otherwise, it is an exact number of objectives that the player must reach.
+</ul>
+</ul>
+<hr><a name="GetCompletionCount"><h3>Method</h3><br><h2>GetCompletionCount()</h2>
+<h3>Description</h3>
+<p>Gets the number of times the player has completed the challenge.</p>
+<h3>Return Value</h3>
+<ul>
+<li><b>Integer</b> - The number of times the player has completed the challenge.
+</ul>
+<hr><a name="GetCompletionTotal"><h3>Method</h3><br><h2>GetCompletionTotal()</h2>
+<h3>Description</h3>
+<p>Gets the number of times this Challenge can be completed.</p>
+<h3>Return Value</h3>
+<ul>
+<li><b>Integer</b> - The number of times the player can complete the challenge.  If this value is -1, then the challenge can be completed an infinate number of times.
+</ul>
+<hr><a name="GetCurrentCount"><h3>Method</h3><br><h2>GetCurrentCount()</h2>
+<h3>Description</h3>
+<p>Gets the player's progress towards this Challenge.</p>
+<h3>Return Value</h3>
+<ul>
+<li><b>Integer</b> - The amount of progress the player has made towards the current challenge.
+</ul>
+<hr><a name="GetCurrentTier"><h3>Method</h3><br><h2>GetCurrentTier()</h2>
+<h3>Description</h3>
+<p>Gets the tier of this Challenge that the player is working towards.</p>
+<h3>Return Value</h3>
+<ul>
+<li><b>Integer</b> - The challege tier that the player is working towards.
+</ul>
+<hr><a name="GetDescription"><h3>Method</h3><br><h2>GetDescription()</h2>
+<h3>Description</h3>
+<p>Gets the text that describes the challenge.</p>
+<h3>Return Value</h3>
+<ul>
+<li><b>String</b> - The Challenge's description.
+</ul>
+<hr><a name="GetDisplayTier"><h3>Method</h3><br><h2>GetDisplayTier()</h2>
+<h3>Description</h3>
+<p>Returns the current tier for the Challenge that the UI should display as active.</p>
+<h3>Return Value</h3>
+<ul>
+<li><b>Integer</b> - The tier that the UI should display as active.
+</ul>
+<hr><a name="GetDistance"><h3>Method</h3><br><h2>GetDistance()</h2>
+<hr><a name="GetDuration"><h3>Method</h3><br><h2>GetDuration()</h2>
+<hr><a name="GetId"><h3>Method</h3><br><h2>GetId()</h2>
+<h3>Description</h3>
+<p>Returns the id number of the challenge</p>
+<h3>Return Value</h3>
+<ul>
+<li><b>Integer</b> - The Challenge's id number.
+</ul>
+<hr><a name="GetLastRewardTier"><h3>Method</h3><br><h2>GetLastRewardTier()</h2>
+<h3>Description</h3>
+<p>Returns the last tier of the Challenge that the player completed during the current attempt.</p>
+<h3>Return Value</h3>
+<ul>
+<li><b>Integer</b> - The last tier that was completed of the challenge during the current attempt.
+</ul>
+<hr><a name="GetMapLocation"><h3>Method</h3><br><h2>GetMapLocation()</h2>
+<h3>Description</h3>
+<p>The location that the hint arrow points the player towards for the challenge.</p>
+<h3>Return Value</h3>
+<ul>
+<li><b>Table</b> - The X, Y, and Z coordinates that the hint arrow leads the player to.
+<ul>
+<li><b>x</b><b> (Float)</b> - The X coordinate
+<li><b>y</b><b> (Float)</b> - The Y coordinate
+<li><b>z</b><b> (Float)</b> - The Z coordinate
+</ul>
+</ul>
+<hr><a name="GetMapRegions"><h3>Method</h3><br><h2>GetMapRegions()</h2>
+<h3>Description</h3>
+<p>Gets the point that the helper arrow leads to and a list of all of the hexes that the challenge uses.</p>
+<h3>Return Value</h3>
+<ul>
+<li><b>Table</b> - A list that contains map info on the challenge.
+<ul>
+<li><b>tHexes</b><b> (Array of <a href="../classes/vector2.htm">Vector2</a>)</b> - A list of x/y coordinates for the hexes where the Challenge takes place
+<li><b>tIndicator</b><b> (<a href="../classes/vector3.htm">Vector3</a>)</b> - The x/y/z coordinates where the Challenge can be started
+</ul>
+</ul>
+<hr><a name="GetMapStartLocation"><h3>Method</h3><br><h2>GetMapStartLocation()</h2>
+<h3>Description</h3>
+<p>Gets the coordinates where the Challenge can be started</p>
+<h3>Return Value</h3>
+<ul>
+<li><b>Table</b> - The coordinates where the challenge can be started.
+<ul>
+<li><b>x</b><b> (Float)</b> - The X coordinate
+<li><b>y</b><b> (Float)</b> - The Y coordinate
+<li><b>z</b><b> (Float)</b> - The Z coordinate
+</ul>
+</ul>
+<hr><a name="GetMapStartRegions"><h3>Method</h3><br><h2>GetMapStartRegions()</h2>
+<h3>Description</h3>
+<p>Returns the coordinates for the hexes where the Challenge takes place</p>
+<h3>Return Value</h3>
+<ul>
+<li><b>Array of <a href="../classes/vector2.htm">Vector2</a></b> - An array of hex coordinates where the objectives for the challenge can be found.
+</ul>
+<hr><a name="GetName"><h3>Method</h3><br><h2>GetName()</h2>
+<h3>Description</h3>
+<p>Gets the challenge's name.</p>
+<h3>Return Value</h3>
+<ul>
+<li><b>String</b> - The name of the challenge.
+</ul>
+<hr><a name="GetRewardTrack"><h3>Method</h3><br><h2>GetRewardTrack()</h2>
+<hr><a name="GetStartLocationRestrictionId"><h3>Method</h3><br><h2>GetStartLocationRestrictionId()</h2>
+<h3>Description</h3>
+<p>Returns the location id that the player must be in to start the challenge.  This value can be used with GameLib.IsInLocation() to determine if the player is in the correct location to start a challenge.</p>
+<h3>Return Value</h3>
+<ul>
+<li><b>Integer</b> - The id number of the challenge's start location.
+</ul>
+<hr><a name="GetTimer"><h3>Method</h3><br><h2>GetTimer()</h2>
+<hr><a name="GetTimeStr"><h3>Method</h3><br><h2>GetTimeStr() (Deprecated)</h2>
+<h3>Description</h3>
+<p>Gets the challenge's current timer and returns it in string form.</p>
+<h3>Return Value</h3>
+<ul>
+<li><b>String</b> - The amount of time left on the timer, in "minute:second" format.
+</ul>
+<h3>Usage/Example</h3>
+<pre>This timer is context sensitive.  If the challenge is active, it shows the amount of time the player has to complete it.  If the player has left the challenge area, it shows the amount of time before the player fails the challenge because they left the area.  If the challenge is on cooldown, it returns the amount of time until it is no longer on cooldown.</pre>
+<hr><a name="GetTotalCount"><h3>Method</h3><br><h2>GetTotalCount()</h2>
+<h3>Description</h3>
+<p>Gets the total amount of progress the player has to earn to complete the current tier of the challenge.</p>
+<h3>Return Value</h3>
+<ul>
+<li><b>Integer</b> - The amount of progress needed to complete the current challenge tier.  This value is 100 for percentage based progress, or a smaller number for challenges that require a fixed amount of progress.
+</ul>
+<hr><a name="GetType"><h3>Method</h3><br><h2>GetType()</h2>
+<h3>Description</h3>
+<p>Gets a challenge's type.</p>
+<h3>Return Value</h3>
+<ul>
+<li><b>Integer</b> - The challenge's type.  This corresponds with the ChallengeLib.ChallengeType set of int constants.
+</ul>
+<h3>Remarks</h3>
+<p>Only one challenge of each type can be active at a given time.</p>
+<hr><a name="GetZoneInfo"><h3>Method</h3><br><h2>GetZoneInfo()</h2>
+<h3>Description</h3>
+<p>Gets information on the zone where the challenge is found.</p>
+<h3>Return Value</h3>
+<ul>
+<li><b>Table</b> - A table with information on where the challenge is located.
+<ul>
+<li><b>idZone</b><b> (Integer)</b> - The id number of the zone where the challenge can be found.
+<li><b>strZoneName</b><b> (String)</b> - The name of the zone where the challenge is located.
+</ul>
+</ul>
+<hr><a name="GetZoneRestrictionInfo"><h3>Method</h3><br><h2>GetZoneRestrictionInfo()</h2>
+<h3>Description</h3>
+<p>Gets information on the area that the challenge is restricted to.</p>
+<h3>Return Value</h3>
+<ul>
+<li><b>Table</b> - A table with information on the area that the challenge is restricted to.
+<ul>
+<li><b>idSubZone</b><b> (Integer)</b> - The id number of the subzone that the challenge is restricted to.
+<li><b>strLocationName</b><b> (String)</b> - The name of the area that the challenge is restricted to.
+<li><b>strSubZoneName</b><b> (String)</b> - The name of the subzone that the challenge is restricted to.
+</ul>
+</ul>
+<hr><a name="IsActivated"><h3>Method</h3><br><h2>IsActivated()</h2>
+<h3>Description</h3>
+<p>Finds out whether the challenge is currently running or not.</p>
+<h3>Return Value</h3>
+<ul>
+<li><b>Boolean</b> - Whether the challenge is currently running or not.
+</ul>
+<hr><a name="IsFullyComplete"><h3>Method</h3><br><h2>IsFullyComplete()</h2>
+<h3>Description</h3>
+<p>Determines if the challenge has been completed the maximum number of times or not.</p>
+<h3>Return Value</h3>
+<ul>
+<li><b>Boolean</b> - Whether the challenge has been completed the maximum number of times or not.
+</ul>
+<hr><a name="IsInCooldown"><h3>Method</h3><br><h2>IsInCooldown()</h2>
+<h3>Description</h3>
+<p>Determines whether the challenge is currently on cooldown.</p>
+<h3>Return Value</h3>
+<ul>
+<li><b>Boolean</b> - Whether the challenge is on cooldown or not.
+</ul>
+<hr><a name="IsTimeTiered"><h3>Method</h3><br><h2>IsTimeTiered()</h2>
+<h3>Description</h3>
+<p>Determines whether the reward tiers are based on the player's completion time or not.</p>
+<h3>Return Value</h3>
+<ul>
+<li><b>Boolean</b> - Whether the reward tiers are based on the player's completion time or not.
+</ul>
+<hr><a name="NeedsHintArrow"><h3>Method</h3><br><h2>NeedsHintArrow()</h2>
+<h3>Description</h3>
+<p>Determines whether the challenge has a set starting area or zone restrictions.</p>
+<h3>Return Value</h3>
+<ul>
+<li><b>Boolean</b> - Whether the challenge needs to have a hint arrow or not.
+</ul>
+<hr><a name="ShouldCollectReward"><h3>Method</h3><br><h2>ShouldCollectReward() (Deprecated)</h2>
+<h3>Description</h3>
+<p>Determines if the player has not collected their reward for the challenge.</p>
+<h3>Return Value</h3>
+<ul>
+<li><b>Boolean</b> - Whether the player has an uncollected reward or not.
+</ul>
+<hr><a name="ShouldDisplayPercentProgress"><h3>Method</h3><br><h2>ShouldDisplayPercentProgress()</h2>
+<h3>Description</h3>
+<p>Determines whether the challenge displays its progress as a percent or as an exact number.</p>
+<h3>Return Value</h3>
+<ul>
+<li><b>Boolean</b> - Whether the player's progress should be shown as a percent or not.
+</ul>
+	</body>
+</html>

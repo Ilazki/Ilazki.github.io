@@ -1,0 +1,69 @@
+<html>
+	<head>
+	<link rel="stylesheet" type="text/css" href="/style.css">
+	</head>
+	<body><script language="javascript">
+		if ((window.name != "content") && (navigator.userAgent.indexOf("Opera") <= -1) )
+		document.write("<center><a href='../../index.html?page=LuaAPI/Classes/DialogResponse.htm'>show framing</a></center>")
+		</script>
+	<h1>
+		DialogResponse	</h1>
+<h3>Prefix: dr</h3>
+<h3>Description</h3>
+<p>DialogResponses are the various options that the player can select when conversing with NPCs and turning in quests.</p>
+<a name=">Functions"/>
+<hr><a name="is"><h3>Function</h3><br><h2>is(oVariable)</h2>
+<h3>Description</h3>
+<p>Determines whether a variable is a DialogResponse or not.</p>
+<h3>Params</h3>
+<ul>
+<li><b>oVariable</b><b> (Variable)</b> - The object that the function will check.
+</ul>
+<h3>Return Value</h3>
+<ul>
+<li><b>Boolean</b> - Whether the object is a dialog response or not.
+</ul>
+<a name=">Methods"/>
+<hr><a name="__gc"><h3>Method</h3><br><h2>__gc() (Deprecated)</h2>
+<h3>Description</h3>
+<p>Forces the garbage collector to be called on this variable.</p>
+<hr><a name="GetQuestId"><h3>Method</h3><br><h2>GetQuestId()</h2>
+<h3>Description</h3>
+<p>Gets the id of the quest associated with this dialog.</p>
+<h3>Return Value</h3>
+<ul>
+<li><b>Integer</b> - The id number of the quest associated with this dialog response.
+</ul>
+<hr><a name="GetRewardId"><h3>Method</h3><br><h2>GetRewardId()</h2>
+<h3>Description</h3>
+<p>Gets the id of the reward associated with this dialog response.</p>
+<h3>Return Value</h3>
+<ul>
+<li><b>Integer</b> - The id number of the reward associated with this response.
+</ul>
+<hr><a name="GetText"><h3>Method</h3><br><h2>GetText()</h2>
+<h3>Description</h3>
+<p>Gets the text for this DialogResponse.</p>
+<h3>Return Value</h3>
+<ul>
+<li><b>String</b> - The DialogResponse's text.
+</ul>
+<hr><a name="GetType"><h3>Method</h3><br><h2>GetType()</h2>
+<h3>Description</h3>
+<p>Gets the DialogResponse's type.</p>
+<h3>Return Value</h3>
+<ul>
+<li><b>Integer</b> - The response's type.  This value corresponds with the DialogResponse.DialogResponseType enum.
+</ul>
+<hr><a name="GetUniqueId"><h3>Method</h3><br><h2>GetUniqueId()</h2>
+<h3>Description</h3>
+<p>Gets the dialog's unique id number.</p>
+<h3>Return Value</h3>
+<ul>
+<li><b>Integer</b> - The dialog's unique id number.
+</ul>
+<hr><a name="Select"><h3>Method</h3><br><h2>Select()</h2>
+<h3>Description</h3>
+<p>Tells the client that the player has chosen this DialogResponse</p>
+	</body>
+</html>

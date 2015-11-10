@@ -1,0 +1,103 @@
+<html>
+	<head>
+	<link rel="stylesheet" type="text/css" href="/style.css">
+	</head>
+	<body><script language="javascript">
+		if ((window.name != "content") && (navigator.userAgent.indexOf("Opera") <= -1) )
+		document.write("<center><a href='../../index.html?page=LuaAPI/Classes/ApolloColor.htm'>show framing</a></center>")
+		</script>
+	<h1>
+		ApolloColor	</h1>
+<h3>Prefix: cr</h3>
+<h3>Description</h3>
+<p>ApolloColors are the primary way that the UI uses colors.  There are a number predefined colors, which can be found under Virtual colors section of Houston's color chooser.  Addon developers can also create their own ApolloColors using a string with the color's ARGB values in hex format.</p>
+<a name=">Functions"/>
+<hr><a name="is"><h3>Function</h3><br><h2>is(oVariable)</h2>
+<h3>Description</h3>
+<p>Validates that the variable passed in is an ApolloColor.</p>
+<h3>Params</h3>
+<ul>
+<li><b>oVariable</b><b> (Variable)</b> - The variable that we are checking.
+</ul>
+<h3>Return Value</h3>
+<ul>
+<li><b>Boolean</b> - Whether the variable is an ApolloColor or not.
+</ul>
+<hr><a name="new"><h3>Function</h3><br><h2>new()</h2>
+<h3>Description</h3>
+<p>Creates a new ApolloColor object.</p>
+<h3>Remarks</h3>
+<p>This can be created using  a string with the ApolloColor's name, a string with the color's ARGB values in hex, a table with the color's ARGB values, or a set of integers using the ARGB values.  </p>
+<hr><a name="SetColor"><h3>Function</h3><br><h2>SetColor(strColorName, crUpdatedValues)</h2>
+<h3>Description</h3>
+<p>Sets a named ApolloColor to the value of a CColor.</p>
+<h3>Params</h3>
+<ul>
+<li><b>strColorName</b><b> (String)</b> - The name of the ApolloColor that is being updated.
+<li><b>crUpdatedValues</b><b> (<a href="../classes/ccolor.htm">CColor</a>)</b> - The CColor that the ApolloColor is being updated to.
+</ul>
+<h3>Return Value</h3>
+<ul>
+<li><b>Boolean</b> - Whether the ApolloColor was successfully updated or not.
+</ul>
+<a name=">Methods"/>
+<hr><a name="__eq"><h3>Method</h3><br><h2>__eq(crChecking) (Deprecated)</h2>
+<h3>Description</h3>
+<p>Checks if two ApolloColors are the same.</p>
+<h3>Params</h3>
+<ul>
+<li><b>crChecking</b><b> (<a href="../classes/apollocolor.htm">ApolloColor</a>)</b> - The ApolloColor that the function will check against.
+</ul>
+<h3>Return Value</h3>
+<ul>
+<li><b>Boolean</b> - Whether the two ApolloColors are equal or not.
+</ul>
+<hr><a name="__gc"><h3>Method</h3><br><h2>__gc() (Deprecated)</h2>
+<h3>Description</h3>
+<p>ApolloColor's garbage collection function.  This will delete the ApolloColor from memory.</p>
+<hr><a name="__index"><h3>Method</h3><br><h2>__index(strIndex) (Deprecated)</h2>
+<h3>Description</h3>
+<p>Returns the ApolloColor's value at the specified index.</p>
+<h3>Params</h3>
+<ul>
+<li><b>strIndex</b><b> (String)</b> - The index of the value that should be returned.  This will either be "r" for the color's red value, "b" for the color's blue value, "g" for the color's green value, or "a" for the color's alpha value.
+</ul>
+<h3>Return Value</h3>
+<ul>
+<li><b>Float</b> - The color value at the specified index.
+</ul>
+<hr><a name="IsLinked"><h3>Method</h3><br><h2>IsLinked()</h2>
+<h3>Description</h3>
+<p>Determines whether the ApolloColor is using a virtual color or not.</p>
+<h3>Return Value</h3>
+<ul>
+<li><b>Boolean</b> - Whether the ApolloColor is set to a virtual color or a hardcoded value.
+</ul>
+<hr><a name="IsSameColorAs"><h3>Method</h3><br><h2>IsSameColorAs(crChecking)</h2>
+<h3>Description</h3>
+<p>Checks if two ApolloColors share the same color.</p>
+<h3>Params</h3>
+<ul>
+<li><b>crChecking</b><b> (<a href="../classes/apollocolor.htm">ApolloColor</a>)</b> - The ApolloColor that we are checking against.
+</ul>
+<h3>Return Value</h3>
+<ul>
+<li><b>Boolean</b> - Whether the ApolloColors share the same color.
+</ul>
+<h3>Usage/Example</h3>
+<pre>This function can compare virtual colors and hardcoded colors successfully.</pre>
+<hr><a name="ToTable"><h3>Method</h3><br><h2>ToTable()</h2>
+<h3>Description</h3>
+<p>Returns a table with the ApolloColor's RGBA values.</p>
+<h3>Return Value</h3>
+<ul>
+<li><b>Table</b> - The color's RGBA values.
+<ul>
+<li><b>r</b><b> (Float)</b> - The color's red value.
+<li><b>g</b><b> (Float)</b> - The color's green value.
+<li><b>b</b><b> (Float)</b> - The color's blue value.
+<li><b>a</b><b> (Float)</b> - The color's alpha value.
+</ul>
+</ul>
+	</body>
+</html>

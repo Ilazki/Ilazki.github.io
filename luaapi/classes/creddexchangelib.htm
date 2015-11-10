@@ -1,0 +1,87 @@
+<html>
+	<head>
+	<link rel="stylesheet" type="text/css" href="/style.css">
+	</head>
+	<body><script language="javascript">
+		if ((window.name != "content") && (navigator.userAgent.indexOf("Opera") <= -1) )
+		document.write("<center><a href='../../index.html?page=LuaAPI/Classes/CREDDExchangeLib.htm'>show framing</a></center>")
+		</script>
+	<h1>
+		CREDDExchangeLib	</h1>
+<h3>Description</h3>
+<p>This library is one of the primary ways that the player interacts with the CREDD Exchange.  This does not include creating and fulfilling orders, which is handled by the ActionConfirmButton.</p>
+<a name="Enums"/><hr><a name="CodeEnumAccountOperation"><h3>Enum</h3><br><h2>CodeEnumAccountOperation</h2>
+<h3>Description</h3>
+<p>The different types of account operations that the player can perform.</p>
+<ul>
+<li><b>MTXPurchase</b>
+<li><b>ClaimPending</b>
+<li><b>ReturnPending</b>
+<li><b>TakeItem</b>
+<li><b>GiftItem</b>
+<li><b>RedeemCoupon</b>
+<li><b>GetCREDDExchangeInfo</b>
+<li><b>SellCREDD</b>
+<li><b>BuyCREDD</b>
+<li><b>CancelCREDDOrder</b>
+<li><b>ExpireCREDDOrder</b>
+<li><b>SellCREDDComplete</b>
+<li><b>BuyCREDDComplete</b>
+<li><b>CREDDRedeem</b>
+<li><b>RequestDailyLoginRewards</b>
+</ul>
+<hr><a name="CodeEnumAccountOperationResult"><h3>Enum</h3><br><h2>CodeEnumAccountOperationResult</h2>
+<h3>Description</h3>
+<p>Results of various account operations.  This includes reasons the operation might have failed, as well as "Ok" for successful operations.</p>
+<ul>
+<li><b>Ok</b>
+<li><b>GenericFail</b>
+<li><b>DBError</b>
+<li><b>MTXError</b>
+<li><b>InvalidOffer</b>
+<li><b>InvalidPrice</b>
+<li><b>NotEnoughCurrency</b>
+<li><b>NeedTransaction</b>
+<li><b>InvalidAccountItem</b>
+<li><b>InvalidPendingItem</b>
+<li><b>InvalidInventoryItem</b>
+<li><b>NoConnection</b>
+<li><b>NoCharacter</b>
+<li><b>AlreadyClaimed</b>
+<li><b>MaxEntitlementCount</b>
+<li><b>NoRegift</b>
+<li><b>NoGifting</b>
+<li><b>InvalidFriend</b>
+<li><b>InvalidCoupon</b>
+<li><b>CannotReturn</b>
+<li><b>Prereq</b>
+<li><b>CREDDExchangeNotLoaded</b>
+<li><b>NoCREDD</b>
+<li><b>NoMatchingOrder</b>
+<li><b>InvalidCREDDOrder</b>
+<li><b>Cooldown</b>
+<li><b>MissingEntitlement</b>
+<li><b>AlreadyClaimedMultiRedeem</b>
+</ul>
+<a name=">Functions"/>
+<hr><a name="CancelOrder"><h3>Function</h3><br><h2>CancelOrder(crdOrder)</h2>
+<h3>Description</h3>
+<p>Removes a CREDD Exchange Order from the Exchange.</p>
+<h3>Params</h3>
+<ul>
+<li><b>crdOrder</b><b> (<a href="../classes/creddexchangeorder.htm">CREDDExchangeOrder</a>)</b> - The order that the player wishes to cancel.
+</ul>
+<h3>Usage/Example</h3>
+<pre>The CREDDExchangeInfoResults event is fired in response to this, informing the UI of the status of the operation.</pre>
+<hr><a name="GetCREDDHistory"><h3>Function</h3><br><h2>GetCREDDHistory()</h2>
+<h3>Description</h3>
+<p>Requests player's buy and sell history from the server.</p>
+<h3>Usage/Example</h3>
+<pre>The server will send the results in the CREDDOperationHistoryResults event.</pre>
+<hr><a name="RequestExchangeInfo"><h3>Function</h3><br><h2>RequestExchangeInfo()</h2>
+<h3>Description</h3>
+<p>Requests a list for the CREDD Exchange's stats and CREDDExchangeOrders.</p>
+<h3>Usage/Example</h3>
+<pre>The server will fire the CREDDExchangeInfoResults event in response</pre>
+	</body>
+</html>

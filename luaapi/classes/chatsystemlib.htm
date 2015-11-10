@@ -1,0 +1,96 @@
+<html>
+	<head>
+	<link rel="stylesheet" type="text/css" href="/style.css">
+	</head>
+	<body><script language="javascript">
+		if ((window.name != "content") && (navigator.userAgent.indexOf("Opera") <= -1) )
+		document.write("<center><a href='../../index.html?page=LuaAPI/Classes/ChatSystemLib.htm'>show framing</a></center>")
+		</script>
+	<h1>
+		ChatSystemLib	</h1>
+<a name=">Functions"/>
+<hr><a name="Command"><h3>Function</h3><br><h2>Command(strCommand)</h2>
+<h3>Description</h3>
+<p>Processes the slash command that is sent through the function.</p>
+<h3>Params</h3>
+<ul>
+<li><b>strCommand</b><b> (String)</b> - The command that the chat system will process, along with any parameters required by the command.
+</ul>
+<h3>Remarks</h3>
+<p>This function will process both commands that are built into the game and commands that are registered using Apollo.RegisterSlashCommand.</p>
+<hr><a name="GetChannels"><h3>Function</h3><br><h2>GetChannels()</h2>
+<h3>Description</h3>
+<p>Gets a list of channels that the player is in.</p>
+<h3>Return Value</h3>
+<ul>
+<li><b>Array of <a href="../classes/chatchannel.htm">ChatChannel</a></b> - An array of ChatChannels that the player is currently in.
+</ul>
+<hr><a name="GetCommands"><h3>Function</h3><br><h2>GetCommands()</h2>
+<h3>Description</h3>
+<p>Gets a list of commands that are available to the player.</p>
+<h3>Return Value</h3>
+<ul>
+<li><b>Array of String</b> - An array that contains the names of all of the commands that are available to the player.
+</ul>
+<h3>Remarks</h3>
+<p>The command list contains both game commands and any command registered via Apollo.RegisterSlashCommand</p>
+<hr><a name="GetEmotes"><h3>Function</h3><br><h2>GetEmotes()</h2>
+<h3>Description</h3>
+<p>Gets a list of all of the emote commands available to the player.</p>
+<h3>Return Value</h3>
+<ul>
+<li><b>Array of String</b> - An array of emote commands that the player can use.
+</ul>
+<hr><a name="JoinChannel"><h3>Function</h3><br><h2>JoinChannel(eChannel, strChannelName, strPassword, nOrder)</h2>
+<h3>Description</h3>
+<p>Attempts to join the specified channel.</p>
+<h3>Params</h3>
+<ul>
+<li><b>eChannel</b><b> (Integer)</b> - The channel that the player wants to join.  This value lines up with the ChatSystemLib.ChatChannel set of constants and is only used if the player is trying to join a channel that was set up by the game.
+<li><b>strChannelName</b><b> (String)</b> - The name of the custom channel that the player is trying to join.
+<li><b>strPassword</b><b> (String)</b> - The password that is required to join the chat channel.
+<li><b>nOrder</b><b> (Integer)</b> - The channel number assigned to the new channel.  This will assign it to the next available channel number by default.
+</ul>
+<h3>Usage/Example</h3>
+<pre>If the player is attempting to join a non-custom channel, then eChannel is the only parameter that should be sent.  Otherwise, everything except eChannel should be used.</pre>
+<hr><a name="PostOnChannel"><h3>Function</h3><br><h2>PostOnChannel(eChannelId, strMessage, strSenderName, unitSource, bBubble)</h2>
+<h3>Description</h3>
+<p>Posts a text message to a specific chat channel.</p>
+<h3>Params</h3>
+<ul>
+<li><b>eChannelId</b><b> (Integer)</b> - The channel that the message will be posted to.  This value lines up with the ChatSystemLib.ChatChannel set of constants.
+<li><b>strMessage</b><b> (String)</b> - The message that will be sent via the channel.
+<li><b>strSenderName</b><b> (String)</b> - The name of the player or NPC that the channel will say that the message came from.
+<li><b>unitSource</b><b> (<a href="../classes/unit.htm">Unit</a>)</b> - The unit that the message came from.
+<li><b>bBubble</b><b> (Boolean)</b> - Whether the unit should show a speech bubble or not.
+</ul>
+<hr><a name="PrepareInfractionReport"><h3>Function</h3><br><h2>PrepareInfractionReport(idChatLine)</h2>
+<h3>Description</h3>
+<p>Creates an IncidentReport based on a specified chat line.</p>
+<h3>Params</h3>
+<ul>
+<li><b>idChatLine</b><b> (Integer)</b> - The id number for the chat line that the report will be created from.
+</ul>
+<h3>Return Value</h3>
+<ul>
+<li><b>rptChat</b> - An IncidentReport that is populated with information pulled from the specified chat line.
+</ul>
+<hr><a name="SplitInput"><h3>Function</h3><br><h2>SplitInput(strInput)</h2>
+<h3>Description</h3>
+<p>Checks a string for a slash command and divides it into the command and its arguments.</p>
+<h3>Params</h3>
+<ul>
+<li><b>strInput</b><b> (String)</b> - The string that the function will split.
+</ul>
+<h3>Return Value</h3>
+<ul>
+<li><b>Table</b>
+<ul>
+<li><b>chatCommand</b><b> (<a href="../classes/chatchannel.htm">ChatChannel</a>)</b> - The channel that the command was sent over.
+<li><b>bValidCommand</b><b> (Boolean)</b> - Whether the command is recognized by the game or not.
+<li><b>strCommand</b><b> (String)</b> - The slash command portion of the string.
+<li><b>strMessage</b><b> (String)</b> - The arguments that were sent along with the slash command.
+</ul>
+</ul>
+	</body>
+</html>

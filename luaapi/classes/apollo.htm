@@ -1,0 +1,820 @@
+<html>
+	<head>
+	<link rel="stylesheet" type="text/css" href="/style.css">
+	</head>
+	<body><script language="javascript">
+		if ((window.name != "content") && (navigator.userAgent.indexOf("Opera") <= -1) )
+		document.write("<center><a href='../../index.html?page=LuaAPI/Classes/Apollo.htm'>show framing</a></center>")
+		</script>
+	<h1>
+		Apollo	</h1>
+<h3>Description</h3>
+<p>A library that primarily contains system-level functionality, such as registering events, controling addons, detecting key presses, and manipulating console variables.</p>
+<a name="Enums"/><hr><a name="AddonLoadStatus"><h3>Enum</h3><br><h2>AddonLoadStatus</h2>
+<h3>Description</h3>
+<p>An enum that describes the load state of an addon.  This is primarily used alongside the depricated GetAsyncLoad functionality.</p>
+<ul>
+<li><b>Loading</b>
+<li><b>Loaded</b>
+<li><b>LoadingError</b>
+</ul>
+<hr><a name="DragDropCancelReason"><h3>Enum</h3><br><h2>DragDropCancelReason</h2>
+<h3>Description</h3>
+<p>An enum that describes why a player's attempt to drag and drop something with their mouse was canceled.</p>
+<ul>
+<li><b>EscapeKey</b>
+<li><b>DroppedOnNothing</b>
+<li><b>ClickedOnNothing</b>
+<li><b>ClickedOnWorld</b>
+<li><b>WindowMove</b>
+</ul>
+<hr><a name="DragDropQueryResult"><h3>Enum</h3><br><h2>DragDropQueryResult</h2>
+<h3>Description</h3>
+<p>The set of results that the player can get when attempting to drag and drop something using the mouse.</p>
+<ul>
+<li><b>PassOn</b>
+<li><b>Ignore</b>
+<li><b>Accept</b>
+<li><b>Invalid</b>
+</ul>
+<a name="Events"/><hr><a name="DragDropSysBegin"><h3>Event</h3><br><h2>DragDropSysBegin</h2>
+<h3>Description</h3>
+<p>Fires when the player starts a drag-drop operation by holding the mouse button down while the cursor is over a BagWindow or ActionBarButton.</p>
+<h3>Params</h3>
+<ul>
+<li><b>wndSource</b><b> (<a href="../windowcontrols/window.htm">Window</a>)</b> - The window that the object originated from.
+<li><b>strType</b><b> (String)</b> - The type of object that will be affected by the drag-drop operation.  This should either be "DDBagItem" for items and "DDSpellbookItem" for spells.
+<li><b>nStartLocation</b><b> (Integer)</b> - The location where the object was grabbed.
+</ul>
+<hr><a name="DragDropSysEnd"><h3>Event</h3><br><h2>DragDropSysEnd</h2>
+<h3>Description</h3>
+<p>Fires whenever the player lets go of the mouse button during a drag-drop operation.</p>
+<h3>Params</h3>
+<ul>
+<li><b>strType</b><b> (String)</b> - The type of object that was dragged by the operation.
+<li><b>nEndLocation</b><b> (Integer)</b> - The location where the object was dropped.
+</ul>
+<hr><a name="LuaError"><h3>Event</h3><br><h2>LuaError</h2>
+<h3>Description</h3>
+<p>Fires whenever an error is thrown in an addon's code.</p>
+<h3>Params</h3>
+<ul>
+<li><b>tAddonInfo</b><b> (Table)</b> - Information on the addon that threw the error.
+<ul>
+<li><b>eStatus</b><b> (Integer)</b> - The addon's current status.
+<li><b>strName</b><b> (String)</b> - The name of the addon where the error was thrown.
+<li><b>bCarbine</b><b> (Boolean)</b> - Whether the addon that threw the error is a Carbine addon or a 3rd party addon.
+<li><b>strAuthor</b><b> (String)</b> - The addon's author.
+<li><b>arErrors</b><b> (Array of String)</b> - An array of strings that contain the error messages.
+</ul>
+<li><b>strError</b><b> (String)</b> - The error messages for the Lua error.
+<li><b>bCanIgnore</b><b> (Boolean)</b> - Whether the player can ignore the error or not.
+</ul>
+<h3>Remarks</h3>
+<p>It's worth noting that the information in tAddonInfo may not reflect the addon that actually caused the error.  If the source of the error is an addon that is hooking into a function in another addon, tAddonInfo will contain information on the addon that was hooked into, not the addon that was the source of the error.</p>
+<hr><a name="ModuleLoaded"><h3>Event</h3><br><h2>ModuleLoaded</h2>
+<h3>Description</h3>
+<p>Fires when every addon has finished loading.</p>
+<hr><a name="ModuleRestore"><h3>Event</h3><br><h2>ModuleRestore (Deprecated)</h2>
+<hr><a name="SaveModules"><h3>Event</h3><br><h2>SaveModules</h2>
+<h3>Description</h3>
+<p>Fires immediately before any addon calls its OnSave() function.</p>
+<hr><a name="SystemKeyDown"><h3>Event</h3><br><h2>SystemKeyDown</h2>
+<h3>Description</h3>
+<p>Fires whenever the player presses a key.</p>
+<h3>Params</h3>
+<ul>
+<li><b>nKey</b><b> (Integer)</b> - The ASCII code for the key that was pressed.
+</ul>
+<hr><a name="TextMessage"><h3>Event</h3><br><h2>TextMessage (Deprecated)</h2>
+<h3>Params</h3>
+<ul>
+<li><b>iType</b><b> (Integer)</b>
+<li><b>strMessage</b><b> (String)</b>
+</ul>
+<a name=">Functions"/>
+<hr><a name="AddAddonErrorText"><h3>Function</h3><br><h2>AddAddonErrorText(oAddon, strAddToError)</h2>
+<h3>Description</h3>
+<p>Adds a message to an addon's info.</p>
+<h3>Params</h3>
+<ul>
+<li><b>oAddon</b><b> (String or Table)</b> - The addon that threw the error.  This can either be an instance of the addon itself or the addon's name.
+<li><b>strAddToError</b><b> (String)</b> - The text that should be added to the addon's error list.
+</ul>
+<h3>Usage/Example</h3>
+<pre>The text that is added to the addon's error list can be found by calling Apollo.GetAddonInfo() on the item and accessing the arErrors element in the error that is returned.</pre>
+<hr><a name="AlertAppWindow"><h3>Function</h3><br><h2>AlertAppWindow()</h2>
+<h3>Description</h3>
+<p>Flashes the client's icon on the Windows taskbar if the game does not have focus.</p>
+<hr><a name="AssetFileSizeString"><h3>Function</h3><br><h2>AssetFileSizeString(strFilename)</h2>
+<h3>Description</h3>
+<p>Gets the file size of the specified asset.</p>
+<h3>Params</h3>
+<ul>
+<li><b>strFilename</b><b> (String)</b> - The file name of the asset.
+</ul>
+<h3>Return Value</h3>
+<ul>
+<li><b>String</b> - The asset's size, in bytes.
+</ul>
+<hr><a name="AssetFileTimeString"><h3>Function</h3><br><h2>AssetFileTimeString(strFilename)</h2>
+<h3>Description</h3>
+<p>Gets the date and time that the asset was last updated.</p>
+<h3>Params</h3>
+<ul>
+<li><b>strFilename</b><b> (String)</b> - The asset's file name.
+</ul>
+<h3>Return Value</h3>
+<ul>
+<li><b>String</b> - A string that contains the date and time when the specified asset was last updated.
+</ul>
+<hr><a name="BeginClickStick"><h3>Function</h3><br><h2>BeginClickStick(wndSource, strType, strSprite, nStartLocation)</h2>
+<h3>Description</h3>
+<p>Causes the item or spell that the player clicked on to stick to the cursor until the player clicks again.  It is treated like drag-drop functionality, only the player does not have to hold a button until the end of the operation.</p>
+<h3>Params</h3>
+<ul>
+<li><b>wndSource</b><b> (<a href="../windowcontrols/window.htm">Window</a>)</b> - The window where the click-stick operation began.
+<li><b>strType</b><b> (String)</b> - The type of item that the click stick is affecting.  This value can be either "DDBagItem" or "DDSpellbookItem".
+<li><b>strSprite</b><b> (String)</b> - The file name of the sprite that replaces the cursor while the click-stick operation is active.
+<li><b>nStartLocation</b><b> (Integer)</b> - The location where the operation began.
+</ul>
+<hr><a name="BeginDragDrop"><h3>Function</h3><br><h2>BeginDragDrop(wndSource, strType, strSprite, nStartLocation)</h2>
+<h3>Description</h3>
+<p>Starts a drag-drop operation on the item that the player clicked on.</p>
+<h3>Params</h3>
+<ul>
+<li><b>wndSource</b><b> (<a href="../windowcontrols/window.htm">Window</a>)</b> - The window where the operation began.
+<li><b>strType</b><b> (String)</b> - The type of object that is being dragged in the operation.  This can be either "DDBagItem" or "DDSpellbookItem".
+<li><b>strSprite</b><b> (String)</b> - The file name of the sprite that replaces the cursor during the operation.
+<li><b>nStartLocation</b><b> (Integer)</b> - The location where the drag-drop operation started.
+</ul>
+<hr><a name="CloseEscapableWindows"><h3>Function</h3><br><h2>CloseEscapableWindows()</h2>
+<h3>Description</h3>
+<p>Closes all of the windows that have the Escapable flag turned on.</p>
+<h3>Return Value</h3>
+<ul>
+<li><b>Boolean</b> - Whether any windows were closed or not.
+</ul>
+<hr><a name="CreateTimer"><h3>Function</h3><br><h2>CreateTimer(strTimerName, nInterval, bContinuous)</h2>
+<h3>Description</h3>
+<p>Creates a timer that can be run from Lua.</p>
+<h3>Params</h3>
+<ul>
+<li><b>strTimerName</b><b> (String)</b> - The name of the timer.
+<li><b>nInterval</b><b> (Integer)</b> - How often the timer will fire.
+<li><b>bContinuous</b><b> (Boolean)</b> - Whether the timer will constantly run or only fire once before needing to be restarted. - Whether the timer will constantly run or only fire once before needing to be restarted.
+</ul>
+<h3>Usage/Example</h3>
+<pre>function TimerExample:OnLoad()
+    Apollo.RegisterTimerHandler("TestTimer", "OnTestTimer", self)
+    Apollo.CreateTimer("TestTimer", 1.0, false)
+end
+
+function TimerExample:OnTestTimer()
+    Print("Timer has fired")
+end</pre>
+<h3>Remarks</h3>
+<p>Newly created timers are in the Running state and must be manually stopped.  Timers created this way have no functionality without a timer handler that listens for when the timer fires.  These timers are not destroyed when they fire.<br>
+<br>
+While Apollo's timer functionality still works, we are moving more towards using ApolloTimers.  That doesn't mean that this functionality is or will become depricated any time soon (we'll let you know when it does), but you will see far fewer instances of us using them in code.</p>
+<hr><a name="DisableAddon"><h3>Function</h3><br><h2>DisableAddon(strAddonName)</h2>
+<h3>Description</h3>
+<p>Disables the specified addon if it has any errors.  Disabled addons do not load after the UI is reloaded.</p>
+<h3>Params</h3>
+<ul>
+<li><b>strAddonName</b><b> (String)</b> - The name of the addon that should be disabled.
+</ul>
+<hr><a name="DoesSpriteExist"><h3>Function</h3><br><h2>DoesSpriteExist(strSpriteName)</h2>
+<h3>Description</h3>
+<p>Checks if a sprite with the given name exists in the Carbine sprite set.</p>
+<h3>Params</h3>
+<ul>
+<li><b>strSpriteName</b><b> (String)</b> - The name of the sprite that the function looks for.
+</ul>
+<h3>Return Value</h3>
+<ul>
+<li><b>Boolean</b> - Whether a sprite with the specified name was found or not.
+</ul>
+<hr><a name="DPF"><h3>Function</h3><br><h2>DPF(strDebugMessage)</h2>
+<h3>Description</h3>
+<p>Sends the string that is passed in to the client logs.</p>
+<h3>Params</h3>
+<ul>
+<li><b>strDebugMessage</b><b> (String)</b> - The message that the function passes on to the client logs.
+</ul>
+<hr><a name="FindWindowByName"><h3>Function</h3><br><h2>FindWindowByName(strWindowName)</h2>
+<h3>Description</h3>
+<p>Searches through all of the addons that are registered with Apollo for a window with the specified name.</p>
+<h3>Params</h3>
+<ul>
+<li><b>strWindowName</b><b> (String)</b> - The name of the window that the function searches for.
+</ul>
+<h3>Return Value</h3>
+<ul>
+<li><b><a href="../windowcontrols/window.htm">Window</a></b> - The window that was found by the search.
+</ul>
+<hr><a name="FormatNumber"><h3>Function</h3><br><h2>FormatNumber(oNumber, nDecimals, bCommas)</h2>
+<h3>Description</h3>
+<p>Formats a number to include region-specific notations, such as commas/periods in integers with 4+ digits, and truncates the value to a specific number of decimal places.</p>
+<h3>Params</h3>
+<ul>
+<li><b>oNumber</b><b> (Integer)</b> - The number that needs to be formatted.  This can be either an integer or float.
+<li><b>nDecimals</b><b> (Integer)</b> - The number of decimal places to display
+<li><b>bCommas</b><b> (Boolean)</b> - Determines whether or not commas should be shown in numbers with 4 or more digits
+</ul>
+<h3>Return Value</h3>
+<ul>
+<li><b>String</b> - The formatted number with all relevant punctuation
+</ul>
+<hr><a name="GetAddon"><h3>Function</h3><br><h2>GetAddon(strAddonName)</h2>
+<h3>Description</h3>
+<p>Gets all of the functions and variables from the instance of the specified addon that is currently running.</p>
+<h3>Params</h3>
+<ul>
+<li><b>strAddonName</b><b> (String)</b> - The name of the addon that the function will try to find.
+</ul>
+<h3>Return Value</h3>
+<ul>
+<li><b>oAllTheThings</b> - All of the addon level variables contained in the addon, as well as a metatable with all of the addon's functions.
+</ul>
+<hr><a name="GetAddonInfo"><h3>Function</h3><br><h2>GetAddonInfo(strAddonName)</h2>
+<h3>Description</h3>
+<p>Gets a lot of performance information and a list of errors for the specified addon.</p>
+<h3>Params</h3>
+<ul>
+<li><b>strAddonName</b><b> (String)</b> - The name of the addon.
+</ul>
+<h3>Return Value</h3>
+<ul>
+<li><b>Table</b> - A table that contains a large amount of information on the addon.
+<ul>
+<li><b>strFolder</b><b> (String)</b> - The name of the folder where the addon is found.
+<li><b>strName</b><b> (String)</b> - The addon's name.
+<li><b>strConfigureButtonText</b><b> (String)</b> - The text that is shown on the addon's configure button.
+<li><b>bCarbine</b><b> (Boolean)</b> - Whether the addon is an official Carbine addon or not.
+<li><b>strAuthor</b><b> (String)</b> - The name of the addon's author.
+<li><b>bLoadOnStart</b><b> (Boolean)</b> - Whether the addon is automatically loaded when the player logs in or the UI is reloaded.
+<li><b>nMemoryUsage</b><b> (Integer)</b> - How much memory the addon takes up.
+<li><b>nTotalCalls</b><b> (Integer)</b> - The number of API function calls the addon has made since it was started.
+<li><b>fTotalTime</b><b> (Float)</b> - The total amount of processing time the addon has used since it was started, in milliseconds.
+<li><b>fLongestCall</b><b> (Float)</b> - The longest it took to complete any one function call in the addon since the addon started.
+<li><b>fCallTimePerSecond</b><b> (Float)</b> - The amount of processing time the addon is currently taking every second.
+<li><b>fCallTimePerFrame</b><b> (Float)</b> - The amount of processing time the addon is currently taking every frame.
+<li><b>bRunning</b><b> (Boolean)</b> - Whether the addon is currently running or not.
+<li><b>eStatus</b><b> (OptionsScreen.CodeEnumAddonStatus)</b> - The addon's current status.
+<li><b>fLastModified</b><b> (Float)</b> - The number of seconds since the addon was last modified.
+<li><b>bIgnoreVersion</b><b> (Boolean)</b> - Whether the addon should ignore API version mismatches for loading purposes.
+<li><b>nAPIVersion</b><b> (Integer)</b> - The API version that the addon uses.
+<li><b>bHasConfigure</b><b> (Boolean)</b> - Whether the addon has a configure menu that was set up when the addon was registered.
+<li><b>arErrors</b><b> (Array of String)</b> - An array of error messages that were caused by the addon.
+<li><b>strLastModified</b><b> (String)</b> - The date and time that the addon was last modified.
+<li><b>strLastModifiedSort</b><b> (String)</b> - The string used when sorting the addons by the date they were last modified.  The string lists the year, month, day, and time.
+<li><b>arReplacedAddons</b><b> (Array of String)</b> - The name of each addon that this addon replaces.
+</ul>
+</ul>
+<hr><a name="GetAPIVersion"><h3>Function</h3><br><h2>GetAPIVersion()</h2>
+<h3>Description</h3>
+<p>Gets the current API version used by the game.</p>
+<h3>Return Value</h3>
+<ul>
+<li><b>Integer</b> - Apollo's current API version.
+</ul>
+<hr><a name="GetAssetFolder"><h3>Function</h3><br><h2>GetAssetFolder()</h2>
+<h3>Description</h3>
+<p>Gets the name of the folder that contains all of the default UI's assets.</p>
+<h3>Return Value</h3>
+<ul>
+<li><b>String</b> - The default UI's asset folder.
+</ul>
+<hr><a name="GetConsoleVariable"><h3>Function</h3><br><h2>GetConsoleVariable(strVarName)</h2>
+<h3>Description</h3>
+<p>Gets the value of the specified console variable.  </p>
+<h3>Params</h3>
+<ul>
+<li><b>strVarName</b><b> (String)</b> - The name of the console variable whose value is requested.
+</ul>
+<h3>Return Value</h3>
+<ul>
+<li><b>Value</b> - This value can be of any basic type (integer, float, boolean, string, nil), depending on which console variable is requested.
+</ul>
+<hr><a name="GetDisplaySize"><h3>Function</h3><br><h2>GetDisplaySize()</h2>
+<h3>Description</h3>
+<p>Gets the size of the client, as well as the size of the viewable portion of the client window.</p>
+<h3>Return Value</h3>
+<ul>
+<li><b>Table</b> - The width and height of the window and the viewable portion of the window, as well as the scale that everything is drawn to.  
+<ul>
+<li><b>nWidth</b><b> (Integer)</b> - The window's width.
+<li><b>nHeight</b><b> (Integer)</b> - The window's height.
+<li><b>nRawWidth</b><b> (Integer)</b> - The width of the portion of the window where the game is actually shown.
+<li><b>nRawHeight</b><b> (Integer)</b> - The height of the portion of the window where the game is actually shown.
+<li><b>fScale</b><b> (Float)</b> - Objects in the game are scaled by this amount before being drawn.
+</ul>
+</ul>
+<h3>Remarks</h3>
+<p>In fullscreen mode, the width/height and raw width/height do not match up exactly, but the difference is relatively insignificant.  In windowed mode, this is much more pronounced.</p>
+<hr><a name="GetGameFonts"><h3>Function</h3><br><h2>GetGameFonts()</h2>
+<h3>Description</h3>
+<p>Gets a list of all of the fonts that come with the game.  Each font is made up of a typeface and a font size.</p>
+<h3>Return Value</h3>
+<ul>
+<li><b>Array of Table</b> - An array with information of all of the fonts that are packaged with the game.
+<ul>
+<li><b>index</b><b> (Integer)</b> - The index in the array, if the array was 0 based.
+<li><b>name</b><b> (String)</b> - The name of the font.
+<li><b>face</b><b> (String)</b> - The typeface used for the font.
+<li><b>size</b><b> (Integer)</b> - The font size.
+</ul>
+</ul>
+<hr><a name="GetMaxResolutionWidth"><h3>Function</h3><br><h2>GetMaxResolutionWidth()</h2>
+<h3>Description</h3>
+<p>Returns the maximum width that the client can be set to.</p>
+<h3>Return Value</h3>
+<ul>
+<li><b>Integer</b> - The maximum resolution width.
+</ul>
+<hr><a name="GetMetaKeysDown"><h3>Function</h3><br><h2>GetMetaKeysDown()</h2>
+<h3>Description</h3>
+<p>Gets a bit flag that tells which meta keys are currently pressed.</p>
+<h3>Return Value</h3>
+<ul>
+<li><b>Integer</b> - A bit flag of the Meta Keys that are currently pressed down.  The value lines up with the GameLib.CodeEnumInputModifier enum.
+</ul>
+<h3>Usage/Example</h3>
+<pre>function Example:CheckMetaKey()
+    local nKeysDown = Apollo.GetMetaKeysDown()
+    local tKeys = 
+    {
+        ["Shift"] = bit32.band(nKeysDown, GameLib.CodeEnumInputModifier.Shift) == GameLib.CodeEnumInputModifier.Shift,
+        ["Control"] = bit32.band(nKeysDown, GameLib.CodeEnumInputModifier.Control) == GameLib.CodeEnumInputModifier.Control,
+        ["Alt"] = bit32.band(nKeysDown, GameLib.CodeEnumInputModifier.Alt) == GameLib.CodeEnumInputModifier.Alt,
+    }
+    return tKeys
+end</pre>
+<hr><a name="GetMinResolutionWidth"><h3>Function</h3><br><h2>GetMinResolutionWidth()</h2>
+<h3>Description</h3>
+<p>The minimum resolution width that the client can be set to.</p>
+<h3>Return Value</h3>
+<ul>
+<li><b>Integer</b> - The minimum resolution width.
+</ul>
+<hr><a name="GetMouse"><h3>Function</h3><br><h2>GetMouse()</h2>
+<h3>Description</h3>
+<p>Gets the mouse's position in screen coordinates.</p>
+<h3>Return Value</h3>
+<ul>
+<li><b>Table</b> - The mouse's current coordinates in screen space.
+<ul>
+<li><b>x</b><b> (Integer)</b>
+<li><b>y</b> - Integer
+</ul>
+</ul>
+<hr><a name="GetMouseTargetWindow"><h3>Function</h3><br><h2>GetMouseTargetWindow()</h2>
+<h3>Description</h3>
+<p>Gets the window that the mouse is currently hovering over.</p>
+<h3>Return Value</h3>
+<ul>
+<li><b><a href="../windowcontrols/window.htm">Window</a></b> - The top-most window that the mouse is hovering over.
+</ul>
+<hr><a name="GetMoveMetaKey"><h3>Function</h3><br><h2>GetMoveMetaKey()</h2>
+<h3>Description</h3>
+<p>Gets the meta key that is bound to the Sprint action.</p>
+<h3>Return Value</h3>
+<ul>
+<li><b>GameLib.CodeEnumInputModifier</b> - The meta key that is bound to the Sprint action.
+</ul>
+<hr><a name="GetObjectSize"><h3>Function</h3><br><h2>GetObjectSize(oVariable)</h2>
+<h3>Description</h3>
+<p>Gets the memory size of an object.</p>
+<h3>Params</h3>
+<ul>
+<li><b>oVariable</b><b> (Variable)</b> - The function will return the size of this variable.  Any variable type can be passed in.
+</ul>
+<h3>Return Value</h3>
+<ul>
+<li><b>Integer</b> - The size of the variable, in bytes.
+</ul>
+<hr><a name="GetPackage"><h3>Function</h3><br><h2>GetPackage(strPackageName)</h2>
+<h3>Description</h3>
+<p>Returns information on a package that was registered with Apollo.</p>
+<h3>Params</h3>
+<ul>
+<li><b>strPackageName</b><b> (String)</b> - The name of the package.
+</ul>
+<h3>Return Value</h3>
+<ul>
+<li><b>Table</b> - Information about the package.
+<ul>
+<li><b>strName</b><b> (String)</b> - The name of the package.
+<li><b>bAddon</b><b> (Boolean)</b> - This value will return true if it is called within the lua file that registers the package.  If it is called in an addon that simply uses the package, this returns false.
+<li><b>nVersion</b><b> (Integer)</b> - The package's version.
+<li><b>strLoadError</b><b> (String)</b> - Any load errors that may have occurred when attempting to get the package.
+<li><b>tAddonInfo</b><b> (Table)</b> - A table that only exists if bAddon is true.
+<ul>
+<li><b>strAuthor</b><b> (String)</b> - The name of the package's author.
+<li><b>nAPIVersion</b><b> (Integer)</b> - The API version of that the addon was written with according to the Table of Contents.
+</ul>
+<li><b>tPackage</b><b> (Table)</b> - All of the addon level variables and functions from the package in a convenient table.
+</ul>
+</ul>
+<hr><a name="GetScreenSize"><h3>Function</h3><br><h2>GetScreenSize() (Deprecated)</h2>
+<h3>Description</h3>
+<p>Gets the size of the client window.  This function has been replaced by Apollo.GetDisplaySize()</p>
+<hr><a name="GetStrata"><h3>Function</h3><br><h2>GetStrata()</h2>
+<h3>Description</h3>
+<p>Gets an array of all of the window strata that are in use.</p>
+<h3>Return Value</h3>
+<ul>
+<li><b>Array of String</b> - The names of each strata that a window can be drawn in.
+</ul>
+<hr><a name="GetString"><h3>Function</h3><br><h2>GetString(strCheck)</h2>
+<h3>Description</h3>
+<p>Gets the localized string for the given string or id number.</p>
+<h3>Params</h3>
+<ul>
+<li><b>strCheck</b><b> (String or Integer)</b> - The string or id that will poll the string.
+</ul>
+<h3>Return Value</h3>
+<ul>
+<li><b>String</b> - The localized string that corresponds
+</ul>
+<hr><a name="GetTextWidth"><h3>Function</h3><br><h2>GetTextWidth(strFontName, strInput)</h2>
+<h3>Description</h3>
+<p>Gets the number of pixels it takes to draw a specific piece of text with a specific font.</p>
+<h3>Params</h3>
+<ul>
+<li><b>strFontName</b><b> (String)</b> - The name of the font that to use in the width check.
+<li><b>strInput</b><b> (String)</b> - The text that the function is checking.
+</ul>
+<h3>Return Value</h3>
+<ul>
+<li><b>Integer</b> - The width, in pixels, that it takes to draw the text with the given font.
+</ul>
+<hr><a name="GetTickCount"><h3>Function</h3><br><h2>GetTickCount()</h2>
+<h3>Description</h3>
+<p>Gets the number of milliseconds since the system was started.</p>
+<h3>Return Value</h3>
+<ul>
+<li><b>Integer</b> - The number of milliseconds that have elapsed since the system was started (up to 49.7 days)
+</ul>
+<hr><a name="GetWindowsInStratum"><h3>Function</h3><br><h2>GetWindowsInStratum(strStratum)</h2>
+<h3>Description</h3>
+<p>Gets all of the windows in a specific stratum.</p>
+<h3>Params</h3>
+<ul>
+<li><b>strStratum</b><b> (String)</b> - The function returns the windows found in the stratum whose name matches this string.
+</ul>
+<h3>Return Value</h3>
+<ul>
+<li><b>Array of <a href="../windowcontrols/window.htm">Window</a></b> - An array of windows found in the given stratum.
+</ul>
+<hr><a name="IsAltKeyDown"><h3>Function</h3><br><h2>IsAltKeyDown()</h2>
+<h3>Description</h3>
+<p>Gets the state of the Alt key.</p>
+<h3>Return Value</h3>
+<ul>
+<li><b>Boolean</b> - Whether the Alt key is down or not.
+</ul>
+<hr><a name="IsCapsLockOn"><h3>Function</h3><br><h2>IsCapsLockOn()</h2>
+<h3>Description</h3>
+<p>Gets the state of the Caps Lock button.</p>
+<h3>Return Value</h3>
+<ul>
+<li><b>Boolean</b> - Whether Caps Lock is on or not.
+</ul>
+<hr><a name="IsControlKeyDown"><h3>Function</h3><br><h2>IsControlKeyDown()</h2>
+<h3>Description</h3>
+<p>Gets the state of the Control key.</p>
+<h3>Return Value</h3>
+<ul>
+<li><b>Boolean</b> - Whether the Control key is down or not.
+</ul>
+<hr><a name="IsShiftKeyDown"><h3>Function</h3><br><h2>IsShiftKeyDown()</h2>
+<h3>Description</h3>
+<p>Gets the state of the Shift key.</p>
+<h3>Return Value</h3>
+<ul>
+<li><b>Boolean</b> - Whether the Shift key is down or not.
+</ul>
+<hr><a name="IsSpriteLoaded"><h3>Function</h3><br><h2>IsSpriteLoaded(strSpriteName)</h2>
+<h3>Description</h3>
+<p>Checks whether a specific sprite is loaded or not</p>
+<h3>Params</h3>
+<ul>
+<li><b>strSpriteName</b><b> (String)</b> - The name of the sprite that the function is looking for.
+</ul>
+<h3>Return Value</h3>
+<ul>
+<li><b>Boolean</b> - Whether the sprite is loaded or not.
+</ul>
+<hr><a name="IsWindowSubclassRegistered"><h3>Function</h3><br><h2>IsWindowSubclassRegistered(strSubclassName)</h2>
+<h3>Description</h3>
+<p>Determines whether the specified Window Subclass has been registered with Apollo.</p>
+<h3>Params</h3>
+<ul>
+<li><b>strSubclassName</b><b> (String)</b> - The name of the Window Subclass that the function will look for.
+</ul>
+<h3>Return Value</h3>
+<ul>
+<li><b>Boolean</b> - Whether the Subclass is registered or not.
+</ul>
+<hr><a name="LinkAddon"><h3>Function</h3><br><h2>LinkAddon(tTarget, tSource)</h2>
+<h3>Description</h3>
+<p>Associates a module with a parent module in Apollo.  This allows Apollo to manage the addon's memory better.</p>
+<h3>Params</h3>
+<ul>
+<li><b>tTarget</b><b> (Table)</b> - The "self" of the module that the function will link to.
+<li><b>tSource</b><b> (Table)</b> - The "self" of the module that is calling the function.
+</ul>
+<h3>Usage/Example</h3>
+<pre>local kOffsetEnum =
+{
+    Left = 1,
+    Top = 2,
+    Right = 3,
+    Bottom = 4,
+}
+
+function ContainerManager:OnDocumentReady()
+    if self.xmlDoc == nil then
+        return
+    end
+
+    self.luaLeftContainer = Container:new()
+    self.luaRightContainer = Container:new()
+    self.luaLeftContainer:Init(self)
+    self.luaRightContainer:Init(self)
+
+    self.luaLeftContainer:Move(-100, 0)
+    self.luaRightContainer:Move(100, 0)
+end
+
+function Container:new(o)
+	o = o or {}
+	setmetatable(o, self)
+	self.__index = self
+	return o
+end
+
+function Container:Init(luaManager)
+    Apollo.LinkAddon(luaManager, self)
+
+    self.luaContainerManager = luaManager
+    self.wndMain = Apollo.LoadForm(self.luaManager.xmlDoc, "ContainerWindow", nil, self)
+end
+
+function Container:Move(nDeltaX, nDeltaY)
+    local tOffsets = {self.wndMain:GetAnchorOffsets()}
+
+    tOffsets[kOffsetEnum.Left] = tOffsets[kOffsetEnum.Left] + nDeltaX
+    tOffsets[kOffsetEnum.Right] = tOffsets[kOffsetEnum.Right] + nDeltaX
+
+    tOffsets[kOffsetEnum.Top] = tOffsets[kOffsetEnum.Top] + nDeltaY
+    tOffsets[kOffsetEnum.Bottom] = tOffsets[kOffsetEnum.Bottom] + nDeltaY
+
+   self.wndMain:SetAnchorOffsets(unpack(tOffsets))
+end</pre>
+<hr><a name="LoadAnimations"><h3>Function</h3><br><h2>LoadAnimations(strFileName)</h2>
+<h3>Description</h3>
+<p>Attempts to load a specific animation file.</p>
+<h3>Params</h3>
+<ul>
+<li><b>strFileName</b><b> (String)</b> - The file name of the animation that the function will try to load.
+</ul>
+<h3>Return Value</h3>
+<ul>
+<li><b>Boolean</b> - Whether the animation was successfully loaded or not.
+</ul>
+<hr><a name="LoadForm"><h3>Function</h3><br><h2>LoadForm(strFile, strFormName, wndParent, tLuaEventHandler)</h2>
+<h3>Description</h3>
+<p>Loads a window from the specified form</p>
+<h3>Params</h3>
+<ul>
+<li><b>strFile</b><b> (String or XmlDoc)</b> - The path to the XML document that contains the window, or the pre-loaded XML form.
+<li><b>strFormName</b><b> (String)</b> - The name of the window form that the function will try to load.
+<li><b>wndParent</b><b> (<a href="../windowcontrols/window.htm">Window</a>)</b> - The newly loaded window will be a child of this window. - The newly loaded window will be a child of this window.
+<li><b>tLuaEventHandler</b><b> (Table)</b> - The Lua object that owns the window.  This value is usually "self", meaning the window that called the function. - The Lua object that owns the window.  This value is usually "self", meaning the window that called the function.
+</ul>
+<h3>Return Value</h3>
+<ul>
+<li><b><a href="../windowcontrols/window.htm">Window</a></b> - The window object that was loaded.
+</ul>
+<h3>Usage/Example</h3>
+<pre>self.wndMain = Apollo.LoadForm("SampleAddon.xml", "SampleAddonForm", nil, self)</pre>
+<hr><a name="LoadGlobalAnchors"><h3>Function</h3><br><h2>LoadGlobalAnchors(strFile)</h2>
+<h3>Description</h3>
+<p>Loads the global anchors for the specified file.</p>
+<h3>Params</h3>
+<ul>
+<li><b>strFile</b><b> (String)</b>
+</ul>
+<hr><a name="LoadSprites"><h3>Function</h3><br><h2>LoadSprites(strFile, strDoc)</h2>
+<h3>Description</h3>
+<p>Loads a sprite set.</p>
+<h3>Params</h3>
+<ul>
+<li><b>strFile</b><b> (String or XmlDoc)</b> - The name of the form that contains the sprites, or the XmlDoc that contains them.
+<li><b>strDoc</b><b> (String)</b> - The name of the spriteDoc.  This variable is optional.
+</ul>
+<hr><a name="LoadTemplates"><h3>Function</h3><br><h2>LoadTemplates()</h2>
+<hr><a name="NoOp"><h3>Function</h3><br><h2>NoOp() (Deprecated)</h2>
+<h3>Description</h3>
+<p>Does absolutely nothing.</p>
+<hr><a name="ParseInput"><h3>Function</h3><br><h2>ParseInput(strInput)</h2>
+<h3>Description</h3>
+<p>Parses the input for slash commands.  If the first character is not a "/", it will not recognize the text as a slash command and will print it to the Say chat channel.</p>
+<h3>Params</h3>
+<ul>
+<li><b>strInput</b><b> (String)</b> - The string that the function will parse.
+</ul>
+<h3>Return Value</h3>
+<ul>
+<li><b>String</b> - Returns the string for Console_CommandNotFound if the slash command that was passed in was invalid.  Otherwise, this returns an empty string.
+</ul>
+<hr><a name="RegisterAddon"><h3>Function</h3><br><h2>RegisterAddon(tAddon, bHasConfigureFunction, arDependencies)</h2>
+<h3>Description</h3>
+<p>Registers an addon to be loaded by Apollo.  Addons that are not registered do not work.</p>
+<h3>Params</h3>
+<ul>
+<li><b>tAddon</b><b> (Table)</b> - The instance of the addon that is registering with Apollo.  This is represented by "self". - The instance of the addon that is registering with Apollo.  This is represented by "self".
+<li><b>bHasConfigureFunction</b><b> (Boolean)</b> - Whether addon has a Configure button in the Esc menu.  If this value is true, then the addon needs an OnConfigure() function to handle the button signal event. - Whether addon has a Configure button in the Esc menu.  If this value is true, then the addon needs an OnConfigure() function to handle the button signal event.
+<li><b>arDependencies</b><b> (Array of String)</b> - An array of addon names that must be loaded before this addon can be successfully loaded. - An array of addon names that must be loaded before this addon can be successfully loaded.
+</ul>
+<hr><a name="RegisterEventHandler"><h3>Function</h3><br><h2>RegisterEventHandler(strEventName, strFunctionName, tLuaEventHandler)</h2>
+<h3>Description</h3>
+<p>Matches an event that is fired with the Lua function that will handle the event.</p>
+<h3>Params</h3>
+<ul>
+<li><b>strEventName</b><b> (String)</b> - The name of the event to be handled.
+<li><b>strFunctionName</b><b> (String)</b> - The name of the function that will be called when the event is fired.
+<li><b>tLuaEventHandler</b><b> (Table)</b> - The addon's "self". - The addon's "self".
+</ul>
+<hr><a name="RegisterPackage"><h3>Function</h3><br><h2>RegisterPackage(tPackage, strModule, nVersion, arDependencies)</h2>
+<h3>Description</h3>
+<p>Registers a package with Apollo so it can be used by other addons.</p>
+<h3>Params</h3>
+<ul>
+<li><b>tPackage</b><b> (Table)</b> - The instance of the package that is registering with Apollo.  This is usually represented by "self".
+<li><b>strModule</b><b> (String)</b> - The name of the package.
+<li><b>nVersion</b><b> (Integer)</b> - The packages version.
+<li><b>arDependencies</b><b> (Array of String)</b> - An array of addon or package names that must be loaded before this addon loads.
+</ul>
+<hr><a name="RegisterSlashCommand"><h3>Function</h3><br><h2>RegisterSlashCommand(strCommand, strFunction, tAddonHandler)</h2>
+<h3>Description</h3>
+<p>Registers a slash command with Apollo and sets up a function to handle the event fired when the command is used.</p>
+<h3>Params</h3>
+<ul>
+<li><b>strCommand</b><b> (String)</b> - The slash command that will get registered with Apollo.  This string should contain everything that comes after the / in the command.
+<li><b>strFunction</b><b> (String)</b> - The function that will handle the event that gets fired when the slash command is used.
+<li><b>tAddonHandler</b><b> (Table)</b> - The instance of the addon that will handle the event fired by the slash command.  This is usually the addon's "self". - The instance of the addon that will handle the event fired by the slash command.  This is usually the addon's "self".
+</ul>
+<hr><a name="RegisterTimerHandler"><h3>Function</h3><br><h2>RegisterTimerHandler(strTimerName, strFunction, tAddon)</h2>
+<h3>Description</h3>
+<p>Pairs a timer with a function that will be called whenever the timer's interval expires.</p>
+<h3>Params</h3>
+<ul>
+<li><b>strTimerName</b><b> (String)</b> - The name of the timer that the function will pair with the handler function.
+<li><b>strFunction</b><b> (String)</b> - The function that will be called whenever the timer's interval expires.
+<li><b>tAddon</b><b> (Table)</b> - The instance of the addon that will handle the event fired when the timer's interval expires.  This is usually the addon's "self". - The instance of the addon that will handle the event fired when the timer's interval expires.  This is usually the addon's "self".
+</ul>
+<h3>Remarks</h3>
+<p>The default UI will replace RegisterTimerHandler calls with  ApolloTimers in the near future, but this method of using timers will not be depricated.</p>
+<hr><a name="RegisterWindowSubclass"><h3>Function</h3><br><h2>RegisterWindowSubclass(strSubclassName, tAddon, tEvents)</h2>
+<h3>Description</h3>
+<p>Registers a Window Subclass with Apollo.</p>
+<h3>Params</h3>
+<ul>
+<li><b>strSubclassName</b><b> (String)</b> - The name of the Subclass.
+<li><b>tAddon</b><b> (Table)</b> - The instance of the module that is being registered.  This is usually the module's "self".
+<li><b>tEvents</b><b> (Array of Table)</b> - An array of Event/Function Handler pairs that the Subclass wants to register with.
+<ul>
+<li><b>strEvent</b><b> (String)</b> - The name of the event that the subclass wants to handle.
+<li><b>strFunction</b><b> (String)</b> - The function within the subclass that will be called when the event is fired.
+</ul>
+</ul>
+<h3>Return Value</h3>
+<ul>
+<li><b>Boolean</b> - Whether the subclass was sucessfully registered with Apollo or not.
+</ul>
+<h3>Remarks</h3>
+<p>Window Subclasses are a way to duplicate window functionality in multiple addons.  </p>
+<hr><a name="RemoveEventHandler"><h3>Function</h3><br><h2>RemoveEventHandler(strEventName, tModule)</h2>
+<h3>Description</h3>
+<p>Removes an event handler from Apollo.  This is primarily done for memory management purposes.</p>
+<h3>Params</h3>
+<ul>
+<li><b>strEventName</b><b> (String)</b> - The event that the module will stop handling.
+<li><b>tModule</b><b> (Table)</b> - The instance of the module that will stop handling the event.  This is usually the module's "self".
+</ul>
+<hr><a name="ResetConsoleVariable"><h3>Function</h3><br><h2>ResetConsoleVariable(strConsoleVariableName)</h2>
+<h3>Description</h3>
+<p>Returns a console variable to its default value.</p>
+<h3>Params</h3>
+<ul>
+<li><b>strConsoleVariableName</b><b> (String)</b> - The name of the console variable that will be reset to its default.
+</ul>
+<hr><a name="SetConsoleVariable"><h3>Function</h3><br><h2>SetConsoleVariable(strVariable, oValue)</h2>
+<h3>Description</h3>
+<p>Sets a console variable to a given value.</p>
+<h3>Params</h3>
+<ul>
+<li><b>strVariable</b><b> (String)</b> - The name of the console variable that the function will update.
+<li><b>oValue</b><b> (CColor, String, Integer, Float, or Boolean)</b> - The new value of the console variable.  The type of variable used must match the type needed by the Console Variable.
+</ul>
+<h3>Remarks</h3>
+<p>If a variable that is passed in can easily be converted to another type, such as an integer to a boolean or vice versa, it will try to do so.</p>
+<hr><a name="SetCursor"><h3>Function</h3><br><h2>SetCursor(acCursor)</h2>
+<h3>Description</h3>
+<p>Changes the cursor to another ApolloCursor.</p>
+<h3>Params</h3>
+<ul>
+<li><b>acCursor</b><b> (<a href="../classes/apollocursor.htm">ApolloCursor</a>)</b> - The cursor that will be shown after the function is called.
+</ul>
+<hr><a name="SetGlobalAnchor"><h3>Function</h3><br><h2>SetGlobalAnchor(strName, fPoint, nOffset, bOverwrite)</h2>
+<h3>Description</h3>
+<p>Creates a named anchor that can be used for setting up windows for other addons.</p>
+<h3>Params</h3>
+<ul>
+<li><b>strName</b><b> (String)</b> - The name of the anchor.
+<li><b>fPoint</b><b> (Float)</b> - The anchor point for this anchor. - The anchor point for this anchor.
+<li><b>nOffset</b><b> (Integer)</b> - The offset from the anchor point that the named anchor should be set to. - The offset from the anchor point that the named anchor should be set to.
+<li><b>bOverwrite</b><b> (Boolean)</b> - Whether the function should overwrite any named anchors with the same name. - Whether the function should overwrite any named anchors with the same name.
+</ul>
+<hr><a name="SetMaxResolutionWidth"><h3>Function</h3><br><h2>SetMaxResolutionWidth(nWidth)</h2>
+<h3>Description</h3>
+<p>Sets the maximum resolution width for the client.</p>
+<h3>Params</h3>
+<ul>
+<li><b>nWidth</b><b> (Integer)</b> - The maximum resolution width that the client can be set to.
+</ul>
+<hr><a name="SetMinResolutionWidth"><h3>Function</h3><br><h2>SetMinResolutionWidth(nWidth)</h2>
+<h3>Description</h3>
+<p>Sets the minimum resolution width that the client can be set to.</p>
+<h3>Params</h3>
+<ul>
+<li><b>nWidth</b><b> (Integer)</b> - The minimum width that the client can be set to.
+</ul>
+<hr><a name="SetMoveMetaKey"><h3>Function</h3><br><h2>SetMoveMetaKey(eMetaKey)</h2>
+<h3>Description</h3>
+<p>Changes the meta key used for sprinting.</p>
+<h3>Params</h3>
+<ul>
+<li><b>eMetaKey</b><b> (GameLib.CodeEnumInputModifier)</b> - The meta key that the sprint action should be bound to.
+</ul>
+<hr><a name="SetNavTextAnchor"><h3>Function</h3><br><h2>SetNavTextAnchor(nXAnchor, bGrowRight, nYAnchor, bGrowDown)</h2>
+<h3>Description</h3>
+<p>Changes how and where a tooltip is drawn.</p>
+<h3>Params</h3>
+<ul>
+<li><b>nXAnchor</b><b> (Integer)</b> - The tooltip anchor point's x coordinate.
+<li><b>bGrowRight</b><b> (Boolean)</b> - If this is true, then the tooltip will be drawn to the right of the anchor point.  If it is false, it will be drawn to the left.
+<li><b>nYAnchor</b><b> (Integer)</b> - The tooltip anchor point's y coordinate.
+<li><b>bGrowDown</b><b> (Boolean)</b> - If this is true, then the tooltip will be drawn below the anchor point.  If it is false, it will be drawn above it.
+</ul>
+<hr><a name="StartTimer"><h3>Function</h3><br><h2>StartTimer(strTimerName)</h2>
+<h3>Description</h3>
+<p>Starts a timer that is not currently running.</p>
+<h3>Params</h3>
+<ul>
+<li><b>strTimerName</b><b> (String)</b> - The name of the timer that the function should start.
+</ul>
+<h3>Remarks</h3>
+<p>Timers created by Apollo are being replaced by ApolloTimer objects in the default UI.  That does not mean that this functionality is being depricated.</p>
+<hr><a name="StopTimer"><h3>Function</h3><br><h2>StopTimer(strTimerName)</h2>
+<h3>Description</h3>
+<p>Stops a timer that is currently running.</p>
+<h3>Params</h3>
+<ul>
+<li><b>strTimerName</b><b> (String)</b> - The name of the timer that the function should stop.
+</ul>
+<hr><a name="StringLength"><h3>Function</h3><br><h2>StringLength()</h2>
+<hr><a name="StringToLower"><h3>Function</h3><br><h2>StringToLower(strInput)</h2>
+<h3>Description</h3>
+<p>Changes all of the characters in a string to lower case.</p>
+<h3>Params</h3>
+<ul>
+<li><b>strInput</b><b> (String)</b> - The string that will be changed to lower case.
+</ul>
+<h3>Return Value</h3>
+<ul>
+<li><b>String</b> - The updated string.
+</ul>
+<hr><a name="SuspendAddon"><h3>Function</h3><br><h2>SuspendAddon(strAddonName)</h2>
+<h3>Description</h3>
+<p>Turns off an addon that is throwing errors until the UI is reloaded.</p>
+<h3>Params</h3>
+<ul>
+<li><b>strAddonName</b><b> (String)</b> - The name of the addon that the function will try to suspend.
+</ul>
+<h3>Remarks</h3>
+<p>If the addon that the function tries to suspend has no errors, it will not be suspended.</p>
+<hr><a name="UnlinkAddon"><h3>Function</h3><br><h2>UnlinkAddon(tTarget, tSource)</h2>
+<h3>Description</h3>
+<p>Frees up the memory used by a linked addon.</p>
+<h3>Params</h3>
+<ul>
+<li><b>tTarget</b><b> (Table)</b> - The addon that the module was linked to.
+<li><b>tSource</b><b> (Table)</b> - The instance of the module that is being unlinked.  This is usually the module's "self".
+</ul>
+	</body>
+</html>

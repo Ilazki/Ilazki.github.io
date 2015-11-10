@@ -1,0 +1,86 @@
+<html>
+	<head>
+	<link rel="stylesheet" type="text/css" href="/style.css">
+	</head>
+	<body><script language="javascript">
+		if ((window.name != "content") && (navigator.userAgent.indexOf("Opera") <= -1) )
+		document.write("<center><a href='../../index.html?page=LuaAPI/Classes/DialogSys.htm'>show framing</a></center>")
+		</script>
+	<h1>
+		DialogSys	</h1>
+<h3>Description</h3>
+<p>Dialogs are the chat bubbles that appear when speaking with an NPC.  They can be used for accepting and turning in quests and other conversations with NPCs.  This library allows the player to get information on the currently displayed dialog.</p>
+<a name=">Functions"/>
+<hr><a name="End"><h3>Function</h3><br><h2>End()</h2>
+<h3>Description</h3>
+<p>Cancels the current dialog.</p>
+<hr><a name="GetCommCreatureId"><h3>Function</h3><br><h2>GetCommCreatureId()</h2>
+<h3>Description</h3>
+<p>Gets the id number of the NPC associated with the current dialog.</p>
+<h3>Return Value</h3>
+<ul>
+<li><b>Integer</b> - The id number of the NPC that is tied to the dialog.
+</ul>
+<hr><a name="GetNPC"><h3>Function</h3><br><h2>GetNPC()</h2>
+<h3>Description</h3>
+<p>Gets the unit associated with the dialog.</p>
+<h3>Return Value</h3>
+<ul>
+<li><b><a href="../classes/unit.htm">Unit</a></b> - The unit associated with the dialog.
+</ul>
+<hr><a name="GetNPCText"><h3>Function</h3><br><h2>GetNPCText(idQuest)</h2>
+<h3>Description</h3>
+<p>Gets the string that contains the NPC's text.  This will also play any VO associated with this dialog.</p>
+<h3>Params</h3>
+<ul>
+<li><b>idQuest</b><b> (Integer)</b> - The id number of the quest that the dialog is associated with.
+</ul>
+<h3>Return Value</h3>
+<ul>
+<li><b>string</b> - The text that the dialog should show for the NPC.
+</ul>
+<hr><a name="GetResponses"><h3>Function</h3><br><h2>GetResponses(idQuest)</h2>
+<h3>Description</h3>
+<p>Gets a list of possible responses that the player can send.</p>
+<h3>Params</h3>
+<ul>
+<li><b>idQuest</b><b> (Integer)</b> - The id number of the quest that is giving the player responses.
+</ul>
+<h3>Return Value</h3>
+<ul>
+<li><b>Array of String</b> - The list of responses the player can select for the dialog.
+</ul>
+<hr><a name="GetResponseText"><h3>Function</h3><br><h2>GetResponseText()</h2>
+<h3>Description</h3>
+<p>Gets the text that the player is responding to.</p>
+<h3>Return Value</h3>
+<ul>
+<li><b>String</b> - The text that the player's responses o
+</ul>
+<hr><a name="GetState"><h3>Function</h3><br><h2>GetState()</h2>
+<h3>Description</h3>
+<p>Gets the dialog's current state.</p>
+<h3>Return Value</h3>
+<ul>
+<li><b>Integer</b> - The dialog's current state.  This value lines up with the DialogSys_DialogState set of constants.
+</ul>
+<hr><a name="GetViewableQuest"><h3>Function</h3><br><h2>GetViewableQuest(idQuest)</h2>
+<h3>Description</h3>
+<p>Grabs the quest with the specified id if it is the one that the dialog is using.</p>
+<h3>Params</h3>
+<ul>
+<li><b>idQuest</b><b> (Integer)</b> - The id number of the quest that the function will try to match with any quest that the current dialog is displaying.
+</ul>
+<h3>Return Value</h3>
+<ul>
+<li><b><a href="../classes/quest.htm">Quest</a></b> - The quest with the specified id.  If the dialog was not showing a quest or was showing a quest with a different id, this will be nil.
+</ul>
+<hr><a name="IsItemQuestGiver"><h3>Function</h3><br><h2>IsItemQuestGiver()</h2>
+<h3>Description</h3>
+<p>Checks if the dialog was triggered by an item that is granting a quest.</p>
+<h3>Return Value</h3>
+<ul>
+<li><b>Boolean</b> - Whether the quest is granted by an item or not.
+</ul>
+	</body>
+</html>

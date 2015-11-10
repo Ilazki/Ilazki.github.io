@@ -1,0 +1,132 @@
+<html>
+	<head>
+	<link rel="stylesheet" type="text/css" href="/style.css">
+	</head>
+	<body><script language="javascript">
+		if ((window.name != "content") && (navigator.userAgent.indexOf("Opera") <= -1) )
+		document.write("<center><a href='../../index.html?page=LuaAPI/Classes/AlienFxLib.htm'>show framing</a></center>")
+		</script>
+	<h1>
+		AlienFxLib	</h1>
+<h3>Description</h3>
+<p>Integration with Alienware's Alien FX library allowing lua to control hardware lights.</p>
+<a name="Enums"/><hr><a name="EnumDeviceTypes"><h3>Enum</h3><br><h2>EnumDeviceTypes</h2>
+<ul>
+<li><b>Unknown</b>
+<li><b>Notebook</b>
+<li><b>Desktop</b>
+<li><b>Server</b>
+<li><b>Display</b>
+<li><b>Mouse</b>
+<li><b>Keyboard</b>
+<li><b>Gamepad</b>
+<li><b>Speaker</b>
+<li><b>Other</b>
+</ul>
+<a name=">Functions"/>
+<hr><a name="CanUse"><h3>Function</h3><br><h2>CanUse()</h2>
+<h3>Description</h3>
+<p>Can the AlienFx library be used.</p>
+<h3>Return Value</h3>
+<ul>
+<li><b>Boolean</b>
+</ul>
+<hr><a name="GetDeviceCount"><h3>Function</h3><br><h2>GetDeviceCount()</h2>
+<h3>Description</h3>
+<p>How many devices are connected.</p>
+<h3>Return Value</h3>
+<ul>
+<li><b>Integer</b>
+</ul>
+<hr><a name="GetDeviceDescription"><h3>Function</h3><br><h2>GetDeviceDescription(nDeviceIndex)</h2>
+<h3>Description</h3>
+<p>The description and type of the device.</p>
+<h3>Params</h3>
+<ul>
+<li><b>nDeviceIndex</b><b> (Integer)</b>
+</ul>
+<h3>Return Value</h3>
+<ul>
+<li><b>Table</b>
+<ul>
+<li><b>strDescription</b><b> (String)</b>
+<li><b>eType</b><b> (AlienFxLib.EnumDeviceTypes)</b>
+</ul>
+</ul>
+<hr><a name="GetLightColor"><h3>Function</h3><br><h2>GetLightColor(nDeviceIndex, nLightIndex)</h2>
+<h3>Description</h3>
+<p>What color is a certain light currently displaying.</p>
+<h3>Params</h3>
+<ul>
+<li><b>nDeviceIndex</b><b> (Integer)</b>
+<li><b>nLightIndex</b><b> (Integer)</b>
+</ul>
+<h3>Return Value</h3>
+<ul>
+<li><b><a href="../classes/ccolor.htm">CColor</a></b>
+</ul>
+<hr><a name="GetLightCount"><h3>Function</h3><br><h2>GetLightCount(nDeviceIndex)</h2>
+<h3>Description</h3>
+<p>How many lights does a device have.</p>
+<h3>Params</h3>
+<ul>
+<li><b>nDeviceIndex</b><b> (Integer)</b>
+</ul>
+<h3>Return Value</h3>
+<ul>
+<li><b>Integer</b>
+</ul>
+<hr><a name="GetLightDescription"><h3>Function</h3><br><h2>GetLightDescription(nDeviceIndex, nLightIndex)</h2>
+<h3>Description</h3>
+<p>Get the description of a light.</p>
+<h3>Params</h3>
+<ul>
+<li><b>nDeviceIndex</b><b> (Integer)</b>
+<li><b>nLightIndex</b><b> (Integer)</b>
+</ul>
+<h3>Return Value</h3>
+<ul>
+<li><b>String</b>
+</ul>
+<hr><a name="GetLightLocation"><h3>Function</h3><br><h2>GetLightLocation(nDeviceIndex, nLightIndex)</h2>
+<h3>Description</h3>
+<p>Get a lights x,y,z physical position, in centimeters, of any given light relative to the lower, left, rear corner of the device's bounding box.</p>
+<h3>Params</h3>
+<ul>
+<li><b>nDeviceIndex</b><b> (Integer)</b>
+<li><b>nLightIndex</b><b> (Integer)</b>
+</ul>
+<h3>Return Value</h3>
+<ul>
+<li><b>Table</b>
+<ul>
+<li><b>nX</b><b> (Integer)</b>
+<li><b>nY</b><b> (Integer)</b>
+<li><b>nZ</b><b> (Integer)</b>
+</ul>
+</ul>
+<hr><a name="IsReady"><h3>Function</h3><br><h2>IsReady()</h2>
+<h3>Description</h3>
+<p>Is the Alien Fx library ready to be used.</p>
+<h3>Return Value</h3>
+<ul>
+<li><b>Boolean</b>
+</ul>
+<hr><a name="Reset"><h3>Function</h3><br><h2>Reset()</h2>
+<hr><a name="SetLightColor"><h3>Function</h3><br><h2>SetLightColor(nDeviceIndex, nLightIndex, crLightColor)</h2>
+<h3>Params</h3>
+<ul>
+<li><b>nDeviceIndex</b><b> (Integer)</b>
+<li><b>nLightIndex</b><b> (Integer)</b>
+<li><b>crLightColor</b><b> (<a href="../classes/ccolor.htm">CColor</a>)</b>
+</ul>
+<hr><a name="SetLocationColor"><h3>Function</h3><br><h2>SetLocationColor(nLocationMask, crLightColor)</h2>
+<h3>Description</h3>
+<p>Sets all lights for a location mask to a certain color.</p>
+<h3>Params</h3>
+<ul>
+<li><b>nLocationMask</b><b> (Integer)</b> - Is a 32-bit mask that denotes one or more light positions in terms of the device's bounding box. There are 27 bits for each smaller cube within this bounding box, divided evenly.
+<li><b>crLightColor</b><b> (<a href="../classes/ccolor.htm">CColor</a>)</b>
+</ul>
+	</body>
+</html>

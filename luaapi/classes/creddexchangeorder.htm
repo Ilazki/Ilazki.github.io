@@ -1,0 +1,145 @@
+<html>
+	<head>
+	<link rel="stylesheet" type="text/css" href="/style.css">
+	</head>
+	<body><script language="javascript">
+		if ((window.name != "content") && (navigator.userAgent.indexOf("Opera") <= -1) )
+		document.write("<center><a href='../../index.html?page=LuaAPI/Classes/CREDDExchangeOrder.htm'>show framing</a></center>")
+		</script>
+	<h1>
+		CREDDExchangeOrder	</h1>
+<h3>Prefix: crd</h3>
+<h3>Description</h3>
+<p>Individual orders on the CREDD Exchange.</p>
+<a name=">Functions"/>
+<hr><a name="is"><h3>Function</h3><br><h2>is(oVariable)</h2>
+<h3>Description</h3>
+<p>Checks if the variable that was passed in is a CREDDExchangeOrder.</p>
+<h3>Params</h3>
+<ul>
+<li><b>oVariable</b><b> (Variable)</b> - The variable that this function will check.
+</ul>
+<h3>Return Value</h3>
+<ul>
+<li><b>Boolean</b> - Whether the variable that was passed in is a CREDDExchangeOrder or not.
+</ul>
+<hr><a name="newBuyOrder"><h3>Function</h3><br><h2>newBuyOrder()</h2>
+<h3>Description</h3>
+<p>Creates a new CREDDExchangeOrder that is a buy order.</p>
+<h3>Return Value</h3>
+<ul>
+<li><b><a href="../classes/creddexchangeorder.htm">CREDDExchangeOrder</a></b> - A new CREDD Exchange buy order.
+</ul>
+<h3>Usage/Example</h3>
+<pre>This is largely unused since CREDDExchangeOrders are created using the ActionConfirmButton.</pre>
+<hr><a name="newSellOrder"><h3>Function</h3><br><h2>newSellOrder()</h2>
+<h3>Description</h3>
+<p>Creates a new CREDDExchangeOrder that is a sell order.</p>
+<h3>Return Value</h3>
+<ul>
+<li><b><a href="../classes/creddexchangeorder.htm">CREDDExchangeOrder</a></b> - A new sell order for the CREDD Exchange.
+</ul>
+<h3>Usage/Example</h3>
+<pre>This is largely unused since CREDDExchangeOrders are created using the ActionConfirmButton.</pre>
+<a name=">Methods"/>
+<hr><a name="__eq"><h3>Method</h3><br><h2>__eq(crdCompare) (Deprecated)</h2>
+<h3>Description</h3>
+<p>Determines if another CREDDExchangeOrder is the same as this one.</p>
+<h3>Params</h3>
+<ul>
+<li><b>crdCompare</b><b> (<a href="../classes/creddexchangeorder.htm">CREDDExchangeOrder</a>)</b> - The CREDDExchangeOrder that is being compared to the one calling this function.
+</ul>
+<h3>Return Value</h3>
+<ul>
+<li><b>Boolean</b> - Whether the two CREDDExchangeOrders are the same order or not.
+</ul>
+<hr><a name="__gc"><h3>Method</h3><br><h2>__gc() (Deprecated)</h2>
+<h3>Description</h3>
+<p>Forces the garbage collector to be called on the CREDDExchangeOrder that called the function.</p>
+<hr><a name="Cancel"><h3>Method</h3><br><h2>Cancel()</h2>
+<h3>Description</h3>
+<p>Removes the order from the CREDD Exchange.</p>
+<hr><a name="CanPost"><h3>Method</h3><br><h2>CanPost()</h2>
+<h3>Description</h3>
+<p>Validates that the order is set for a valid number ( &gt; 0 ) of credits and is not currently posted on the CREDD Exchange.</p>
+<h3>Return Value</h3>
+<ul>
+<li><b>Boolean</b> - Whether the order can be posted on the CREDD Exchange or not.
+</ul>
+<hr><a name="GetExpirationTime"><h3>Method</h3><br><h2>GetExpirationTime()</h2>
+<h3>Description</h3>
+<p>Gets the amount of time that the order will remain on the CREDD Exchange.</p>
+<h3>Return Value</h3>
+<ul>
+<li><b><a href="../classes/time.htm">Time</a></b> - A Time object that states when the order will expire.
+</ul>
+<h3>Usage/Example</h3>
+<pre>The full date/time can be converted to a string using the Time object's _tostring function:
+
+local crdNewOrder = CCExchangeOrder.newBuyOrder()
+local monPrice = Money.new()
+monPrice:SetAmount(1)
+
+crdNewOrder:SetPrice(monPrice)
+crdNewOrder:Post()
+
+local timeExpiration = crdNewOrder:GetExpirationTime()
+Print(timeExpiration:_tostring())</pre>
+<hr><a name="GetListTime"><h3>Method</h3><br><h2>GetListTime()</h2>
+<h3>Description</h3>
+<p>Gets the time that the order was posted.</p>
+<h3>Return Value</h3>
+<ul>
+<li><b><a href="../classes/time.htm">Time</a></b> - A time object for when the order was posted.
+</ul>
+<h3>Usage/Example</h3>
+<pre>The full date/time can be converted to a string using the Time object's _tostring function:
+
+local crdNewOrder = CCExchangeOrder.newBuyOrder()
+local monPrice = Money.new()
+monPrice:SetAmount(1)
+
+crdNewOrder:SetPrice(monPrice)
+crdNewOrder:Post()
+
+local timeExpiration = crdNewOrder:GetListTime()
+Print(timeExpiration:_tostring())</pre>
+<hr><a name="GetPrice"><h3>Method</h3><br><h2>GetPrice()</h2>
+<h3>Description</h3>
+<p>Gets the price that the order was set for.</p>
+<h3>Return Value</h3>
+<ul>
+<li><b><a href="../classes/money.htm">Money</a></b> - The amount and type of money that the order is requesting or offering for a CREDD.
+</ul>
+<hr><a name="IsBuy"><h3>Method</h3><br><h2>IsBuy()</h2>
+<h3>Description</h3>
+<p>Determines if the order is a buy order.</p>
+<h3>Return Value</h3>
+<ul>
+<li><b>Boolean</b> - Whether the order is a buy order or not.
+</ul>
+<hr><a name="IsPosted"><h3>Method</h3><br><h2>IsPosted()</h2>
+<h3>Description</h3>
+<p>Checks if the order is posted on the CREDD Exchange.</p>
+<h3>Return Value</h3>
+<ul>
+<li><b>Boolean</b> - Whether the order is posted on the CREDD Exchange or not.
+</ul>
+<hr><a name="Post"><h3>Method</h3><br><h2>Post()</h2>
+<h3>Description</h3>
+<p>Posts the order on the CREDD Exchange.</p>
+<hr><a name="SetPrice"><h3>Method</h3><br><h2>SetPrice(monPrice)</h2>
+<h3>Description</h3>
+<p>Sets the price that the order asks for once it is posted on the CREDD Exchange.</p>
+<h3>Params</h3>
+<ul>
+<li><b>monPrice</b><b> (<a href="../classes/money.htm">Money</a>)</b> - The amount of money that the order will pay for / accept for CREDD.
+</ul>
+<h3>Return Value</h3>
+<ul>
+<li><b>Boolean</b> - Whether the price was set successfully or not.
+</ul>
+<h3>Usage/Example</h3>
+<pre>Note that the Money has to be in credits and the amount has to be greater than 0.</pre>
+	</body>
+</html>

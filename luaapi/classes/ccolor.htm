@@ -1,0 +1,169 @@
+<html>
+	<head>
+	<link rel="stylesheet" type="text/css" href="/style.css">
+	</head>
+	<body><script language="javascript">
+		if ((window.name != "content") && (navigator.userAgent.indexOf("Opera") <= -1) )
+		document.write("<center><a href='../../index.html?page=LuaAPI/Classes/CColor.htm'>show framing</a></center>")
+		</script>
+	<h1>
+		CColor	</h1>
+<h3>Prefix: cc</h3>
+<h3>Description</h3>
+<p>CColors are an older way of using colors in addons.  All colors are in ARGB format, with all values being between 0.0 and 1.0.<br>
+While this functionality is not yet depricated, it may be in the future.  We highly recommend that developers use ApolloColors instead.</p>
+<a name=">Functions"/>
+<hr><a name="Complement"><h3>Function</h3><br><h2>Complement(ccBaseColor)</h2>
+<h3>Description</h3>
+<p>Returns a CColor that complements the color that is passed in.</p>
+<h3>Params</h3>
+<ul>
+<li><b>ccBaseColor</b><b> (<a href="../classes/ccolor.htm">CColor</a>)</b> - The color that the complement is made from.
+</ul>
+<h3>Return Value</h3>
+<ul>
+<li><b><a href="../classes/ccolor.htm">CColor</a></b> - A color that complements the one that was passed in.
+</ul>
+<h3>Remarks</h3>
+<p>The values of the CColor that is returned are all 1.0 - value.</p>
+<hr><a name="is"><h3>Function</h3><br><h2>is(oVariable)</h2>
+<h3>Description</h3>
+<p>Detects whether a variable is a CColor or not.</p>
+<h3>Params</h3>
+<ul>
+<li><b>oVariable</b><b> (Variable)</b> - The variable that the function will check.
+</ul>
+<h3>Return Value</h3>
+<ul>
+<li><b>Boolean</b> - Whether the variable is a CColor or not.
+</ul>
+<hr><a name="new"><h3>Function</h3><br><h2>new(r, g, b, a)</h2>
+<h3>Description</h3>
+<p>Creates a new CColor using the specified values.</p>
+<h3>Params</h3>
+<ul>
+<li><b>r</b><b> (Float)</b> - The red value of the color.
+<li><b>g</b><b> (Float)</b> - The green value of the color.
+<li><b>b</b><b> (Float)</b> - The blue value of the color.
+<li><b>a</b><b> (Float)</b> - The alpha value of the color.  This value defaults to 1.0 if no alpha value is passed in.
+</ul>
+<h3>Return Value</h3>
+<ul>
+<li><b><a href="../classes/ccolor.htm">CColor</a></b> - A CColor with the rgba values that were passed in.
+</ul>
+<a name=">Methods"/>
+<hr><a name="__add"><h3>Method</h3><br><h2>__add(ccModifier) (Deprecated)</h2>
+<h3>Description</h3>
+<p>Adds another CColor's values to the CColor that called this function.</p>
+<h3>Params</h3>
+<ul>
+<li><b>ccModifier</b><b> (<a href="../classes/ccolor.htm">CColor</a>)</b> - The CColor that the current CColor will be modified by.
+</ul>
+<h3>Return Value</h3>
+<ul>
+<li><b><a href="../classes/ccolor.htm">CColor</a></b> - The sum of the two CColors.
+</ul>
+<hr><a name="__div"><h3>Method</h3><br><h2>__div(fScale) (Deprecated)</h2>
+<h3>Description</h3>
+<p>Scales each value in the CColor by the given amount.</p>
+<h3>Params</h3>
+<ul>
+<li><b>fScale</b><b> (Float)</b> - The amount that each value in the CColor will be scaled by.
+</ul>
+<h3>Return Value</h3>
+<ul>
+<li><b><a href="../classes/ccolor.htm">CColor</a></b> - The modified CColor.
+</ul>
+<hr><a name="__eq"><h3>Method</h3><br><h2>__eq(ccCompare) (Deprecated)</h2>
+<h3>Description</h3>
+<p>Checks if a CColor matches this CColor.</p>
+<h3>Params</h3>
+<ul>
+<li><b>ccCompare</b><b> (<a href="../classes/ccolor.htm">CColor</a>)</b> - The CColor that is being compared to the one that called the function.
+</ul>
+<h3>Return Value</h3>
+<ul>
+<li><b>Boolean</b> - Whether the two CColors matched or not.
+</ul>
+<hr><a name="__index"><h3>Method</h3><br><h2>__index(strIndex) (Deprecated)</h2>
+<h3>Description</h3>
+<p>Gets the CColor's value for one of its primary colors or alpha.</p>
+<h3>Params</h3>
+<ul>
+<li><b>strIndex</b><b> (String)</b> - The index of the value that the function will return.  This can be:<br>
+"r" = red value<br>
+"b" = blue value<br>
+"g" = green value<br>
+"a" = alpha value
+</ul>
+<hr><a name="__mul"><h3>Method</h3><br><h2>__mul(fScale, ccMultiplier) (Deprecated)</h2>
+<h3>Description</h3>
+<p>Scales the values in the CColor by the value passed in.</p>
+<h3>Params</h3>
+<ul>
+<li><b>fScale</b><b> (Float)</b> - The amount that each value in the CColor will be scaled by.  Only a float or CColor needs to be passed in.  
+<li><b>ccMultiplier</b><b> (<a href="../classes/ccolor.htm">CColor</a>)</b> - The CColor that the source color is multiplied by.  Each value is multiplied by the corresponding value, so red x red, blue x blue, etc.  Only a float or CColor should be passed in to the function, not both.
+</ul>
+<h3>Return Value</h3>
+<ul>
+<li><b><a href="../classes/ccolor.htm">CColor</a></b> - The result of multiplying the original CColor with the value that was passed in.
+</ul>
+<hr><a name="__newindex"><h3>Method</h3><br><h2>__newindex(strIndex, fValue) (Deprecated)</h2>
+<h3>Description</h3>
+<p>Sets one of the CColor's color values.</p>
+<h3>Params</h3>
+<ul>
+<li><b>strIndex</b><b> (String)</b> - The color value that the function will update.<br>
+"r" = red<br>
+"g" = green<br>
+"b" = blue<br>
+"a" = alpha
+<li><b>fValue</b><b> (Float)</b> - The color's new value.
+</ul>
+<h3>Return Value</h3>
+<ul>
+<li><b>String</b> - An error string is sent if an invalid index is used.  Otherwise, this function has no return value.
+</ul>
+<hr><a name="__sub"><h3>Method</h3><br><h2>__sub(ccSubtractor) (Deprecated)</h2>
+<h3>Description</h3>
+<p>Subtracts a CColor's values from the CColor that called the function.</p>
+<h3>Params</h3>
+<ul>
+<li><b>ccSubtractor</b><b> (<a href="../classes/ccolor.htm">CColor</a>)</b> - The color values of the CColor that called the function are subtracted by this CColor's color values.
+</ul>
+<h3>Return Value</h3>
+<ul>
+<li><b><a href="../classes/ccolor.htm">CColor</a></b> - The CColor made up of the difference of the two CColors.
+</ul>
+<hr><a name="__tostring"><h3>Method</h3><br><h2>__tostring() (Deprecated)</h2>
+<h3>Description</h3>
+<p>Converts a CColor to a string with the CColor's values</p>
+<h3>Return Value</h3>
+<ul>
+<li><b>String</b> - A string with the CColor's values.  The string's format is "CColor(alpha,red,green,blue)
+</ul>
+<hr><a name="__unm"><h3>Method</h3><br><h2>__unm() (Deprecated)</h2>
+<h3>Description</h3>
+<p>Multiplies each of the CColor's color values by -1.</p>
+<h3>Return Value</h3>
+<ul>
+<li><b><a href="../classes/ccolor.htm">CColor</a></b> - The new CColor created by the function.
+</ul>
+<hr><a name="Complement"><h3>Method</h3><br><h2>Complement()</h2>
+<h3>Description</h3>
+<p>Creates a new CColor that is complementary to the one that calls this function.</p>
+<h3>Return Value</h3>
+<ul>
+<li><b><a href="../classes/ccolor.htm">CColor</a></b> - A color that complements the one that called the function.
+</ul>
+<h3>Remarks</h3>
+<p>The values of the CColor that is returned are all 1.0 - value.</p>
+<hr><a name="Saturate"><h3>Method</h3><br><h2>Saturate()</h2>
+<h3>Description</h3>
+<p>Locks the values in the color to values between 0.0 and 1.0.</p>
+<h3>Return Value</h3>
+<ul>
+<li><b><a href="../classes/ccolor.htm">CColor</a></b> - A new color that has been bound to values between 0.0 and 1.0.
+</ul>
+	</body>
+</html>

@@ -1,0 +1,276 @@
+<html>
+	<head>
+	<link rel="stylesheet" type="text/css" href="/style.css">
+	</head>
+	<body><script language="javascript">
+		if ((window.name != "content") && (navigator.userAgent.indexOf("Opera") <= -1) )
+		document.write("<center><a href='../../index.html?page=LuaAPI/Classes/DatacubeLib.htm'>show framing</a></center>")
+		</script>
+	<h1>
+		DatacubeLib	</h1>
+<h3>Description</h3>
+<p>A library that allows the player to interact with and get information on Datacubes, Journals, and Tales from Beyond the Fringe entries</p>
+<a name=">Functions"/>
+<hr><a name="GetDatacubesForVolume"><h3>Function</h3><br><h2>GetDatacubesForVolume(idJournal)</h2>
+<h3>Description</h3>
+<p>Gets a list of datacube sub-entries for a journal.</p>
+<h3>Params</h3>
+<ul>
+<li><b>idJournal</b><b> (Integer)</b> - The id number for the journal entry that the results belong to.
+</ul>
+<h3>Return Value</h3>
+<ul>
+<li><b>Array of Table</b> - An array of tables that contain information on each sub-entry associated with the specified journal.
+<ul>
+<li><b>nDatacubeId</b><b> (Integer)</b> - The entry's id number.
+<li><b>eDatacubeType</b><b> (Integer)</b> - This value lines up with the DatacubeLib.DatacubeType_ set of contstants.
+<li><b>nWorldZoneId</b><b> (Integer)</b> - The id of the world zone that the entry belongs to.
+<li><b>strZoneName</b><b> (String)</b> - The name of the zone that the entry belongs to.
+<li><b>nVolumeId</b><b> (Integer)</b> - The id number of the parent journal entry.
+<li><b>strText</b><b> (String)</b> - The entry's text.
+<li><b>bIsComplete</b><b> (Boolean)</b> - Whether the entry has been unlocked or not.
+<li><b>bHasSound</b><b> (Boolean)</b> - Whether the entry has a sound file associated with it or not.
+<li><b>strTitle</b><b> (String)</b> - The entry's title.
+</ul>
+</ul>
+<hr><a name="GetDatacubesForZone"><h3>Function</h3><br><h2>GetDatacubesForZone(idZone)</h2>
+<h3>Description</h3>
+<p>Gets a list of datacube entries that are found in a specific zone.</p>
+<h3>Params</h3>
+<ul>
+<li><b>idZone</b><b> (Integer)</b> - The function will return the datacube entries found in the zone with this id.
+</ul>
+<h3>Return Value</h3>
+<ul>
+<li><b>Array of Table</b> - An array of tables that contain information on each datacube entry in the specified zone.
+<ul>
+<li><b>nDatacubeId</b><b> (Integer)</b> - The id number for the entry.
+<li><b>eDatacubeType</b><b> (Integer)</b> - The type associated with the datacube.  This value corresponds with the DatacubeLib.DatacubeType set of constants.
+<li><b>nWorldZoneId</b><b> (Integer)</b> - The id for the world zone that the datacube entry is associated with.
+<li><b>strZoneName</b><b> (String)</b> - The name of the zone that the datacube entry is unlocked in.
+<li><b>strText</b><b> (String)</b> - The datacube entry's text.
+<li><b>bIsComplete</b><b> (Boolean)</b> - Whether the entry is completed or not.
+<li><b>bHasSound</b><b> (Boolean)</b> - Whether the entry has a sound attached to it.
+<li><b>strTitle</b><b> (String)</b> - The entry's title.
+<li><b>nNumCompleted</b><b> (Integer)</b> - The number of unlocks that have been found for the entry.  This only applies to Chronicle type entries.
+<li><b>nNumTotal</b><b> (Integer)</b> - The number of unlocks required to complete the entry.  This only exist for Chronicle type entries.
+<li><b>strAsset</b><b> (String)</b> - The file name for the sprite shown in the completed entry.  This only applies to Chronicle type entries.
+</ul>
+</ul>
+<hr><a name="GetJournalsForZone"><h3>Function</h3><br><h2>GetJournalsForZone(idZone)</h2>
+<h3>Description</h3>
+<p>Gets a list of all the journal entries within a zone.</p>
+<h3>Params</h3>
+<ul>
+<li><b>idZone</b><b> (Integer)</b> - The function will return the journal entries found in this zone.
+</ul>
+<h3>Return Value</h3>
+<ul>
+<li><b>Array of Table</b> - An array of tables that contain information on all of the journal entries within the zone.
+<ul>
+<li><b>nDatacubeId</b><b> (Integer)</b> - The journal's id number.
+<li><b>strTitle</b><b> (String)</b> - The journal's title.
+<li><b>strAsset</b><b> (String)</b> - The sprite associated with the journal.
+<li><b>bIsComplete</b><b> (Boolean)</b> - Whether the player has unlocked all of the sub-entries for the journal or not.
+<li><b>nNumCompleted</b><b> (Integer)</b> - The number of sub-entries that the player has unlocked for this journal.
+<li><b>nNumTotal</b><b> (Integer)</b> - The total number of sub-entries for the journal.
+</ul>
+</ul>
+<hr><a name="GetLastUpdatedDatacube"><h3>Function</h3><br><h2>GetLastUpdatedDatacube()</h2>
+<h3>Description</h3>
+<p>Gets the information for the last datacube entry that was updated for the player.</p>
+<h3>Return Value</h3>
+<ul>
+<li><b>Table</b> - Information on the player's most recently updated datacube entry.
+<ul>
+<li><b>nDatacubeId</b><b> (Integer)</b> - The entry's id number.
+<li><b>eDatacubeType</b><b> (Integer)</b> - The type of  entry.  This value corresponds with the DatacubeLib.DatacubeType set of constants.
+<li><b>nWorldZoneId</b><b> (Integer)</b> - The id of the zone that this entry is associated with.
+<li><b>strZoneName</b><b> (String)</b> - The name of the zone that this journal is associated with.
+<li><b>nVolumeId</b><b> (Integer)</b> - The id of the journal that this entry belongs to, if any.
+<li><b>strText</b><b> (String)</b> - The entry's text.
+<li><b>bIsComplete</b><b> (Boolean)</b> - Whether the entry has been unlocked or not.
+<li><b>bHasSound</b><b> (Boolean)</b> - Whether the entry has a sound associated with it or not.
+<li><b>strTitle</b><b> (String)</b> - The entry's title.
+<li><b>nNumCompleted</b><b> (Integer)</b> - The number of unlocks the player has found for this entry.  This variable only applies to Chronicle type entries.
+<li><b>nNumTotal</b><b> (Integer)</b> - The total number of unlocks needed to finish the entry.  This variable only applies to Chronicle type entries.
+<li><b>strAsset</b><b> (String)</b> - The sprite used for the entry when it is completed.  This variable only applies to Chronicle type entries.
+</ul>
+</ul>
+<hr><a name="GetTales"><h3>Function</h3><br><h2>GetTales()</h2>
+<h3>Description</h3>
+<p>Gets information on all the Tales from Beyond the Fringe entries that the player has unlocked at least one part of.</p>
+<h3>Return Value</h3>
+<ul>
+<li><b>Table</b> - Information on each Tales entry that the player has made progress on.
+<ul>
+<li><b>nDatacubeId</b><b> (Integer)</b> - The id number for the entry.
+<li><b>eDatacubeType</b><b> (Integer)</b> - The entry's type.  This should be DatacubeLib.DatacubeType_Chronicle for every entry returned by this function.
+<li><b>nWorldZoneId</b><b> (Integer)</b> - The id of the zone that the entry is associated with.
+<li><b>strZoneName</b><b> (String)</b> - The name of the zone that the entry is associated with.
+<li><b>nVolumeId</b><b> (Integer)</b> - The id of the entry's parent journal entry.  This value will be 0 if it has none.
+<li><b>strText</b><b> (String)</b> - The entry's text.
+<li><b>bIsComplete</b><b> (Boolean)</b> - Whether the player has found all of the unlocks for this Tales entry or not.
+<li><b>bHasSound</b><b> (Boolean)</b> - Whether the entry has sound or not.
+<li><b>nNumCompleted</b><b> (Integer)</b> - The number of unlocks the player has found for this entry.
+<li><b>nNumTotal</b><b> (Integer)</b> - The number of unlocks needed to complete this entry.
+<li><b>strAsset</b><b> (String)</b> - The sprite displayed when the entry is completed.
+</ul>
+</ul>
+<hr><a name="GetTalesForZone"><h3>Function</h3><br><h2>GetTalesForZone(idZone)</h2>
+<h3>Description</h3>
+<p>Gets a list of all of the Tales entries that the player has made progress on within a specific zone.</p>
+<h3>Params</h3>
+<ul>
+<li><b>idZone</b><b> (Integer)</b> - The function will get a list of Tales that are associated with the zone with this id.
+</ul>
+<h3>Return Value</h3>
+<ul>
+<li><b>Array of Table</b> - Information on each of the Tales entries that the player has unlocked at least one entry for in the specified zone.
+<ul>
+<li><b>nDatacubeId</b><b> (Integer)</b> - The entry's id number.
+<li><b>eDatacubeType</b><b> (Integer)</b> - The entry's type.  This value should always be DatacubeLib.DatacubeType_Chronicle for this entry.
+<li><b>nWorldZoneId</b><b> (Integer)</b> - The id of the zone that is associated with this entry.
+<li><b>strZoneName</b><b> (String)</b> - The name of the zone that the entry is associated with.
+<li><b>nVolumeId</b><b> (Integer)</b> - The id of the journal entry that serves as this entry's parent.  This value should always be 0 for this entry.
+<li><b>strText</b><b> (String)</b> - The entry's text.
+<li><b>bIsComplete</b><b> (Boolean)</b> - Whether the player has interacted with all of the unlocks for this entry or not.
+<li><b>bHasSound</b><b> (Boolean)</b> - Whether the entry has a sound associated with it or not.
+<li><b>strTitle</b><b> (String)</b> - The entry's title.
+<li><b>nNumCompleted</b><b> (Integer)</b> - The number of this entry's unlocks that the player has activated.
+<li><b>nNumTotal</b><b> (Integer)</b> - The number of unlocks needed to complete this Tales entry.
+<li><b>strAsset</b><b> (String)</b> - The sprite that should be shown when this entry is complete.
+</ul>
+</ul>
+<hr><a name="GetTotalCollectionSize"><h3>Function</h3><br><h2>GetTotalCollectionSize(eDatacubeType)</h2>
+<h3>Description</h3>
+<p>Gets the total number of entries that the player has made progress on of a specific type.</p>
+<h3>Params</h3>
+<ul>
+<li><b>eDatacubeType</b><b> (Integer)</b> - The function will return the number of entries that the player knows about of this type. This value corresponds with the DatacubeLib.DatacubeType set of constants.
+</ul>
+<h3>Return Value</h3>
+<ul>
+<li><b>Integer</b> - The number of entries of a specific type that the player has made progress on.
+</ul>
+<hr><a name="GetTotalDatacubesForZone"><h3>Function</h3><br><h2>GetTotalDatacubesForZone(idZone)</h2>
+<h3>Description</h3>
+<p>Gets the number of entries within a zone that have the Datacube type.</p>
+<h3>Params</h3>
+<ul>
+<li><b>idZone</b><b> (Integer)</b> - The function will get the number of Datacube entries in the zone with this id.
+</ul>
+<h3>Return Value</h3>
+<ul>
+<li><b>Integer</b> - The number of datacube entries in the specified zone.
+</ul>
+<hr><a name="GetTotalJournalsForZone"><h3>Function</h3><br><h2>GetTotalJournalsForZone(idZone)</h2>
+<h3>Description</h3>
+<p>Gets the number of journal entries within a specific zone.</p>
+<h3>Params</h3>
+<ul>
+<li><b>idZone</b><b> (Integer)</b> - The function will get the number of journal entries in the zone with this id.
+</ul>
+<h3>Return Value</h3>
+<ul>
+<li><b>Integer</b> - The number of journal entries found in the specified zone.
+</ul>
+<hr><a name="GetTotalTalesForZone"><h3>Function</h3><br><h2>GetTotalTalesForZone(idZone)</h2>
+<h3>Description</h3>
+<p>Gets the number of Tales entries in a specific zone.</p>
+<h3>Params</h3>
+<ul>
+<li><b>idZone</b><b> (Integer)</b> - The function will get the number of Tales in the zone with this id.
+</ul>
+<h3>Return Value</h3>
+<ul>
+<li><b>Integer</b> - The number of Tales entries in the specified zone.
+</ul>
+<hr><a name="GetTotalVolumeCount"><h3>Function</h3><br><h2>GetTotalVolumeCount(idZone)</h2>
+<h3>Description</h3>
+<p>Gets the number of journal entries within a specific zone.</p>
+<h3>Params</h3>
+<ul>
+<li><b>idZone</b><b> (Integer)</b> - The id of the zone that the function will look through.
+</ul>
+<h3>Return Value</h3>
+<ul>
+<li><b>Integer</b> - The number of journal entries within the specified zone.
+</ul>
+<h3>Usage/Example</h3>
+<pre>This will only count top level journal entries, not sub-entries for each journal.</pre>
+<hr><a name="GetVolumes"><h3>Function</h3><br><h2>GetVolumes()</h2>
+<h3>Description</h3>
+<p>Gets a info on each journal entry that the player has unlocked at least one entry for.</p>
+<h3>Return Value</h3>
+<ul>
+<li><b>Array of Table</b> - Information on each journal entry that the player has unlocked at least one entry for.
+<ul>
+<li><b>nDatacubeId</b><b> (Integer)</b> - The journal's id number.
+<li><b>strTitle</b><b> (String)</b> - The journal's title.
+<li><b>strAsset</b><b> (String)</b> - The name of the asset associated with this journal entry.
+<li><b>bIsComplete</b><b> (Boolean)</b> - Whether the player has unlocked all of the journal's sub-entries or not.
+<li><b>nNumCompleted</b><b> (Integer)</b> - The number of the journal's sub-entries that the player has unlocked.
+<li><b>nNumTotal</b><b> (Integer)</b> - The number of sub-entries that the player needs to unlock to complete the journal.
+</ul>
+</ul>
+<hr><a name="GetZonesWithDatacubes"><h3>Function</h3><br><h2>GetZonesWithDatacubes()</h2>
+<h3>Description</h3>
+<p>Gets a list of each zone that has a Datacube entry.</p>
+<h3>Return Value</h3>
+<ul>
+<li><b>Array of Table</b> - The id number and name of each zone that has a Datacube entry associated with it.
+<ul>
+<li><b>nZoneId</b><b> (Integer)</b> - The zone's id number.
+<li><b>strName</b><b> (String)</b> - The zone's name.
+</ul>
+</ul>
+<hr><a name="GetZonesWithJournals"><h3>Function</h3><br><h2>GetZonesWithJournals()</h2>
+<h3>Description</h3>
+<p>Gets a list of each zone that has a journal entry associated with it.</p>
+<h3>Return Value</h3>
+<ul>
+<li><b>Array of Table</b> - The id number and name of each zone that has a journal entry associated with it.
+<ul>
+<li><b>nZoneId</b><b> (Integer)</b> - The zone's id number.
+<li><b>strName</b><b> (String)</b> - The zone's name.
+</ul>
+</ul>
+<hr><a name="GetZonesWithTales"><h3>Function</h3><br><h2>GetZonesWithTales()</h2>
+<h3>Description</h3>
+<p>Gets a list of each zone with a Tales entry associated with it.</p>
+<h3>Return Value</h3>
+<ul>
+<li><b>Table</b> - A list with the id and name of each zone that has a Tales entry associated with it.
+<ul>
+<li><b>nZoneId</b><b> (Integer)</b> - The zone's id.
+<li><b>strName</b><b> (String)</b> - The zone's name.
+</ul>
+</ul>
+<hr><a name="IsDatacubeComplete"><h3>Function</h3><br><h2>IsDatacubeComplete(idDatacube)</h2>
+<h3>Description</h3>
+<p>Determines if an entry is complete.  This generally means whether the player has found all of the unlocks / sub-entries for the specified entry.</p>
+<h3>Params</h3>
+<ul>
+<li><b>idDatacube</b><b> (Integer)</b> - The id for the entry that the function will check.
+</ul>
+<h3>Return Value</h3>
+<ul>
+<li><b>Boolean</b> - Whether the player has interacted with each of the entry's unlocks / sub-entries or not.
+</ul>
+<hr><a name="PlayDatacubeSound"><h3>Function</h3><br><h2>PlayDatacubeSound(idDatacube)</h2>
+<h3>Description</h3>
+<p>Plays the sound associated with the entry.</p>
+<h3>Params</h3>
+<ul>
+<li><b>idDatacube</b><b> (Integer)</b> - The function will cause the entry with this id to play its sound.
+</ul>
+<hr><a name="StopDatacubeSound"><h3>Function</h3><br><h2>StopDatacubeSound(idDatacube)</h2>
+<h3>Description</h3>
+<p>Stops the sound associated with a specific entry.</p>
+<h3>Params</h3>
+<ul>
+<li><b>idDatacube</b><b> (Integer)</b> - The function will stop the sound associated with the datacube with this id.
+</ul>
+	</body>
+</html>

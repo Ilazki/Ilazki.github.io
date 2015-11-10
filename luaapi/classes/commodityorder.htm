@@ -1,0 +1,184 @@
+<html>
+	<head>
+	<link rel="stylesheet" type="text/css" href="/style.css">
+	</head>
+	<body><script language="javascript">
+		if ((window.name != "content") && (navigator.userAgent.indexOf("Opera") <= -1) )
+		document.write("<center><a href='../../index.html?page=LuaAPI/Classes/CommodityOrder.htm'>show framing</a></center>")
+		</script>
+	<h1>
+		CommodityOrder	</h1>
+<h3>Prefix: order</h3>
+<h3>Description</h3>
+<p>A buy or sell order on the commodities exchange.</p>
+<a name=">Functions"/>
+<hr><a name="is"><h3>Function</h3><br><h2>is(oVariable)</h2>
+<h3>Description</h3>
+<p>Determines if a variable is a CommodityOrder or not.</p>
+<h3>Params</h3>
+<ul>
+<li><b>oVariable</b><b> (Variable)</b> - The variable that the function will check.
+</ul>
+<h3>Return Value</h3>
+<ul>
+<li><b>Boolean</b> - Whether the variable is a CommodityOrder or not.
+</ul>
+<hr><a name="newBuyOrder"><h3>Function</h3><br><h2>newBuyOrder(itemTarget)</h2>
+<h3>Description</h3>
+<p>Creates a new Buy order for the given item.</p>
+<h3>Params</h3>
+<ul>
+<li><b>itemTarget</b><b> (<a href="../classes/item.htm">Item</a>)</b> - The item that the buy order will try to purchase.
+</ul>
+<h3>Return Value</h3>
+<ul>
+<li><b><a href="../classes/commodityorder.htm">CommodityOrder</a></b> - The new buy order that was created.
+</ul>
+<h3>Remarks</h3>
+<p>The new order will have a count, and price per unit of 1 after it is created.</p>
+<hr><a name="newSellOrder"><h3>Function</h3><br><h2>newSellOrder(itemSelling)</h2>
+<h3>Description</h3>
+<p>Creates a new Sell order for the given item.</p>
+<h3>Params</h3>
+<ul>
+<li><b>itemSelling</b><b> (<a href="../classes/item.htm">Item</a>)</b> - The item that the sell order will attempt to sell.
+</ul>
+<h3>Return Value</h3>
+<ul>
+<li><b><a href="../classes/commodityorder.htm">CommodityOrder</a></b> - A new Sell order for the given item.
+</ul>
+<h3>Remarks</h3>
+<p>The new order will have a count, and price per unit of 1 after it is created.</p>
+<a name=">Methods"/>
+<hr><a name="__eq"><h3>Method</h3><br><h2>__eq(orderCompare) (Deprecated)</h2>
+<h3>Description</h3>
+<p>Checks whether the given CommodityOrder is equal to the one that called this function.</p>
+<h3>Params</h3>
+<ul>
+<li><b>orderCompare</b><b> (<a href="../classes/commodityorder.htm">CommodityOrder</a>)</b> - The CommodityOrder that will be compared to the one that called this function.
+</ul>
+<h3>Return Value</h3>
+<ul>
+<li><b>Boolean</b> - Whether the two CommodityOrders are the same.
+</ul>
+<hr><a name="__gc"><h3>Method</h3><br><h2>__gc() (Deprecated)</h2>
+<h3>Description</h3>
+<p>The garbage collection function for the CommodityOrder.  This should never have to be called from Lua.</p>
+<hr><a name="Cancel"><h3>Method</h3><br><h2>Cancel()</h2>
+<h3>Description</h3>
+<p>Cancels an active CommodityOrder</p>
+<h3>Remarks</h3>
+<p>Any items or money remaining in the order will be mailed to the player after it is canceled.</p>
+<hr><a name="CanPost"><h3>Method</h3><br><h2>CanPost()</h2>
+<h3>Description</h3>
+<p>Determines if the CommodityOrder can be posted.</p>
+<h3>Return Value</h3>
+<ul>
+<li><b>Boolean</b> - Whether the CommodityOrder can be posted or not.
+</ul>
+<h3>Remarks</h3>
+<p>A CommodityOrder cannot be posted if it is already posted, if the order is for less than 1 item, if the price per unit is less than 1 copper, or if the player is already at their maximum number of commodity orders.</p>
+<hr><a name="GetCount"><h3>Method</h3><br><h2>GetCount()</h2>
+<h3>Description</h3>
+<p>Gets the number of items left in the CommodityOrder</p>
+<h3>Return Value</h3>
+<ul>
+<li><b>Integer</b> - The number of items that the CommodityOrder will try to buy or sell before it ends.
+</ul>
+<hr><a name="GetExpirationTime"><h3>Method</h3><br><h2>GetExpirationTime()</h2>
+<h3>Description</h3>
+<p>Gets the number of seconds between Jan 1st, 1970 and when the commodity order will expire.</p>
+<h3>Return Value</h3>
+<ul>
+<li><b>Integer</b> - The number of seconds between Jan 1st, 1970 and when the commodity order will expire.
+</ul>
+<hr><a name="GetItem"><h3>Method</h3><br><h2>GetItem()</h2>
+<h3>Description</h3>
+<p>Gets the item that the CommodityOrder is trying to buy or sell.</p>
+<h3>Return Value</h3>
+<ul>
+<li><b><a href="../classes/item.htm">Item</a></b> - The item that the CommodityOrder is looking for or selling.
+</ul>
+<hr><a name="GetListTime"><h3>Method</h3><br><h2>GetListTime()</h2>
+<h3>Description</h3>
+<p>Gets the amount of time between Jan 1st, 1970 and when the Commodity Order was posted, in seconds.</p>
+<h3>Return Value</h3>
+<ul>
+<li><b><a href="../classes/time.htm">Time</a></b> - The number of seconds between Jan 1st, 1970 and when the Commodity Order was posted
+</ul>
+<hr><a name="GetPricePerUnit"><h3>Method</h3><br><h2>GetPricePerUnit()</h2>
+<h3>Description</h3>
+<p>Gets the amount of money that the CommodityOrder is buying or selling its associated item for.</p>
+<h3>Return Value</h3>
+<ul>
+<li><b><a href="../classes/money.htm">Money</a></b> - How much the Commodity Order is trying to buy or sell its item for.
+</ul>
+<hr><a name="GetReservePricePerUnit"><h3>Method</h3><br><h2>GetReservePricePerUnit() (Deprecated)</h2>
+<hr><a name="GetTax"><h3>Method</h3><br><h2>GetTax()</h2>
+<h3>Description</h3>
+<p>Gets the amount of money that the player has to pay to post a Sell order.</p>
+<h3>Return Value</h3>
+<ul>
+<li><b><a href="../classes/money.htm">Money</a></b> - The amount of money that is required to post the sell order.
+</ul>
+<hr><a name="IsBuy"><h3>Method</h3><br><h2>IsBuy()</h2>
+<h3>Description</h3>
+<p>Determines if a CommodityOrder is a buy order or sell order.</p>
+<h3>Return Value</h3>
+<ul>
+<li><b>Boolean</b> - If this is true, then the order is a buy order.  Otherwise, it's a sell order.
+</ul>
+<hr><a name="IsForceImmediate"><h3>Method</h3><br><h2>IsForceImmediate()</h2>
+<h3>Description</h3>
+<p>Determines if the buy or sell order is set up to find the CommodityOrder of the opposite type with the best price for the same item so it completes immediately.</p>
+<h3>Return Value</h3>
+<ul>
+<li><b>Boolean</b> - Whether the CommodityOrder is trying to buy or sell the item immediately.
+</ul>
+<hr><a name="IsPosted"><h3>Method</h3><br><h2>IsPosted()</h2>
+<h3>Description</h3>
+<p>Determines if the CommodityOrder is already posted or not.</p>
+<h3>Return Value</h3>
+<ul>
+<li><b>Boolean</b> - Whether the CommodityOrder was already posted or not.
+</ul>
+<hr><a name="Post"><h3>Method</h3><br><h2>Post() (Deprecated)</h2>
+<h3>Description</h3>
+<p>Attempts to post the CommodityOrder on the Commodities Market.</p>
+<h3>Remarks</h3>
+<p>The PostCommodityOrderResult event will fire in response to this function.</p>
+<hr><a name="SetCount"><h3>Method</h3><br><h2>SetCount(nNewCount)</h2>
+<h3>Description</h3>
+<p>Sets the number of items that the CommodityOrder is looking to buy or sell before it is completed.</p>
+<h3>Params</h3>
+<ul>
+<li><b>nNewCount</b><b> (Integer)</b> - The value that the function will try to change the CommodityOrder's count to.
+</ul>
+<h3>Return Value</h3>
+<ul>
+<li><b>Boolean</b> - Whether the count was successfully updated or not.
+</ul>
+<hr><a name="SetForceImmediate"><h3>Method</h3><br><h2>SetForceImmediate(bSellNow)</h2>
+<h3>Description</h3>
+<p>Changes the CommodityOrder so it attempts to buy or sell its items for the best price when it is posted.</p>
+<h3>Params</h3>
+<ul>
+<li><b>bSellNow</b><b> (Boolean)</b> - The value that the CommodityOrder's "force immediate" flag will be changed to.
+</ul>
+<h3>Return Value</h3>
+<ul>
+<li><b>Boolean</b> - Whether the CommodityOrder's "force immediate" flag was successfully set or not.
+</ul>
+<hr><a name="SetPrices"><h3>Method</h3><br><h2>SetPrices(monPrice)</h2>
+<h3>Description</h3>
+<p>Sets the price that the CommodityOrder will try to buy or sell its items for.</p>
+<h3>Params</h3>
+<ul>
+<li><b>monPrice</b><b> (<a href="../classes/money.htm">Money</a>)</b> - The amount that the commodity order will attempt to buy or sell its items for per unit.
+</ul>
+<h3>Return Value</h3>
+<ul>
+<li><b>Boolean</b> - Whether the price was successfully set or not.
+</ul>
+	</body>
+</html>

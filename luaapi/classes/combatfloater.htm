@@ -1,0 +1,238 @@
+<html>
+	<head>
+	<link rel="stylesheet" type="text/css" href="/style.css">
+	</head>
+	<body><script language="javascript">
+		if ((window.name != "content") && (navigator.userAgent.indexOf("Opera") <= -1) )
+		document.write("<center><a href='../../index.html?page=LuaAPI/Classes/CombatFloater.htm'>show framing</a></center>")
+		</script>
+	<h1>
+		CombatFloater	</h1>
+<a name="Enums"/><hr><a name="CodeEnumCCStateApplyRulesResult"><h3>Enum</h3><br><h2>CodeEnumCCStateApplyRulesResult</h2>
+<h3>Description</h3>
+<p>The possible results when something attempts to apply a Crowd Control state to a unit.</p>
+<ul>
+<li><b>Ok</b>
+<li><b>InvalidCCState</b>
+<li><b>NoTargetSpecified</b>
+<li><b>Target_Immune</b>
+<li><b>Target_InfiniteInterruptArmor</b>
+<li><b>Stacking_DoesNotStack</b>
+<li><b>Stacking_ShorterDuration</b>
+<li><b>Target_InterruptArmorReduced</b>
+<li><b>Target_InterruptArmorBlocked</b>
+<li><b>DiminishingReturns_TriggerCap</b>
+</ul>
+<hr><a name="CodeEnumCombatMomentum"><h3>Enum</h3><br><h2>CodeEnumCombatMomentum</h2>
+<h3>Description</h3>
+<p>The different types of Combat Momentum bonuses that a player can earn.</p>
+<ul>
+<li><b>Impulse</b>
+<li><b>KillingPerformance</b>
+<li><b>KillChain</b>
+<li><b>Evade</b>
+<li><b>Interrupt</b>
+<li><b>CCBreak</b>
+</ul>
+<hr><a name="CodeEnumExpReason"><h3>Enum</h3><br><h2>CodeEnumExpReason</h2>
+<h3>Description</h3>
+<p>The possible sources that a player can gain experience from.</p>
+<ul>
+<li><b>Invalid</b>
+<li><b>Load</b>
+<li><b>Cheat</b>
+<li><b>KillCreature</b>
+<li><b>Quest</b>
+<li><b>ClusterBonus</b>
+<li><b>Spell</b>
+<li><b>Exploration</b>
+<li><b>QuestEpisodeCompletion</b>
+<li><b>PathMission</b>
+<li><b>PathEpisode</b>
+<li><b>KillPerformance</b>
+<li><b>MultiKill</b>
+<li><b>KillingSpree</b>
+<li><b>TelegraphInterrupt</b>
+<li><b>TelegraphEvade</b>
+<li><b>Momentum</b>
+<li><b>Rested</b>
+<li><b>PublicEvent</b>
+<li><b>DailyQuest</b>
+<li><b>PeriodicQuest</b>
+</ul>
+<hr><a name="CodeEnumFloaterCollisionMode"><h3>Enum</h3><br><h2>CodeEnumFloaterCollisionMode</h2>
+<h3>Description</h3>
+<p>The collision modes that floating combat text can be set to.</p>
+<ul>
+<li><b>IgnoreCollision</b>
+<li><b>Horizontal</b>
+<li><b>Vertical</b>
+</ul>
+<hr><a name="CodeEnumFloaterEffect"><h3>Enum</h3><br><h2>CodeEnumFloaterEffect</h2>
+<h3>Description</h3>
+<p>A list of particle effects that can be added to floating combat text</p>
+<ul>
+<li><b>Flames</b>
+<li><b>BluishWhite</b>
+<li><b>Sparks</b>
+<li><b>Spiral</b>
+<li><b>Cloud</b>
+<li><b>Splotches</b>
+<li><b>SlashBlood</b>
+<li><b>Impact</b>
+<li><b>SplatBlood</b>
+<li><b>Helix</b>
+<li><b>ShadowFire</b>
+<li><b>Cold</b>
+<li><b>Stars</b>
+</ul>
+<hr><a name="CodeEnumFloaterLocation"><h3>Enum</h3><br><h2>CodeEnumFloaterLocation</h2>
+<h3>Description</h3>
+<p>The location on a unit that the floating text would spawn from.</p>
+<ul>
+<li><b>Top</b>
+<li><b>Head</b>
+<li><b>Chest</b>
+<li><b>Back</b>
+<li><b>Bottom</b>
+</ul>
+<a name="Events"/><hr><a name="DamageOrHealingDone"><h3>Event</h3><br><h2>DamageOrHealingDone</h2>
+<h3>Description</h3>
+<p>Fires whenever damage or healing is done to a unit within the player's area of interest.</p>
+<h3>Params</h3>
+<ul>
+<li><b>unitCaster</b><b> (<a href="../classes/unit.htm">Unit</a>)</b> - The unit that used the ability that caused the damage or healing.
+<li><b>unitTarget</b><b> (<a href="../classes/unit.htm">Unit</a>)</b> - The unit that received the damage or healing.
+<li><b>eDamageType</b><b> (GameLib.CodeEnumDamageType)</b> - The type of damage that was done to the target.
+<li><b>nHealthChange</b><b> (Integer)</b> - The amount that the target's health was changed by.
+<li><b>nShieldAbsorbAmount</b><b> (Integer)</b> - The amount of damage that was absorbed by the unit's shields.
+<li><b>nAbsorbedAmount</b><b> (Integer)</b> - The amount of damage that was absorbed by the unit's absorption shield.
+<li><b>bIsCritical</b><b> (Boolean)</b> - Whether the damage or healing effect was a critical hit.
+<li><b>strSpellName</b><b> (String)</b> - The name of the ability that caused the damage or healing.
+</ul>
+<a name=">Functions"/>
+<hr><a name="AddDigitSpriteSet"><h3>Function</h3><br><h2>AddDigitSpriteSet(strSpriteSetName)</h2>
+<h3>Description</h3>
+<p>Registers a sprite set that contains digits with the combat floater system.</p>
+<h3>Params</h3>
+<ul>
+<li><b>strSpriteSetName</b><b> (String)</b> - The path and file name of the sprite set that was registered with the system.
+</ul>
+<h3>Return Value</h3>
+<ul>
+<li><b>Integer</b> - The index that is assigned to the sprite set that was added to the system.
+</ul>
+<hr><a name="AddTextBGSprite"><h3>Function</h3><br><h2>AddTextBGSprite(strSpriteName)</h2>
+<h3>Description</h3>
+<p>Registers a background sprite with the float text system.</p>
+<h3>Params</h3>
+<ul>
+<li><b>strSpriteName</b><b> (String)</b> - The path and file name of the sprite that should be registered with the system.
+</ul>
+<h3>Return Value</h3>
+<ul>
+<li><b>Integer</b> - The index that was assigned to the sprite after it was registered.
+</ul>
+<hr><a name="HideTextFloater"><h3>Function</h3><br><h2>HideTextFloater()</h2>
+<h3>Description</h3>
+<p>Hides the CombatFloater from the screen.</p>
+<hr><a name="SetMaxFloaterCount"><h3>Function</h3><br><h2>SetMaxFloaterCount(nMaxFloaterCount)</h2>
+<h3>Description</h3>
+<p>Sets the maximum number of floaters that can be on the screen at any one time.</p>
+<h3>Params</h3>
+<ul>
+<li><b>nMaxFloaterCount</b><b> (Integer)</b> - The new maximum number of floaters.
+</ul>
+<hr><a name="SetMaxFloaterPerUnitCount"><h3>Function</h3><br><h2>SetMaxFloaterPerUnitCount(nNewMaxFloaterCount)</h2>
+<h3>Description</h3>
+<p>Sets the maximum number of floating text messages that will be shown for any single unit at the same time.</p>
+<h3>Params</h3>
+<ul>
+<li><b>nNewMaxFloaterCount</b><b> (Integer)</b> - The new maximum number of floaters per unit.
+</ul>
+<hr><a name="ShowParticleEffect"><h3>Function</h3><br><h2>ShowParticleEffect(unitSource, tSettings)</h2>
+<h3>Description</h3>
+<p>Displays a particle effect.</p>
+<h3>Params</h3>
+<ul>
+<li><b>unitSource</b><b> (<a href="../classes/unit.htm">Unit</a>)</b> - The unit that the floater is attached to.
+<li><b>tSettings</b><b> (Table)</b> - A table that contains the various options that should be set for the particle effect.
+<ul>
+<li><b>eEffect</b><b> (CombatFloater.CodeEnumFloaterEffect)</b> - The type of particle effect that should be shown.
+<li><b>nDuration</b><b> (Integer)</b> - How long the particle effect should last for, in seconds.
+<li><b>fDuration</b><b> (Float)</b> - How long the particle effect should last, in seconds.
+<li><b>eLocation</b><b> (CombatFloater.CodeEnumFloaterLocation)</b> - The location on the unit that the effect should start from.
+</ul>
+</ul>
+<hr><a name="ShowTextFloater"><h3>Function</h3><br><h2>ShowTextFloater(unitSource, nValue, strValue, tOptions)</h2>
+<h3>Description</h3>
+<p>Displays a text floater coming from the specified unit.</p>
+<h3>Params</h3>
+<ul>
+<li><b>unitSource</b><b> (<a href="../classes/unit.htm">Unit</a>)</b> - The unit that the floater will be tied to.
+<li><b>nValue</b><b> (Integer)</b> - The value that should be shown on the floater. - The value that should be shown on the floater.
+<li><b>strValue</b><b> (String)</b> - The text that should be shown on the floater.
+<li><b>tOptions</b><b> (Table)</b> - A table that contains a laundry list of ways the text floater can be manipulated.
+<ul>
+<li><b>nColor</b><b> (Integer)</b> - A hex value that contains the RGB color values that the floater should use.
+<li><b>arFrames</b><b> (Table)</b> - A list of each frame of an animation that the floater will do.
+<ul>
+<li><b>fTime</b><b> (Float)</b> - The amount of time that the frame should last, in seconds.
+<li><b>fScale</b><b> (Float)</b> - The amount that the floater's text will be scaled by for this frame.
+<li><b>nColor</b><b> (Integer)</b> - A hex value that contains the RGB values that the text will use this frame.
+<li><b>fAlpha</b><b> (Float)</b> - The floater's alpha value this frame.
+<li><b>fRotation</b><b> (Float)</b> - The amount that the floater is rotated this frame, in degrees.
+<li><b>fVelocityDirection</b><b> (Float)</b> - The direction the text will move this frame, in degrees.
+<li><b>fVelocityDirectionRange</b><b> (Float)</b> - The amount of variation allowed in the velocity's direction, in degrees.
+<li><b>fVelocityMagnitude</b><b> (Float)</b> - The speed that the float text is moving at during this frame, in pixels.
+<li><b>fVelocityMagnitudeRange</b><b> (Float)</b> - The amount of variation in the velocity's magnitude that can be used during this frame, in pixels.
+<li><b>fAccelerationDirection</b><b> (Float)</b> - The direction that the float text will accelerate in during this frame, in degrees.
+<li><b>fAccelerationDirectionRange</b><b> (Float)</b> - The amount of variation in the float text's acceleration direction, in degrees.
+<li><b>fAccelerationMagnitude</b><b> (Float)</b> - The amount that the floater will accelerate by this frame, in pixels per second.
+<li><b>fAccelerationMagnitudeRange</b><b> (Float)</b> - The variation in the acceleration's magnitude that is possible this frame, in pixels per second.
+</ul>
+<li><b>nDuration</b><b> (Integer)</b> - How long the floater should stay on screen, in seconds.  This is only needed if arFrames was not used.
+<li><b>fDuration</b><b> (Float)</b> - How long the floater should stay on screen, in seconds.  This is only needed if arFrames was not used.
+<li><b>nFadeInDuration</b><b> (Integer)</b> - How long the floater should take to fade in, in seconds.  This is only needed if arFrames was not used.
+<li><b>fFadeInDuration</b><b> (Float)</b> - How long the floater should take to fade in, in seconds.  This is only needed if arFrames was not used.
+<li><b>nFadeOutDuration</b><b> (Integer)</b> - How long the floater should take to fade out, in seconds.  This is only needed if arFrames was not used.
+<li><b>fFadeOutDuration</b><b> (Float)</b> - How long the floater should take to fade out, in seconds.  This is only needed if arFrames was not used.
+<li><b>nEndHoldDuration</b><b> (Integer)</b> - How long the floater will hold its position before despawning, in seconds.  This is only needed if arFrames was not used.
+<li><b>fEndHoldDuration</b><b> (Float)</b> - How long the floater will hold its position before despawning, in seconds.  This is only needed if arFrames was not used.
+<li><b>strFontFace</b><b> (String)</b> - The name of the font face that the floater should use.
+<li><b>fSpinAroundRadius</b><b> (Float)</b> - How many degrees the text will spin every second.
+<li><b>fVibrate</b><b> (Float)</b> - The range that the floater will vibrate between in the X and Y directions.
+<li><b>eCollisionMode</b><b> (CombatFloater.CodeEnumFloaterCollisionMode)</b> - The type of collision that the floater will use.  This prevents collistion with other floaters.
+<li><b>fExpandCollisionBoxWidth</b><b> (Float)</b> - The amount that is added to the floater's width when calculating collisions, in pixels.
+<li><b>fExpandCollisionBoxHeight</b><b> (Float)</b> - The amount that is added to the floater's height when calculating collisions, in pixels.
+<li><b>eLocation</b><b> (CombatFloater.CodeEnumFloaterLocation)</b> - The location on the unit that the floater will spawn from.
+<li><b>fOffsetDirection</b><b> (Float)</b> - The direction that the floater will be offset from its spawn location, in degrees.
+<li><b>fOffset</b><b> (Float)</b> - The amount that the floater will be offset from its spawn location, in pixels.
+<li><b>iUseDigitSpriteSet</b><b> (Integer)</b> - The id number of the sprite set of digits that the text floater should use.
+<li><b>nDigitSpriteSpacing</b><b> (Integer)</b> - The amount of space between each sprite from the sprite set.
+<li><b>iUseBGSprite</b><b> (Integer)</b> - The id of the BG Sprite that the float text should use.
+<li><b>nBGSpriteMargin</b><b> (Integer)</b> - The margin between the edges of the floater and the BG Sprite, in pixels.
+<li><b>nBGSpriteColor</b><b> (Integer)</b> - A hex value that contains the RGB values that will be applied to the BGSprite.
+<li><b>fBGSpriteAlpha</b><b> (Float)</b> - The alpha that is applied to the floater's BGSprite.
+<li><b>bUseScreenPos</b><b> (Boolean)</b> - Whether the floater should use screen position instead of a location on a unit to determine its position.
+<li><b>bShowOnTop</b><b> (Boolean)</b> - Whether the floater will draw over the top of other combat floaters and windows.
+<li><b>nDelay</b><b> (Integer)</b> - The delay between the floater's start time and when it actually spawns.
+<li><b>bReposition</b><b> (Boolean)</b> - Whether the floater can be moved or not.
+</ul>
+</ul>
+<h3>Usage/Example</h3>
+<pre>This</pre>
+<hr><a name="TestTextFloater"><h3>Function</h3><br><h2>TestTextFloater(eDamageType, nHealthChange, nShieldAbsorbAmount, bCritical)</h2>
+<h3>Description</h3>
+<p>Passes the information given to the function back to the game in the form of a DamageOrHealingDone event.</p>
+<h3>Params</h3>
+<ul>
+<li><b>eDamageType</b><b> (GameLib.CodeEnumDamageType)</b> - The type of damage that should be sent with the DamageOrHealingDone event.
+<li><b>nHealthChange</b><b> (Integer)</b> - The amount that the player's health changed by (according to the test floater).
+<li><b>nShieldAbsorbAmount</b><b> (Integer)</b> - The amount of damage that the unit's shield absorbed (according to the floater)
+<li><b>bCritical</b><b> (Boolean)</b> - Whether the test floater should show a critical hit or not.
+</ul>
+<h3>Remarks</h3>
+<p>This function is primarily used to test out new floaters.</p>
+	</body>
+</html>

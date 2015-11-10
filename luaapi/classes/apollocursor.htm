@@ -1,0 +1,120 @@
+<html>
+	<head>
+	<link rel="stylesheet" type="text/css" href="/style.css">
+	</head>
+	<body><script language="javascript">
+		if ((window.name != "content") && (navigator.userAgent.indexOf("Opera") <= -1) )
+		document.write("<center><a href='../../index.html?page=LuaAPI/Classes/ApolloCursor.htm'>show framing</a></center>")
+		</script>
+	<h1>
+		ApolloCursor	</h1>
+<h3>Prefix: ac</h3>
+<h3>Description</h3>
+<p>ApolloCursors are the sprites that are used on the cursor in different situations.</p>
+<a name=">Functions"/>
+<hr><a name="GetCursor"><h3>Function</h3><br><h2>GetCursor(strCursorName)</h2>
+<h3>Description</h3>
+<p>Returns the ApolloCursor with the specified name.</p>
+<h3>Params</h3>
+<ul>
+<li><b>strCursorName</b><b> (String)</b> - The name of the cursor that should be returned.
+</ul>
+<h3>Return Value</h3>
+<ul>
+<li><b><a href="../classes/apollocursor.htm">ApolloCursor</a></b> - The cursor that was requested.  If no cursor was found, this returns nil.
+</ul>
+<h3>Usage/Example</h3>
+<pre>ApolloCursors that are returned from this function can be passed into Apollo.SetCursor() to change the window cursor.
+
+function Example:ForceChangeCursor()
+    local unitHover = GetMouseOverUnit()
+    local unitPlayer = GameLib.GetPlayerUnit()
+    local acForcedCursor = nil
+    if unitPlayer and unitHover then
+        local eDisposition = unitPlayer:GetDispositionTo(unitHover)
+        if unitPlayer:GetClassId() == GameLib.CodeEnumClass.Warrior and eDisposition == Unit.CodeEnumDisposition.Hostile or eDisposition == Unit.CodeEnumDisposition.Neutral then
+            acForcedCursor = ApolloCursor.GetCursor(AttackWarrior)
+        else
+            acForcedCursor = ApolloCursor.GetCursor(Attack)
+        end
+    end
+    
+    if acForcedCursor then
+        Apollo.SetCursor(acForcedCursor)
+    end
+end</pre>
+<h3>Remarks</h3>
+<p>The values that can be passed in for this are:<br>
+Attack<br>
+AttackWarrior<br>
+AttackSpellslinger<br>
+Attack ESPer (this is not a typo)<br>
+AttackMedic<br>
+Default<br>
+DefaultGame<br>
+DefaultResizeNS<br>
+DefaultResizeEW<br>
+DefaultResizeNESW<br>
+DefaultResizeNWSE<br>
+DragDropIgnore<br>
+DragDropValid<br>
+DragDropInvalid<br>
+DragDropTrash<br>
+DragDropTrade<br>
+Feather<br>
+FeatherInactive<br>
+Gossip<br>
+GossipInactive<br>
+Hammer<br>
+HammerInactive<br>
+Instance<br>
+InstanceInactive<br>
+Interact<br>
+InteractInactive<br>
+Link<br>
+Loot<br>
+LootInactive<br>
+NewQuest<br>
+NewQuestInactive<br>
+PathExplorer<br>
+PathExplorerInactive<br>
+PathScientist<br>
+PathScientistInactive<br>
+PathSettler<br>
+PathSettlerInactive<br>
+PathSoldier<br>
+PathSoldierInactive<br>
+PendingSpell<br>
+PendingSpellInvalid<br>
+QuestContinue<br>
+QuestContinueInactive<br>
+QuestReward<br>
+QuestRewardInactive<br>
+Recall<br>
+RecallInactive<br>
+Vendor<br>
+VendorInactive</p>
+<hr><a name="is"><h3>Function</h3><br><h2>is(oVariable)</h2>
+<h3>Description</h3>
+<p>Determines if the variable is an ApolloCursor.</p>
+<h3>Params</h3>
+<ul>
+<li><b>oVariable</b><b> (Variable)</b> - The variable that the function will check.
+</ul>
+<h3>Return Value</h3>
+<ul>
+<li><b>Boolean</b> - Whether the variable is an ApolloCursor or not.
+</ul>
+<hr><a name="new"><h3>Function</h3><br><h2>new()</h2>
+<h3>Description</h3>
+<p>Creates a new ApolloCursor with no cursor set.</p>
+<h3>Return Value</h3>
+<ul>
+<li><b><a href="../classes/apollocursor.htm">ApolloCursor</a></b> - A fresh, empty ApolloCursor.
+</ul>
+<a name=">Methods"/>
+<hr><a name="__gc"><h3>Method</h3><br><h2>__gc() (Deprecated)</h2>
+<h3>Description</h3>
+<p>The ApolloCursor's garbage collection function.  This will delete the ApolloCursor and free up the memory used for it.</p>
+	</body>
+</html>

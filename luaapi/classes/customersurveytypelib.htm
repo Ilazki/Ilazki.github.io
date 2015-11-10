@@ -1,0 +1,111 @@
+<html>
+	<head>
+	<link rel="stylesheet" type="text/css" href="/style.css">
+	</head>
+	<body><script language="javascript">
+		if ((window.name != "content") && (navigator.userAgent.indexOf("Opera") <= -1) )
+		document.write("<center><a href='../../index.html?page=LuaAPI/Classes/CustomerSurveyTypeLib.htm'>show framing</a></center>")
+		</script>
+	<h1>
+		CustomerSurveyTypeLib	</h1>
+<h3>Prefix: svy</h3>
+<h3>Description</h3>
+<p>Surveys that are sent out to players during betas and on the PTR.  These are disabled in the live game.</p>
+<a name=">Methods"/>
+<hr><a name="__eq"><h3>Method</h3><br><h2>__eq(svyCompare) (Deprecated)</h2>
+<h3>Description</h3>
+<p>Determines if two CustomerSurveys are the same.</p>
+<h3>Params</h3>
+<ul>
+<li><b>svyCompare</b><b> (<a href="../classes/customersurveytypelib.htm">CustomerSurveyTypeLib</a>)</b> - The CustomerSurvey that is being compared to the one that called this function.
+</ul>
+<h3>Return Value</h3>
+<ul>
+<li><b>Boolean</b> - Whether the two CustomerSurveys are the same or not.
+</ul>
+<hr><a name="Cancel"><h3>Method</h3><br><h2>Cancel()</h2>
+<h3>Description</h3>
+<p>Cancels the current survey.  If the survey stopped the player from leaving the game, they will now be able to leave.</p>
+<hr><a name="GetComment"><h3>Method</h3><br><h2>GetComment()</h2>
+<h3>Description</h3>
+<p>Gets the text from the Comment section of the survey.</p>
+<h3>Return Value</h3>
+<ul>
+<li><b>String</b> - The text that is in the Comment section of the survey.
+</ul>
+<hr><a name="GetQuestions"><h3>Method</h3><br><h2>GetQuestions(nIndex)</h2>
+<h3>Description</h3>
+<p>Gets the text for the questions on the survey.</p>
+<h3>Params</h3>
+<ul>
+<li><b>nIndex</b><b> (Integer)</b> - If this is passed in, the function will return a single string for the question at this index.
+</ul>
+<h3>Return Value</h3>
+<ul>
+<li><b>Array of String</b> - An array of all of the survey's questions.  If nIndex was set, this will be a single string and not an array.
+</ul>
+<hr><a name="GetResults"><h3>Method</h3><br><h2>GetResults(nIndex)</h2>
+<h3>Description</h3>
+<p>Gets a list of the player's responses to the survey.</p>
+<h3>Params</h3>
+<ul>
+<li><b>nIndex</b><b> (Integer)</b> - If this is passed in, the function will only return the result for the question at this index.
+</ul>
+<h3>Return Value</h3>
+<ul>
+<li><b>Array of Integer</b> - An array of integers with the player's responses to the survey.  If nIndex was set, then this will be a single integer instead of an array.
+</ul>
+<hr><a name="GetSurveyType"><h3>Method</h3><br><h2>GetSurveyType()</h2>
+<h3>Description</h3>
+<p>Gets the survey's type.</p>
+<h3>Return Value</h3>
+<ul>
+<li><b>CustomerSurveyLib.CodeEnumSurveyType</b> - The survey's type.
+</ul>
+<h3>Remarks</h3>
+<p>The survey's type corresponds with what triggered it.</p>
+<hr><a name="GetTitle"><h3>Method</h3><br><h2>GetTitle()</h2>
+<h3>Description</h3>
+<p>Gets the survey's title.</p>
+<h3>Return Value</h3>
+<ul>
+<li><b>String</b> - The survey's title.
+</ul>
+<hr><a name="isCustomerSurvey"><h3>Method</h3><br><h2>isCustomerSurvey()</h2>
+<h3>Description</h3>
+<p>Checks if this variable is a CustomerSurvey.</p>
+<h3>Return Value</h3>
+<ul>
+<li><b>Boolean</b> - Whether this is a CustomerSurvey or not.
+</ul>
+<hr><a name="SendResult"><h3>Method</h3><br><h2>SendResult()</h2>
+<h3>Description</h3>
+<p>Attempts to send the CustomerSurvey to Carbine.</p>
+<h3>Return Value</h3>
+<ul>
+<li><b>Boolean</b> - Whether the CustomerSurvey was successfully sent or not.
+</ul>
+<hr><a name="SetComment"><h3>Method</h3><br><h2>SetComment(strComment)</h2>
+<h3>Description</h3>
+<p>Sets the survey's comment section.</p>
+<h3>Params</h3>
+<ul>
+<li><b>strComment</b><b> (String)</b> - The text that will become the survey's comment.
+</ul>
+<hr><a name="SetResults"><h3>Method</h3><br><h2>SetResults(arResponses)</h2>
+<h3>Description</h3>
+<p>Sets a result for each question in the survey.</p>
+<h3>Params</h3>
+<ul>
+<li><b>arResponses</b><b> (Array of Integer)</b> - An array that contains responses for each of the survey's questions.
+</ul>
+<hr><a name="SetResults"><h3>Method</h3><br><h2>SetResults(nQuestion, nResponse) (Deprecated)</h2>
+<h3>Description</h3>
+<p>Sets the result for a specific question in the survey.</p>
+<h3>Params</h3>
+<ul>
+<li><b>nQuestion</b><b> (Integer)</b> - The index for the question that the response belongs to.
+<li><b>nResponse</b><b> (Integer)</b> - The index of the response.
+</ul>
+	</body>
+</html>

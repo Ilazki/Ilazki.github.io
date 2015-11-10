@@ -1,0 +1,153 @@
+<html>
+	<head>
+	<link rel="stylesheet" type="text/css" href="/style.css">
+	</head>
+	<body><script language="javascript">
+		if ((window.name != "content") && (navigator.userAgent.indexOf("Opera") <= -1) )
+		document.write("<center><a href='../../index.html?page=LuaAPI/Classes/AchievementsLib.htm'>show framing</a></center>")
+		</script>
+	<h1>
+		AchievementsLib	</h1>
+<h3>Description</h3>
+<p>Contains a list of functions that are helpful for building and orgainzing the Achievements UI or anything that requires achievement information.</p>
+<a name=">Functions"/>
+<hr><a name="GetAchievementCategoryTree"><h3>Function</h3><br><h2>GetAchievementCategoryTree(bGetGuildAchievements)</h2>
+<h3>Description</h3>
+<p>Gets a tree structure for the different types of achievements for the UI.  The heirarchy goes Categories &gt; Groups &gt; Subgroups.</p>
+<h3>Params</h3>
+<ul>
+<li><b>bGetGuildAchievements</b><b> (Boolean)</b> - Whether the function should return Guild Achievements or not.
+</ul>
+<h3>Return Value</h3>
+<ul>
+<li><b>Array of Table</b> - A table with information on the categories, groups, and subgroups of achievements.
+<ul>
+<li><b>nCategoryId</b><b> (Integer)</b> - The id number for the category.
+<li><b>strCategoryName</b><b> (String)</b> - The category's name.
+<li><b>tGroups</b><b> (Array of Table)</b> - A table with the groups found within this category.
+<ul>
+<li><b>nGroupId</b><b> (Integer)</b> - The id for the achievement group.
+<li><b>strGroupName</b><b> (String)</b> - The name for the achievement group.
+<li><b>tSubGroups</b><b> (Array of Table)</b> - A table with information on the sub groups within this group.
+<ul>
+<li><b>nSubGroupId</b><b> (Integer)</b> - The id number for the sub group of achievements.
+<li><b>strSubGroupName</b><b> (String)</b> - The name of the sub group of achievements.
+</ul>
+</ul>
+</ul>
+</ul>
+<hr><a name="GetAchievementPoints"><h3>Function</h3><br><h2>GetAchievementPoints()</h2>
+<h3>Description</h3>
+<p>Returns the number of achievement points that the player has earned from completed achievements.</p>
+<h3>Return Value</h3>
+<ul>
+<li><b>Integer</b> - The number of points the player has earned.
+</ul>
+<hr><a name="GetAchievements"><h3>Function</h3><br><h2>GetAchievements(bIsGuild)</h2>
+<h3>Description</h3>
+<p>Gets a list of all achievements or guild achievements.</p>
+<h3>Params</h3>
+<ul>
+<li><b>bIsGuild</b><b> (Boolean)</b> - Determines whether the function should return guild achievements or not.
+</ul>
+<h3>Return Value</h3>
+<ul>
+<li><b>Array of <a href="../classes/achievement.htm">Achievement</a></b> - An array with every achievement of the specified type.
+</ul>
+<hr><a name="GetAchievementsForCategory"><h3>Function</h3><br><h2>GetAchievementsForCategory(idCategory, bRecurse, bGetGuild)</h2>
+<h3>Description</h3>
+<p>Gets a list of all the achievements for the given category.</p>
+<h3>Params</h3>
+<ul>
+<li><b>idCategory</b><b> (Integer)</b> - The category of achievements that should be returned.
+<li><b>bRecurse</b><b> (Boolean)</b> - Whether or not the function should recurse through the category's subcategories when searching.
+<li><b>bGetGuild</b><b> (Boolean)</b> - Whether the function should return guild achievements or not.
+</ul>
+<h3>Return Value</h3>
+<ul>
+<li><b>Array of <a href="../classes/achievement.htm">Achievement</a></b> - An array that contains all of the achievements for the given category (and subcategories if bRecurse was set to true)
+</ul>
+<h3>Remarks</h3>
+<p>The function will only return achievements at the category level if bRecurse is not set to true.</p>
+<hr><a name="GetAchievementZones"><h3>Function</h3><br><h2>GetAchievementZones()</h2>
+<h3>Description</h3>
+<p>Returns a list of all of the zones used in any achievement.</p>
+<h3>Return Value</h3>
+<ul>
+<li><b>Array of Table</b>
+<ul>
+<li><b>nId</b><b> (Integer)</b> - The zone's id number.
+<li><b>strName</b><b> (String)</b> - The name of the zone.
+</ul>
+</ul>
+<h3>Remarks</h3>
+<p>There's really no way to map an achievement to the zone with this function at the moment.  It still returns valid information, but it might not be very useful.</p>
+<hr><a name="GetCategoriesForZone"><h3>Function</h3><br><h2>GetCategoriesForZone()</h2>
+<hr><a name="GetCategoryForMatchingGame"><h3>Function</h3><br><h2>GetCategoryForMatchingGame()</h2>
+<hr><a name="GetGuildAchievementPoints"><h3>Function</h3><br><h2>GetGuildAchievementPoints()</h2>
+<h3>Description</h3>
+<p>Returns the number of Guild Achivement Points the player's current guild has earned.</p>
+<h3>Return Value</h3>
+<ul>
+<li><b>Integer</b> - The number of Guild Achievement Points that the guild has earned.
+</ul>
+<hr><a name="GetRecentCompletedAchievements"><h3>Function</h3><br><h2>GetRecentCompletedAchievements(nMaxCount, bGetGuild)</h2>
+<h3>Description</h3>
+<p>Gets the latest achievements that the player has earned.</p>
+<h3>Params</h3>
+<ul>
+<li><b>nMaxCount</b><b> (Integer)</b> - The maximum number of values you want the achievement to return.
+<li><b>bGetGuild</b><b> (Boolean)</b> - Whether the function should return guild achievements or not.
+</ul>
+<h3>Return Value</h3>
+<ul>
+<li><b>Array of <a href="../classes/achievement.htm">Achievement</a></b> - An array of the most recent achievements the player has earned, in order of most recent to least.
+</ul>
+<hr><a name="GetTradeskillAchievementCategoryTree"><h3>Function</h3><br><h2>GetTradeskillAchievementCategoryTree(eTradeskill)</h2>
+<h3>Description</h3>
+<p>Gets a list of all of the categories and subcategories for a tradeskill's tech tree.</p>
+<h3>Params</h3>
+<ul>
+<li><b>eTradeskill</b><b> (CraftingLib.CodeEnumTradeskill)</b> - The function will return the tech tree for this tradeskill.
+</ul>
+<h3>Return Value</h3>
+<ul>
+<li><b>Array of Table</b> - A table containing the name of the tradeskill and its subcategories.
+<ul>
+<li><b>nGroupId</b><b> (Integer)</b> - The id number for the tradeskill.
+<li><b>strGroupName</b><b> (String)</b> - The tradeskill's name.
+<li><b>tSubGroups</b><b> (Array of Table)</b> - An array of the different ranks for the tradeskill.
+<ul>
+<li><b>nSubGroupId</b><b> (Integer)</b> - The id number for the rank of the tradeskill.
+<li><b>strSubGroupName</b><b> (String)</b> - The name of this rank of the tradeskill.
+</ul>
+</ul>
+</ul>
+<h3>Remarks</h3>
+<p>The Group returned in this function is always the tradeskill itself, with its subgroups being the different ranks of that tradeskill.</p>
+<hr><a name="GetTradeskillAchievementLayout"><h3>Function</h3><br><h2>GetTradeskillAchievementLayout(nSubcategoryId)</h2>
+<h3>Description</h3>
+<p>Gets a list of all of the achievements for a specific tradeskill rank.</p>
+<h3>Params</h3>
+<ul>
+<li><b>nSubcategoryId</b><b> (Integer)</b> - The id number for the tradeskill's rank.
+</ul>
+<h3>Return Value</h3>
+<ul>
+<li><b>Array of <a href="../classes/achievement.htm">Achievement</a></b> - An array of the achievements for the specified tradeskill rank.
+</ul>
+<h3>Remarks</h3>
+<p>Once this list is populated, call Achievement:GetTradeskillLayout() to get the achievement's position in the tech tree.</p>
+<hr><a name="GetTradeskillAchievements"><h3>Function</h3><br><h2>GetTradeskillAchievements(eTradeskill)</h2>
+<h3>Description</h3>
+<p>Gets all of the achievements for a specific tradeskill.</p>
+<h3>Params</h3>
+<ul>
+<li><b>eTradeskill</b><b> (CraftingLib.CodeEnumTradeskill)</b> - The function will return the achievements for this tradeskill.
+</ul>
+<h3>Return Value</h3>
+<ul>
+<li><b>Array of <a href="../classes/achievement.htm">Achievement</a></b> - An array that contains all of the achievements for the specified tradeskill
+</ul>
+	</body>
+</html>

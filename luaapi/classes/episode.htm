@@ -1,0 +1,198 @@
+<html>
+	<head>
+	<link rel="stylesheet" type="text/css" href="/style.css">
+	</head>
+	<body><script language="javascript">
+		if ((window.name != "content") && (navigator.userAgent.indexOf("Opera") <= -1) )
+		document.write("<center><a href='../../index.html?page=LuaAPI/Classes/Episode.htm'>show framing</a></center>")
+		</script>
+	<h1>
+		Episode	</h1>
+<h3>Prefix: epi</h3>
+<h3>Description</h3>
+<p>Episodes are a set of quests that are linked by a storyline or area.</p>
+<a name=">Functions"/>
+<hr><a name="is"><h3>Function</h3><br><h2>is(oVariable)</h2>
+<h3>Description</h3>
+<p>Checks whether the variable that is passed in is an Episode or not.</p>
+<h3>Params</h3>
+<ul>
+<li><b>oVariable</b><b> (Variable)</b> - The variable that the function will check.  This variable can be of any type.
+</ul>
+<h3>Return Value</h3>
+<ul>
+<li><b>Boolean</b> - Whether the variable that was passed in is an Episode or not.
+</ul>
+<a name=">Methods"/>
+<hr><a name="__eq"><h3>Method</h3><br><h2>__eq(epiCompare) (Deprecated)</h2>
+<h3>Description</h3>
+<p>Determines if two Episodes are the same.</p>
+<h3>Params</h3>
+<ul>
+<li><b>epiCompare</b><b> (<a href="../classes/episode.htm">Episode</a>)</b> - The episode being compared to this Episode.
+</ul>
+<h3>Return Value</h3>
+<ul>
+<li><b>Boolean</b> - Whether the two Episodes are the same or not.
+</ul>
+<hr><a name="__gc"><h3>Method</h3><br><h2>__gc() (Deprecated)</h2>
+<h3>Description</h3>
+<p>Manually calls the garbage collector on this Episode.</p>
+<hr><a name="EpisodeState_Complete"><h3>Method</h3><br><h2>EpisodeState_Complete() (Deprecated)</h2>
+<hr><a name="GetAllQuests"><h3>Method</h3><br><h2>GetAllQuests(idQuestCategory)</h2>
+<h3>Description</h3>
+<p>Gets a list of all of the quests in the Episode that match the passed in category id and that have been unlocked by the player.</p>
+<h3>Params</h3>
+<ul>
+<li><b>idQuestCategory</b><b> (Integer)</b> - The function will return all quests with this category.
+</ul>
+<h3>Return Value</h3>
+<ul>
+<li><b>Array of <a href="../classes/quest.htm">Quest</a></b> - An array of quests that have the same category as the one that was passed in and have been unlocked by the player.
+</ul>
+<hr><a name="GetCategories"><h3>Method</h3><br><h2>GetCategories()</h2>
+<h3>Description</h3>
+<p>Gets a list of all of the QuestCategories that are used by quests in the Episode.</p>
+<h3>Return Value</h3>
+<ul>
+<li><b>Array of <a href="../classes/questcategory.htm">QuestCategory</a></b> - An array of QuestCategories that are used by quests in the Episode.
+</ul>
+<hr><a name="GetConLevel"><h3>Method</h3><br><h2>GetConLevel()</h2>
+<h3>Description</h3>
+<p>Gets the level that the player is expected to be in order to complete the Episode.</p>
+<h3>Return Value</h3>
+<ul>
+<li><b>Integer</b> - The level that the player is expected to be to complete the Episode.
+</ul>
+<hr><a name="GetDesc"><h3>Method</h3><br><h2>GetDesc()</h2>
+<h3>Description</h3>
+<p>Gets the description that should be shown for the Episode when it is incomplete.</p>
+<h3>Return Value</h3>
+<ul>
+<li><b>String</b> - The string that should be used as the Episode's description while it is incomplete.
+</ul>
+<hr><a name="GetHub"><h3>Method</h3><br><h2>GetHub()</h2>
+<hr><a name="GetId"><h3>Method</h3><br><h2>GetId()</h2>
+<h3>Description</h3>
+<p>Gets the Episode's id.</p>
+<h3>Return Value</h3>
+<ul>
+<li><b>Integer</b> - The Episode's id.
+</ul>
+<hr><a name="GetProgress"><h3>Method</h3><br><h2>GetProgress(idQuestCategory)</h2>
+<h3>Description</h3>
+<p>Gets information on the player's progress towards completing every quest of a specific category in this Episode.</p>
+<h3>Params</h3>
+<ul>
+<li><b>idQuestCategory</b><b> (Integer)</b> - The function will get the Episode's progress for Quests whose category uses this id.
+</ul>
+<h3>Return Value</h3>
+<ul>
+<li><b>Table</b> - A count of how many Quests the player has completed and how many the Episode has for the specified category.
+<ul>
+<li><b>nTotal</b><b> (Integer)</b> - The total number of Quests of the specified category that are in the Episode.
+<li><b>nCompleted</b><b> (Integer)</b> - The number of Quests of the specified category that the player has completed.
+</ul>
+</ul>
+<hr><a name="GetQuest"><h3>Method</h3><br><h2>GetQuest(idQuest)</h2>
+<h3>Description</h3>
+<p>Gets the Quest with the specified id if it is in this Episode.</p>
+<h3>Params</h3>
+<ul>
+<li><b>idQuest</b><b> (Integer)</b> - The id of the Quest that the function will look for.
+</ul>
+<h3>Return Value</h3>
+<ul>
+<li><b><a href="../classes/quest.htm">Quest</a></b> - The Quest whose id matches the one passed in.
+</ul>
+<hr><a name="GetState"><h3>Method</h3><br><h2>GetState()</h2>
+<h3>Description</h3>
+<p>Gets the Episode's current state.</p>
+<h3>Return Value</h3>
+<ul>
+<li><b>Integer</b> - The Episode's current state.  This value corresponds with the Episode.EpisodeState set of constants.
+</ul>
+<hr><a name="GetSummary"><h3>Method</h3><br><h2>GetSummary()</h2>
+<h3>Description</h3>
+<p>Gets the description that should be shown for the Episode once it's complete.</p>
+<h3>Return Value</h3>
+<ul>
+<li><b>String</b> - The string that should be shown for the Episode's description once it's in the Completed state.
+</ul>
+<hr><a name="GetTitle"><h3>Method</h3><br><h2>GetTitle()</h2>
+<h3>Description</h3>
+<p>Gets the Episode's title.</p>
+<h3>Return Value</h3>
+<ul>
+<li><b>String</b> - The Episode's title.
+</ul>
+<hr><a name="GetTrackedQuests"><h3>Method</h3><br><h2>GetTrackedQuests(idQuestCategory, bSortByDistance)</h2>
+<h3>Description</h3>
+<p>Gets a list of tracked quests that have the specified QuestCategory and are part of the Episode.</p>
+<h3>Params</h3>
+<ul>
+<li><b>idQuestCategory</b><b> (Integer)</b> - The id of the QuestCategory that the function will use to filter the results.
+<li><b>bSortByDistance</b><b> (Boolean)</b> - Whether the function should sort the results by distance, with the closest quests coming first in the list.
+</ul>
+<h3>Return Value</h3>
+<ul>
+<li><b>Array of <a href="../classes/quest.htm">Quest</a></b> - An array of Quests that are part of the Episode and have a QuestCategory whose id matches the one passed in.
+</ul>
+<hr><a name="GetVisibleQuests"><h3>Method</h3><br><h2>GetVisibleQuests(bShowCompleted, bShowOutLeveled, bSortByName, idQuestCategory)</h2>
+<h3>Description</h3>
+<p>Gets a list of Quests that are part of the Episode and match the filters that are flagged with the variables that are passed in</p>
+<h3>Params</h3>
+<ul>
+<li><b>bShowCompleted</b><b> (Boolean)</b> - Whether completed quests should be added to the list or not.
+<li><b>bShowOutLeveled</b><b> (Boolean)</b> - Whether Quests whose con level are 10 below the player's effective level should be added to the list or not.
+<li><b>bSortByName</b><b> (Boolean)</b> - Whether the list should be sorted alphabetically by name or not.
+<li><b>idQuestCategory</b><b> (Integer)</b> - The Quests that are returned will be filtered by this QuestCategory id.
+</ul>
+<h3>Return Value</h3>
+<ul>
+<li><b>Array of <a href="../classes/quest.htm">Quest</a></b> - An array of Quests that has been filtered and possibly sorted by the variables that were passed into the function.
+</ul>
+<hr><a name="GetZoneId"><h3>Method</h3><br><h2>GetZoneId()</h2>
+<h3>Description</h3>
+<p>Gets the id number of the zone that the Episode takes place in.</p>
+<h3>Return Value</h3>
+<ul>
+<li><b>Integer</b> - The id number of the zone that the Episode is in.
+</ul>
+<hr><a name="GetZoneName"><h3>Method</h3><br><h2>GetZoneName()</h2>
+<h3>Description</h3>
+<p>Gets the name of the zone that the Episode is found in.</p>
+<h3>Return Value</h3>
+<ul>
+<li><b>String</b> - The name of the zone that the episode is in.
+</ul>
+<hr><a name="IsRegionalStory"><h3>Method</h3><br><h2>IsRegionalStory()</h2>
+<h3>Description</h3>
+<p>Checks if the Episode is a Regional Story.  Regional Stories are Episodes that take place in a specific region within a zone, but do not breadcrumb to other areas.</p>
+<h3>Return Value</h3>
+<ul>
+<li><b>Boolean</b> - Whether the Episode is a Regional Story or not.
+</ul>
+<hr><a name="IsTaskOnly"><h3>Method</h3><br><h2>IsTaskOnly()</h2>
+<h3>Description</h3>
+<p>Determines if the Episode only has Tasks.  Tasks are Quests that are not part of any larger chain.</p>
+<h3>Return Value</h3>
+<ul>
+<li><b>Boolean</b> - Whether the Episode's Quests are all Tasks or not.
+</ul>
+<hr><a name="IsWorldStory"><h3>Method</h3><br><h2>IsWorldStory()</h2>
+<h3>Description</h3>
+<p>Determines if the Episode is a World Story or not.  World Stories are quest chains that span multiple zones.</p>
+<h3>Return Value</h3>
+<ul>
+<li><b>Boolean</b> - Whether the Episode is a World Story or not.
+</ul>
+<hr><a name="IsZoneStory"><h3>Method</h3><br><h2>IsZoneStory()</h2>
+<h3>Description</h3>
+<p>Determines if the Episode is a Zone Story or not.  Zone Stories are Episodes that span an entire zone.</p>
+<h3>Return Value</h3>
+<ul>
+<li><b>Boolean</b> - Whether the Episode is a Zone Story or not.
+</ul>
+	</body>
+</html>

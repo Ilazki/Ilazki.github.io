@@ -1,0 +1,759 @@
+<html>
+	<head>
+	<link rel="stylesheet" type="text/css" href="/style.css">
+	</head>
+	<body><script language="javascript">
+		if ((window.name != "content") && (navigator.userAgent.indexOf("Opera") <= -1) )
+		document.write("<center><a href='../../index.html?page=LuaAPI/Classes/Item.htm'>show framing</a></center>")
+		</script>
+	<h1>
+		Item	</h1>
+<h3>Prefix: item</h3>
+<a name="Enums"/><hr><a name="CodeEnumItem2Category"><h3>Enum</h3><br><h2>CodeEnumItem2Category</h2>
+<ul>
+<li><b>Weapon_Sword2H</b>
+<li><b>Weapon_Paddles</b>
+<li><b>Weapon_Pistols1H</b>
+<li><b>Weapon_Psyblade</b>
+<li><b>Weapon_Claws</b>
+<li><b>Junk</b>
+<li><b>Weapon_HeavyGun</b>
+<li><b>FireRune</b>
+<li><b>WaterRune</b>
+<li><b>EarthRune</b>
+<li><b>AirRune</b>
+<li><b>LifeRune</b>
+<li><b>LogicRune</b>
+<li><b>FusionRune</b>
+<li><b>PowerCore</b>
+</ul>
+<hr><a name="CodeEnumItem2Family"><h3>Enum</h3><br><h2>CodeEnumItem2Family</h2>
+<ul>
+<li><b>Armor</b>
+<li><b>Weapon</b>
+<li><b>Container</b>
+<li><b>Key</b>
+<li><b>Furniture</b>
+<li><b>Mount</b>
+<li><b>Body</b>
+<li><b>General</b>
+<li><b>BrokenItem</b>
+<li><b>Ornamental</b>
+<li><b>Consumable</b>
+<li><b>ChargedItem</b>
+<li><b>Reagent</b>
+<li><b>Schematic</b>
+<li><b>HousingInterior</b>
+<li><b>HousingExterior</b>
+<li><b>HousingPlug</b>
+<li><b>Special</b>
+<li><b>Quest</b>
+<li><b>Item</b>
+<li><b>Costume</b>
+<li><b>Crafting</b>
+<li><b>Tool</b>
+<li><b>Rune</b>
+</ul>
+<hr><a name="CodeEnumItemDetailedTooltip"><h3>Enum</h3><br><h2>CodeEnumItemDetailedTooltip</h2>
+<ul>
+<li><b>Basic</b>
+<li><b>Spells</b>
+<li><b>Economics</b>
+<li><b>Sigils</b>
+<li><b>Imbuements</b>
+<li><b>Stats</b>
+<li><b>Restrictions</b>
+<li><b>Specifics</b>
+<li><b>Runes</b>
+</ul>
+<hr><a name="CodeEnumItemQuality"><h3>Enum</h3><br><h2>CodeEnumItemQuality</h2>
+<ul>
+<li><b>Average</b>
+<li><b>Good</b>
+<li><b>Excellent</b>
+<li><b>Superb</b>
+<li><b>Legendary</b>
+<li><b>Inferior</b>
+<li><b>Artifact</b>
+</ul>
+<hr><a name="CodeEnumItemType"><h3>Enum</h3><br><h2>CodeEnumItemType</h2>
+<ul>
+<li><b>ArmorArcaneChest</b>
+<li><b>ArmorArcaneLegs</b>
+<li><b>ArmorArcaneHead</b>
+<li><b>ArmorArcaneShoulder</b>
+<li><b>ArmorArcaneFeet</b>
+<li><b>ArmorArcaneHands</b>
+<li><b>ArmorArcaneBuckle</b>
+<li><b>ArmorReflexChest</b>
+<li><b>ArmorReflexLegs</b>
+<li><b>ArmorReflexHead</b>
+<li><b>ArmorReflexShoulder</b>
+<li><b>ArmorReflexFeet</b>
+<li><b>ArmorReflexHands</b>
+<li><b>ArmorReflexBuckle</b>
+<li><b>ArmorFocalChest</b>
+<li><b>ArmorFocalLegs</b>
+<li><b>ArmorFocalHead</b>
+<li><b>ArmorFocalShoulder</b>
+<li><b>ArmorFocalFeet</b>
+<li><b>ArmorFocalHands</b>
+<li><b>ArmorFocalBuckle</b>
+<li><b>ArmorBattleChest</b>
+<li><b>ArmorBattleLegs</b>
+<li><b>ArmorBattleHead</b>
+<li><b>ArmorBattleShoulder</b>
+<li><b>ArmorBattleFeet</b>
+<li><b>ArmorBattleHands</b>
+<li><b>ArmorBattleBuckle</b>
+<li><b>ArmorJewelryRing</b>
+<li><b>ArmorJewelryFace</b>
+<li><b>ArmorJewelryNeck</b>
+<li><b>ArmorJewelryTrinket</b>
+<li><b>ArmorMiscChest</b>
+<li><b>ArmorMiscLegs</b>
+<li><b>ArmorMiscHead</b>
+<li><b>ArmorMiscShoulder</b>
+<li><b>ArmorMiscFeet</b>
+<li><b>ArmorMiscHands</b>
+<li><b>ArmorMiscBuckle</b>
+<li><b>ArmorMiscRing</b>
+<li><b>ArmorMiscFace</b>
+<li><b>ArmorMiscNeck</b>
+<li><b>ArmorMiscTrinket</b>
+<li><b>WeaponMHAxe</b>
+<li><b>WeaponMHPistols</b>
+<li><b>WeaponMHEnergy</b>
+<li><b>WeaponMHCrook</b>
+<li><b>WeaponMHFist</b>
+<li><b>WeaponMHPlasmaGun</b>
+<li><b>WeaponMHStave</b>
+<li><b>WeaponMHSword</b>
+<li><b>WeaponMHMace</b>
+<li><b>WeaponOHShadowCrystal</b>
+<li><b>WeaponOHBatteryPack</b>
+<li><b>WeaponOHInstrument</b>
+<li><b>WeaponOHBook</b>
+<li><b>WeaponOHMindGem</b>
+<li><b>WeaponOHWrench</b>
+<li><b>WeaponOHSword</b>
+<li><b>WeaponOHShotgun</b>
+<li><b>WeaponOHRelic</b>
+<li><b>BodySkin</b>
+<li><b>BodyFace</b>
+<li><b>BodyEye</b>
+<li><b>BodyEar</b>
+<li><b>BodyHair</b>
+<li><b>BodyTatoo</b>
+<li><b>BodyTail</b>
+<li><b>BodyHand</b>
+<li><b>BodyUnderwear</b>
+<li><b>BodyFacialHair</b>
+<li><b>Bag</b>
+<li><b>Spellbook</b>
+<li><b>ItemFood</b>
+<li><b>ItemPotion</b>
+<li><b>Spell</b>
+<li><b>QuestItem</b>
+<li><b>WeaponMHScythe</b>
+<li><b>Spell_Temporary</b>
+<li><b>WeaponOHMagicthingy</b>
+<li><b>ItemBandage</b>
+<li><b>BrokenWeapon</b>
+<li><b>BrokenRanged</b>
+<li><b>BrokenMagic</b>
+<li><b>Seeds</b>
+<li><b>CookingStaple</b>
+<li><b>CookingMeat</b>
+<li><b>CookingHerb</b>
+<li><b>CookingVeggie</b>
+<li><b>CookingSeasoning</b>
+<li><b>MiningMineral</b>
+<li><b>WildGrowth</b>
+<li><b>HarvestingPlant</b>
+<li><b>RelicAndLore</b>
+<li><b>Power</b>
+<li><b>MineralComponent</b>
+<li><b>WildComponent</b>
+<li><b>PowerComponent</b>
+<li><b>RelicComponent</b>
+<li><b>ArmsmasterSchematic</b>
+<li><b>TechsmithSchematic</b>
+<li><b>WeaponchanterSchematic</b>
+<li><b>ArcaneWeaverSchematic</b>
+<li><b>ApothecarySchematic</b>
+<li><b>TinkererSchematic</b>
+<li><b>CookingSchematic</b>
+<li><b>ArtisanSchematic</b>
+<li><b>AssayConsumable</b>
+<li><b>RefiningConsumable</b>
+<li><b>ClubSoldiers</b>
+<li><b>DiamondMerchants</b>
+<li><b>SpadeCraftspeople</b>
+<li><b>HeartArtists</b>
+<li><b>StarPoliticans</b>
+<li><b>OmniWild</b>
+<li><b>OmniMining</b>
+<li><b>OmniRelics</b>
+<li><b>OmniPower</b>
+<li><b>AssayMinigame</b>
+<li><b>RefiningMinigame</b>
+<li><b>HousingAddon</b>
+<li><b>ArmorEnchantment</b>
+<li><b>WeaponEnchantment</b>
+<li><b>TempBag</b>
+<li><b>TaxiRoute</b>
+<li><b>TempMount</b>
+<li><b>RepItem</b>
+<li><b>WeaponMHShockPaddles</b>
+<li><b>WeaponMHClawsAttached</b>
+<li><b>MountRight</b>
+<li><b>HoverboardFront</b>
+<li><b>HoverboardBack</b>
+<li><b>HoverboardSides</b>
+<li><b>HoverboardBottom</b>
+<li><b>MountFront</b>
+<li><b>MountBack</b>
+<li><b>MountLeft</b>
+</ul>
+<hr><a name="CodeEnumItemUpdateReason"><h3>Enum</h3><br><h2>CodeEnumItemUpdateReason</h2>
+<ul>
+<li><b>StackSplit</b>
+<li><b>ConsumeCharge</b>
+<li><b>SpellReagent</b>
+<li><b>Transform</b>
+<li><b>Cheat</b>
+<li><b>Salvage</b>
+<li><b>Extract</b>
+<li><b>Vendor</b>
+<li><b>Quest</b>
+<li><b>SpellEffect</b>
+<li><b>Script</b>
+<li><b>PathReward</b>
+<li><b>ResourceConversion</b>
+<li><b>Auction</b>
+<li><b>MaterialBagConversion</b>
+<li><b>Loot</b>
+<li><b>Buyback</b>
+<li><b>Crafting</b>
+<li><b>NewCharacter</b>
+<li><b>PublicEvent</b>
+<li><b>Mail</b>
+<li><b>PlayerRequested</b>
+<li><b>GuildBank</b>
+<li><b>Trade</b>
+<li><b>HousingCrate</b>
+<li><b>None</b>
+<li><b>GM</b>
+<li><b>Expired</b>
+<li><b>Gadget</b>
+<li><b>AltSpell</b>
+<li><b>Challenge</b>
+<li><b>SettlerImprovementConsumeResource</b>
+<li><b>HousingContribution</b>
+<li><b>HousingUpkeep</b>
+<li><b>TradeskillAdditiveCost</b>
+<li><b>TradeskillGlyph</b>
+<li><b>UniqueCleanup</b>
+<li><b>PathExplorerReward</b>
+<li><b>CharacterRecustomization</b>
+<li><b>LootForge</b>
+<li><b>RewardTrack</b>
+<li><b>MatchingReward</b>
+<li><b>DyeCostume</b>
+<li><b>PublicEventObjective</b>
+<li><b>ItemDeprecation</b>
+<li><b>MTXChest</b>
+</ul>
+<hr><a name="CodeEnumLootItemType"><h3>Enum</h3><br><h2>CodeEnumLootItemType</h2>
+<ul>
+<li><b>StaticItem</b>
+<li><b>AltTable</b>
+<li><b>Cash</b>
+<li><b>Spell</b>
+<li><b>CurrencyExchange</b>
+<li><b>VirtualItem</b>
+<li><b>AdventureSpell</b>
+<li><b>AccountItem</b>
+<li><b>AccountCurrency</b>
+</ul>
+<hr><a name="CodeEnumMicrochipType"><h3>Enum</h3><br><h2>CodeEnumMicrochipType (Deprecated)</h2>
+<ul>
+<li><b>PowerSource</b>
+<li><b>Stat</b>
+<li><b>PowerUp</b>
+<li><b>Special</b>
+<li><b>Set</b>
+<li><b>Omni</b>
+<li><b>Resistor</b>
+<li><b>Inductor</b>
+<li><b>Capacitor</b>
+</ul>
+<hr><a name="CodeEnumRuneType"><h3>Enum</h3><br><h2>CodeEnumRuneType</h2>
+<ul>
+<li><b>Air</b>
+<li><b>Fire</b>
+<li><b>Water</b>
+<li><b>Earth</b>
+<li><b>Logic</b>
+<li><b>Life</b>
+<li><b>Fusion</b>
+<li><b>Omni</b>
+</ul>
+<hr><a name="CodeEnumSigilType"><h3>Enum</h3><br><h2>CodeEnumSigilType (Deprecated)</h2>
+<ul>
+<li><b>Air</b>
+<li><b>Fire</b>
+<li><b>Water</b>
+<li><b>Earth</b>
+<li><b>Logic</b>
+<li><b>Life</b>
+<li><b>Fusion</b>
+<li><b>Omni</b>
+</ul>
+<a name=">Functions"/>
+<hr><a name="CanAutoSalvage"><h3>Function</h3><br><h2>CanAutoSalvage() (Deprecated)</h2>
+<hr><a name="CanCombineInEldanForge"><h3>Function</h3><br><h2>CanCombineInEldanForge()</h2>
+<hr><a name="CanDelete"><h3>Function</h3><br><h2>CanDelete() (Deprecated)</h2>
+<hr><a name="CanEquip"><h3>Function</h3><br><h2>CanEquip() (Deprecated)</h2>
+<hr><a name="CanMoveToSupplySatchel"><h3>Function</h3><br><h2>CanMoveToSupplySatchel() (Deprecated)</h2>
+<hr><a name="CanSalvage"><h3>Function</h3><br><h2>CanSalvage() (Deprecated)</h2>
+<hr><a name="CanTakeFromSupplySatchel"><h3>Function</h3><br><h2>CanTakeFromSupplySatchel() (Deprecated)</h2>
+<hr><a name="GetActivateSpell"><h3>Function</h3><br><h2>GetActivateSpell() (Deprecated)</h2>
+<hr><a name="GetAdditiveInfo"><h3>Function</h3><br><h2>GetAdditiveInfo() (Deprecated)</h2>
+<hr><a name="GetArmor"><h3>Function</h3><br><h2>GetArmor() (Deprecated)</h2>
+<hr><a name="GetAvailableDyeChannel"><h3>Function</h3><br><h2>GetAvailableDyeChannel() (Deprecated)</h2>
+<hr><a name="GetBackpackCount"><h3>Function</h3><br><h2>GetBackpackCount() (Deprecated)</h2>
+<hr><a name="GetBagSlots"><h3>Function</h3><br><h2>GetBagSlots() (Deprecated)</h2>
+<hr><a name="GetBankCount"><h3>Function</h3><br><h2>GetBankCount() (Deprecated)</h2>
+<hr><a name="GetBuyPrice"><h3>Function</h3><br><h2>GetBuyPrice() (Deprecated)</h2>
+<hr><a name="GetCharges"><h3>Function</h3><br><h2>GetCharges() (Deprecated)</h2>
+<hr><a name="GetChatLinkString"><h3>Function</h3><br><h2>GetChatLinkString() (Deprecated)</h2>
+<hr><a name="GetDataFromId"><h3>Function</h3><br><h2>GetDataFromId()</h2>
+<hr><a name="GetDetailedInfo"><h3>Function</h3><br><h2>GetDetailedInfo() (Deprecated)</h2>
+<hr><a name="GetDurability"><h3>Function</h3><br><h2>GetDurability() (Deprecated)</h2>
+<hr><a name="GetDurationRemaining"><h3>Function</h3><br><h2>GetDurationRemaining() (Deprecated)</h2>
+<hr><a name="GetDurationTotal"><h3>Function</h3><br><h2>GetDurationTotal() (Deprecated)</h2>
+<hr><a name="GetEmptySockets"><h3>Function</h3><br><h2>GetEmptySockets() (Deprecated)</h2>
+<hr><a name="GetEquippedCount"><h3>Function</h3><br><h2>GetEquippedCount() (Deprecated)</h2>
+<hr><a name="GetEquippedItemForItemType"><h3>Function</h3><br><h2>GetEquippedItemForItemType() (Deprecated)</h2>
+<hr><a name="GetEquipSpell"><h3>Function</h3><br><h2>GetEquipSpell() (Deprecated)</h2>
+<hr><a name="GetGivenQuest"><h3>Function</h3><br><h2>GetGivenQuest() (Deprecated)</h2>
+<hr><a name="GetGlobalCatalystInfo"><h3>Function</h3><br><h2>GetGlobalCatalystInfo() (Deprecated)</h2>
+<hr><a name="GetGlyphBonus"><h3>Function</h3><br><h2>GetGlyphBonus() (Deprecated)</h2>
+<hr><a name="GetGlyphInfo"><h3>Function</h3><br><h2>GetGlyphInfo() (Deprecated)</h2>
+<hr><a name="GetHousingDecorInfoId"><h3>Function</h3><br><h2>GetHousingDecorInfoId() (Deprecated)</h2>
+<hr><a name="GetIcon"><h3>Function</h3><br><h2>GetIcon() (Deprecated)</h2>
+<hr><a name="GetInventoryId"><h3>Function</h3><br><h2>GetInventoryId() (Deprecated)</h2>
+<hr><a name="GetItemCategory"><h3>Function</h3><br><h2>GetItemCategory() (Deprecated)</h2>
+<hr><a name="GetItemCategoryName"><h3>Function</h3><br><h2>GetItemCategoryName() (Deprecated)</h2>
+<hr><a name="GetItemFamily"><h3>Function</h3><br><h2>GetItemFamily() (Deprecated)</h2>
+<hr><a name="GetItemFamilyName"><h3>Function</h3><br><h2>GetItemFamilyName() (Deprecated)</h2>
+<hr><a name="GetItemFlavor"><h3>Function</h3><br><h2>GetItemFlavor() (Deprecated)</h2>
+<hr><a name="GetItemFromInventoryLoc"><h3>Function</h3><br><h2>GetItemFromInventoryLoc()</h2>
+<hr><a name="GetItemId"><h3>Function</h3><br><h2>GetItemId() (Deprecated)</h2>
+<hr><a name="GetItemPower"><h3>Function</h3><br><h2>GetItemPower() (Deprecated)</h2>
+<hr><a name="GetItemQuality"><h3>Function</h3><br><h2>GetItemQuality() (Deprecated)</h2>
+<hr><a name="GetItemType"><h3>Function</h3><br><h2>GetItemType() (Deprecated)</h2>
+<hr><a name="GetItemTypeName"><h3>Function</h3><br><h2>GetItemTypeName() (Deprecated)</h2>
+<hr><a name="GetMaxCharges"><h3>Function</h3><br><h2>GetMaxCharges() (Deprecated)</h2>
+<hr><a name="GetMaxDurability"><h3>Function</h3><br><h2>GetMaxDurability() (Deprecated)</h2>
+<hr><a name="GetMaxStackCount"><h3>Function</h3><br><h2>GetMaxStackCount() (Deprecated)</h2>
+<hr><a name="GetMicrochipInfo"><h3>Function</h3><br><h2>GetMicrochipInfo() (Deprecated)</h2>
+<hr><a name="GetName"><h3>Function</h3><br><h2>GetName() (Deprecated)</h2>
+<hr><a name="GetPowerLevel"><h3>Function</h3><br><h2>GetPowerLevel() (Deprecated)</h2>
+<hr><a name="GetProcSpell"><h3>Function</h3><br><h2>GetProcSpell() (Deprecated)</h2>
+<hr><a name="GetProficiencyInfo"><h3>Function</h3><br><h2>GetProficiencyInfo() (Deprecated)</h2>
+<hr><a name="GetPropertyName"><h3>Function</h3><br><h2>GetPropertyName()</h2>
+<hr><a name="GetRepairCost"><h3>Function</h3><br><h2>GetRepairCost() (Deprecated)</h2>
+<hr><a name="GetRequiredClass"><h3>Function</h3><br><h2>GetRequiredClass() (Deprecated)</h2>
+<hr><a name="GetRequiredFaction"><h3>Function</h3><br><h2>GetRequiredFaction() (Deprecated)</h2>
+<hr><a name="GetRequiredLevel"><h3>Function</h3><br><h2>GetRequiredLevel() (Deprecated)</h2>
+<hr><a name="GetRequiredRace"><h3>Function</h3><br><h2>GetRequiredRace() (Deprecated)</h2>
+<hr><a name="GetReturnTimeRemaining"><h3>Function</h3><br><h2>GetReturnTimeRemaining() (Deprecated)</h2>
+<hr><a name="GetRuneInfo"><h3>Function</h3><br><h2>GetRuneInfo() (Deprecated)</h2>
+<hr><a name="GetSellPrice"><h3>Function</h3><br><h2>GetSellPrice() (Deprecated)</h2>
+<hr><a name="GetSetBonuses"><h3>Function</h3><br><h2>GetSetBonuses() (Deprecated)</h2>
+<hr><a name="GetSlot"><h3>Function</h3><br><h2>GetSlot() (Deprecated)</h2>
+<hr><a name="GetSlotName"><h3>Function</h3><br><h2>GetSlotName() (Deprecated)</h2>
+<hr><a name="GetStackCount"><h3>Function</h3><br><h2>GetStackCount() (Deprecated)</h2>
+<hr><a name="GetTradeskillSchematicId"><h3>Function</h3><br><h2>GetTradeskillSchematicId() (Deprecated)</h2>
+<hr><a name="GetVirtualItems"><h3>Function</h3><br><h2>GetVirtualItems()</h2>
+<hr><a name="GetWeaponDamageMax"><h3>Function</h3><br><h2>GetWeaponDamageMax() (Deprecated)</h2>
+<hr><a name="GetWeaponDamageMin"><h3>Function</h3><br><h2>GetWeaponDamageMin() (Deprecated)</h2>
+<hr><a name="GetWeaponPower"><h3>Function</h3><br><h2>GetWeaponPower() (Deprecated)</h2>
+<hr><a name="GetWeaponSpeed"><h3>Function</h3><br><h2>GetWeaponSpeed() (Deprecated)</h2>
+<hr><a name="HasRestockingFee"><h3>Function</h3><br><h2>HasRestockingFee() (Deprecated)</h2>
+<hr><a name="IsAtEldanForge"><h3>Function</h3><br><h2>IsAtEldanForge()</h2>
+<hr><a name="IsAuctionable"><h3>Function</h3><br><h2>IsAuctionable() (Deprecated)</h2>
+<hr><a name="IsCommodity"><h3>Function</h3><br><h2>IsCommodity() (Deprecated)</h2>
+<hr><a name="isData"><h3>Function</h3><br><h2>isData()</h2>
+<hr><a name="IsDestroyOnLogout"><h3>Function</h3><br><h2>IsDestroyOnLogout() (Deprecated)</h2>
+<hr><a name="IsDestroyOnZone"><h3>Function</h3><br><h2>IsDestroyOnZone() (Deprecated)</h2>
+<hr><a name="IsEquippable"><h3>Function</h3><br><h2>IsEquippable() (Deprecated)</h2>
+<hr><a name="isGlyphData"><h3>Function</h3><br><h2>isGlyphData() (Deprecated)</h2>
+<hr><a name="isInstance"><h3>Function</h3><br><h2>isInstance()</h2>
+<hr><a name="isModdableData"><h3>Function</h3><br><h2>isModdableData()</h2>
+<hr><a name="isRuneData"><h3>Function</h3><br><h2>isRuneData()</h2>
+<hr><a name="IsSoulbound"><h3>Function</h3><br><h2>IsSoulbound() (Deprecated)</h2>
+<hr><a name="IsUnique"><h3>Function</h3><br><h2>IsUnique() (Deprecated)</h2>
+<hr><a name="MoveToSupplySatchel"><h3>Function</h3><br><h2>MoveToSupplySatchel() (Deprecated)</h2>
+<hr><a name="PlayEquipSound"><h3>Function</h3><br><h2>PlayEquipSound() (Deprecated)</h2>
+<hr><a name="TakeFromSupplySatchel"><h3>Function</h3><br><h2>TakeFromSupplySatchel() (Deprecated)</h2>
+<a name=">Methods"/>
+<hr><a name="__eq"><h3>Method</h3><br><h2>__eq() (Deprecated)</h2>
+<hr><a name="__gc"><h3>Method</h3><br><h2>__gc() (Deprecated)</h2>
+<hr><a name="CanAutoSalvage"><h3>Method</h3><br><h2>CanAutoSalvage()</h2>
+<hr><a name="CanDelete"><h3>Method</h3><br><h2>CanDelete()</h2>
+<hr><a name="CanEquip"><h3>Method</h3><br><h2>CanEquip(itemId)</h2>
+<h3>Description</h3>
+<p>Does a lua_pushboolean if itemId can be equipped.<br>
+uses as library</p>
+<h3>Params</h3>
+<ul>
+<li><b>itemId</b><b> (TItem2Id)</b>
+</ul>
+<hr><a name="CanMoveToSupplySatchel"><h3>Method</h3><br><h2>CanMoveToSupplySatchel()</h2>
+<hr><a name="CanSalvage"><h3>Method</h3><br><h2>CanSalvage()</h2>
+<hr><a name="CanTakeFromSupplySatchel"><h3>Method</h3><br><h2>CanTakeFromSupplySatchel()</h2>
+<hr><a name="CodeEnumItem2Family"><h3>Method</h3><br><h2>CodeEnumItem2Family() (Deprecated)</h2>
+<hr><a name="GetActivateSpell"><h3>Method</h3><br><h2>GetActivateSpell() (Deprecated)</h2>
+<h3>Description</h3>
+<p>Currently has no implementation</p>
+<hr><a name="GetAdditiveInfo"><h3>Method</h3><br><h2>GetAdditiveInfo()</h2>
+<hr><a name="GetArmor"><h3>Method</h3><br><h2>GetArmor() (Deprecated)</h2>
+<hr><a name="GetAvailableDyeChannel"><h3>Method</h3><br><h2>GetAvailableDyeChannel()</h2>
+<hr><a name="GetBackpackCount"><h3>Method</h3><br><h2>GetBackpackCount()</h2>
+<hr><a name="GetBagSlots"><h3>Method</h3><br><h2>GetBagSlots()</h2>
+<hr><a name="GetBankCount"><h3>Method</h3><br><h2>GetBankCount()</h2>
+<hr><a name="GetBuyPrice"><h3>Method</h3><br><h2>GetBuyPrice()</h2>
+<h3>Description</h3>
+<p>Returns the success of a new LuaGameTypes_Money with BuyFromVendorPrice specified by itemData, or nil if null.</p>
+<hr><a name="GetCharges"><h3>Method</h3><br><h2>GetCharges()</h2>
+<h3>Description</h3>
+<p>Does a lua_pushinteger of GetBatteryCharge specified by itemData, or nil if null.</p>
+<hr><a name="GetChatLinkString"><h3>Method</h3><br><h2>GetChatLinkString()</h2>
+<hr><a name="GetCostumeUnlockInfo"><h3>Method</h3><br><h2>GetCostumeUnlockInfo()</h2>
+<hr><a name="GetDetailedInfo"><h3>Method</h3><br><h2>GetDetailedInfo(itemCompare, arFlags)</h2>
+<h3>Description</h3>
+<p>Returns a table of data for the given item.  This information is generally used for building item tooltips.</p>
+<h3>Params</h3>
+<ul>
+<li><b>itemCompare</b><b> (<a href="../classes/item.htm">Item</a>)</b> - The item to compare with the primary item.
+<li><b>arFlags</b><b> (Array of Item.CodeEnumItemDetailedTooltip)</b> - If provided then the results are restricted to the identified groups of data.
+</ul>
+<h3>Return Value</h3>
+<ul>
+<li><b>Table</b> - Detailed information of the provided items.  If the information is not relevant for the item or does not match the flags that were passed in, it will not be part of the table that is returned.
+<ul>
+<li><b>tPrimary</b><b> (Table)</b> - Contains detailed info for the item that was passed in with the itemSource parameter.
+<ul>
+<li><b>nId</b><b> (Integer)</b> - The item's id number
+<li><b>strName</b><b> (String)</b> - The name of the item.
+<li><b>eFamily</b><b> (Item.CodeEnumItem2Family)</b> - The family that the item belongs to.
+<li><b>eCategory</b><b> (Integer)</b> - The ID of the category that the item belongs to.  Categories are sub-types of Families.
+<li><b>eType</b><b> (Item.CodeEnumItemType)</b> - The type that the item belongs to.  Types are a sub-type of Categories.
+<li><b>strFlavor</b><b> (String)</b> - The item's flavor text.
+<li><b>nItemLevel</b><b> (Integer)</b> - The item's base item level.  Item level represents the item's overall power level.
+<li><b>nEffectiveLevel</b><b> (Integer)</b> - The item's modified item level. This will usually be the same as nItemLevel but may differ due to effects such as mentoring or rallying.
+<li><b>strMakersMark</b><b> (String)</b> - The name of the character that crafted the item.  This is only provided if the item was crafted by a player with the Maker's Mark talent.
+<li><b>tStack</b><b> (Table)</b>
+<ul>
+<li><b>nMaxCount</b><b> (Integer)</b> - Maximum stack size.
+<li><b>nCount</b><b> (Integer)</b> - Current stack size.
+</ul>
+<li><b>tCharge</b><b> (Table)</b>
+<ul>
+<li><b>nMaxCount</b><b> (Integer)</b> - Maximum charges for this item.
+<li><b>nCount</b><b> (Integer)</b> - Current remaining charges on this item.
+</ul>
+<li><b>tBind</b><b> (Table)</b>
+<ul>
+<li><b>bOnPickup</b><b> (Boolean)</b> - If true then this item binds when picked up.
+<li><b>bOnEquip</b><b> (Boolean)</b> - If true then this item binds when equipped.
+<li><b>bSoulbound</b><b> (Boolean)</b> - If true then this item is currently bound to the character that owns it.
+</ul>
+<li><b>tCost</b><b> (Table)</b>
+<ul>
+<li><b>arMonBuy</b><b> (Array of <a href="../classes/money.htm">Money</a>)</b> - A list of prices that the item can be bought for.
+<li><b>arMonSell</b><b> (Array of <a href="../classes/money.htm">Money</a>)</b> - A list of prices that the item can be sold for.
+<li><b>nRemainingReturnTimeSeconds</b><b> (Float)</b> - If provided then this is the remaining time that the item can be sold for a refund.
+<li><b>bHasRestockingFee</b><b> (Boolean)</b> - If true then returning the item for a refund will still have a cost.  This is refeered to as a restocking fee.
+</ul>
+<li><b>tDurability</b><b> (Table)</b>
+<ul>
+<li><b>nMax</b><b> (Integer)</b> - Maximum durability of the item.
+<li><b>nCurrent</b><b> (Integer)</b> - Current durabilty of the item.
+</ul>
+<li><b>tLevelRequirement</b><b> (Table)</b>
+<ul>
+<li><b>nLevelRequired</b><b> (Integer)</b> - Minimum level required to equip the item.
+<li><b>bRequirementMet</b><b> (Boolean)</b> - This value is True if the player meets the item's level requirements.
+</ul>
+<li><b>tClassRequirement</b><b> (Table)</b>
+<ul>
+<li><b>bRequirementMet</b><b> (Boolean)</b> - True if the character meets the class requirement.
+<li><b>arClasses</b><b> (Array of GameLib.CodeEnumClass)</b> - Allowed classes.
+</ul>
+<li><b>tRaceRequirement</b><b> (Table)</b>
+<ul>
+<li><b>bRequirementMet</b><b> (Boolean)</b> - True if the character meets the race restrictions.
+<li><b>arRaces</b><b> (Array of GameLib.CodeEnumRace)</b> - Allowed races.
+</ul>
+<li><b>tFactionRequirement</b><b> (Table)</b>
+<ul>
+<li><b>bRequirementMet</b><b> (Boolean)</b> - True if the character matches the faction restrictions.
+<li><b>nFactionId</b><b> (Integer)</b> - Static ID of the required faction.
+<li><b>strFactionName</b><b> (String)</b> - The locaized name of the required faction.
+</ul>
+<li><b>tProfRequirement</b><b> (Table)</b>
+<ul>
+<li><b>bRequirementMet</b><b> (Boolean)</b> - True if the character meets the proficiency requirements.
+<li><b>nId</b><b> (Integer)</b> - Static ID of the required proficiency.
+<li><b>strName</b><b> (String)</b> - The localized name of the required proficiency.
+</ul>
+<li><b>nQuestMinLevel</b><b> (Integer)</b> - The minimum level required for a quest that is started by this item.  
+<li><b>arTradeskillReqs</b><b> (Array of Table)</b>
+<ul>
+<li><b>strName</b><b> (String)</b> - The localized name of the associated recipe.
+<li><b>eTier</b><b> (Integer)</b> - The tier of the associated tradeskill that the schematic belongs to.
+<li><b>bCanLearn</b><b> (Boolean)</b> - This value is true if the character can learn the recipe.
+<li><b>bIsKnown</b><b> (Boolean)</b> - This value is true if the character already knows the recipe.
+</ul>
+<li><b>bDestroyOnLogout</b><b> (Boolean)</b> - If this value is true, the item will expire and be destroyed on logout.
+<li><b>bDestroyOnZone</b><b> (Boolean)</b> - If this value is true, the item will expire and be destroyed on changing zones.
+<li><b>nExpirationTime</b><b> (Float)</b> - The maximum amount of time, in seconds, that this item will exist before it is destroyed.
+<li><b>nExpiresInTime</b><b> (Float)</b> - This is the amount of time remaining before the item is destroyed, in seconds.
+<li><b>bSalvage</b><b> (Boolean)</b> - If this is true, the item can be salvaged.
+<li><b>bAutoSalvage</b><b> (Boolean)</b> - If this is true, then the item can be salvaged by right clicking on it.
+<li><b>nSoulboundTradeAllowedTime</b><b> (Float)</b> - The remaining time, in seconds, that the item can be traded to characters that were eligible for receiving the item when it was created.
+<li><b>bCanCostumeUnlock</b><b> (Boolean)</b> - If this value is true, then the item can be added to the player's Holo-Wardrobe.
+<li><b>bCostumeUnlocked</b><b> (Boolean)</b> - If this is true, then the item is currently unlocked in the player's Holo-Wardrobe.
+<li><b>tUnique</b><b> (Table)</b>
+<ul>
+<li><b>bUnique</b><b> (Boolean)</b> - If this is true, then the player can only have a limited number of this item in their inventory.
+<li><b>nCount</b><b> (Integer)</b> - The maximum number of this item that the player can have in their inventory.
+<li><b>bEquipped</b><b> (Boolean)</b> - If this is true, then the player can only have one of this item equipped.  In the case of runes then only one equipped item can have this rune in a slot.
+</ul>
+<li><b>arSpells</b><b> (Array of Table)</b>
+<ul>
+<li><b>strName</b><b> (String)</b> - The name of the spell.
+<li><b>strFlavor</b><b> (String)</b> - The spell's flavor text.
+<li><b>bActivate</b><b> (Boolean)</b> - If this is true, then the spell is cast when the item is used.  Gadgets and consumables are the most common case of this.
+<li><b>bOnEquip</b><b> (Boolean)</b> - If this is true, then the spell is used when the item is equipped.
+<li><b>strFailure</b><b> (String)</b> - The string that should be displayed if the spell's requirements are not met.
+<li><b>splData</b><b> (<a href="../classes/spell.htm">Spell</a>)</b> - The Spell object that is tied to the item.
+</ul>
+<li><b>arImbuements</b><b> (Array of Table)</b>
+<ul>
+<li><b>strObjective</b><b> (String)</b> - The current objective that the player must complete for the imbuement.
+<li><b>strName</b><b> (String)</b> - The name of the imbuement's Quest.
+<li><b>bComplete</b><b> (boolean)</b> - If this is true, then the imbuement is complete and the bonuses are active.
+<li><b>bActive</b><b> (Boolean)</b> - If this is true, then the player can earn progress towards this imbuement's Quest.
+<li><b>queImbument</b><b> (<a href="../classes/quest.htm">Quest</a>)</b> - The Quest object tied to this imbuement.
+<li><b>strSpecial</b><b> (String)</b> - The name of any imbuement bonuses that are provided while the item is equipped.
+<li><b>eNewQuality</b><b> (Item.CodeEnumItemQuality)</b> - The new quality of the item after the imbuement is completed.
+<li><b>nAddedLevels</b><b> (Integer)</b> - The number of item levels that are added to the item when the imbuement is completed.
+<li><b>nAddedRuneSlots</b><b> (Integer)</b> - The number of rune slots added to the item when the imbuement is completed.
+</ul>
+<li><b>arInnateProperties</b><b> (Array of Table)</b>
+<ul>
+<li><b>nSortOrder</b><b> (Integer)</b> - A number that represents the order that the properties should be sorted in.
+<li><b>eProperty</b><b> (Unit.CodeEnumProperties)</b> - The property whose information is contained in this table.
+<li><b>nValue</b><b> (Float)</b> - The amount of the specified property that is added to the player while the item is equipped.
+<li><b>nDiff</b><b> (Float)</b> - The difference between the amount of this property that this item provides compared to the amount that the other item that was passed in provides.
+</ul>
+<li><b>arBudgetBasedProperties</b><b> (Array of Table)</b>
+<ul>
+<li><b>nSortOrder</b><b> (Integer)</b> - Can be used for consistent display ordering.
+<li><b>eProperty</b><b> (Unit.CodeEnumProperties)</b> - The currenty stat property.
+<li><b>nValue</b><b> (Float)</b> - The change in the stat when equipped.
+<li><b>nDiff</b><b> (Float)</b> - Provided if an itemCompare was provided.  This is the difference between this item and the compare item.
+</ul>
+<li><b>tUndefinedProperties</b><b> (Table)</b> - Information about properties that have not been defined yet.  This is primarily used for items before they are crafted.
+<ul>
+<li><b>nCraftableProperties</b><b> (Integer)</b> - The number of stats that will be defined by crafting.
+<li><b>nRandomProperties</b><b> (Integer)</b> - The number of stats that will be randomly selected when this item is generated.
+<li><b>arStrNamedRandomProperties</b><b> (Array of String)</b> - Provided if any of the random properties have a localized string that can be used to describe the randomized stat.
+</ul>
+<li><b>tRunes</b><b> (Table)</b>
+<ul>
+<li><b>nMinimum</b><b> (Integer)</b> - This is the minimum number of rune slots that this item will have.  This value is only relevant before the item's rune slots are rolled.
+<li><b>nMaximum</b><b> (Integer)</b> - The maximum number of rune slots that the item can have.
+<li><b>arRuneSlots</b><b> (Array of Table)</b> - Information about the rune slots after they have been rolled.
+<ul>
+<li><b>eElement</b><b> (Item.CodeEnumSigilType)</b> - The type of rune slot.
+<li><b>bDisabled</b><b> (Boolean)</b> - If this is true, then the rune in this slot provides no benefit.
+<li><b>itemRune</b><b> (<a href="../classes/item.htm">Item</a>)</b> - The Item object for the rune currently installed in this slot.
+<li><b>nItemLevel</b><b> (Integer)</b> - The item level of the rune that is installed in this slot.
+<li><b>nEffectiveLevel</b><b> (Integer)</b> - The effective item level of rune installed in this slot.
+<li><b>arProperties</b><b> (Array of Table)</b>
+<ul>
+<li><b>nSortOrder</b><b> (Integer)</b> - The order that the stats should be displayed in.
+<li><b>eProperty</b><b> (Unit.CodeEnumProperties)</b> - The property that the information in this table represents.
+<li><b>nValue</b><b> (Float)</b> - The amount of the property that is added to the player while the item with this rune is equipped.
+</ul>
+<li><b>arSpells</b><b> (Array of Table)</b> - Information on any effects that the rune provides.
+<ul>
+<li><b>strName</b><b> (String)</b> - The name of the spell
+<li><b>strFlavor</b><b> (String)</b> - The spell's flavor text
+<li><b>strFailure</b><b> (String)</b> - The string that should be displayed if the requirements to cast this spell are not met.
+<li><b>splData</b><b> (<a href="../classes/spell.htm">Spell</a>)</b> - The Spell object that is used for the rune's effect.
+</ul>
+<li><b>arSets</b><b> (Array of Table)</b>
+<ul>
+<li><b>strName</b><b> (String)</b> - The name of the rune's set
+<li><b>nRunePower</b><b> (Integer)</b> - The amount of power this rune provides towards this set.
+<li><b>nTotalPower</b><b> (Integer)</b> - The total amount of rune power that this item contains for this set.
+<li><b>nMaxPower</b><b> (Integer)</b> - The amount of power required to unlock all bonuses of this rune set.
+</ul>
+</ul>
+</ul>
+<li><b>arSets</b><b> (Array of Table)</b>
+<ul>
+<li><b>strName</b><b> (String)</b> - The name of the rune set.
+<li><b>nPower</b><b> (Integer)</b> - The amount of rune power that the runes in this item provide towards this set
+<li><b>nMaxPower</b><b> (Integer)</b> - The amount of rune power required to activate all bonuses for this rune set.
+<li><b>arBonuses</b><b> (Array of Table)</b> - Information on the bonuses that this rune set provides.
+<ul>
+<li><b>bIsActive</b><b> (Boolean)</b> - If this is true, then this bonus is active and will affect the player.
+<li><b>nPower</b><b> (Integer)</b> - The amount of rune power required to activate this bonus.
+<li><b>splBonus</b><b> (<a href="../classes/spell.htm">Spell</a>)</b> - The Spell object that is used for the effect this bonus provides.
+<li><b>nSortOrder</b><b> (Integer)</b> - Used to determine the order that property based bonuses should be drawn in.
+<li><b>eProperty</b><b> (Unit.CodeEnumProperties)</b> - The property that this bonus affects.
+<li><b>nValue</b><b> (Float)</b> - The amount of the property that this bonus provides.  This value is applied after any scalar bonuses take effect.
+<li><b>nScalar</b><b> (Float)</b> - The scalar value applied to the property while equipped.  These values are applied before any static bonuses from this rune set.
+</ul>
+</ul>
+<li><b>strMaterialCategory</b><b> (String)</b> - The name of the supply satchel category that this item belongs to.
+<li><b>nBagSlots</b><b> (Integer)</b> - The number of bag slots this item provides.
+<li><b>nPowerCoreMaximumLevel</b><b> (Integer)</b> - The maximum power core level that can be placed within this item when crafted.
+<li><b>nInstalledMinimumItemLevel</b><b> (Integer)</b> - The minimum item level of the item this rune is to be installed in.
+</ul>
+<li><b>tCompare</b><b> (Table)</b> - Contains detailed info for the item that was passed in with the itemCompare parameter.
+</ul>
+</ul>
+<h3>Remarks</h3>
+<p>This function only returns information that is relevant for the item</p>
+<hr><a name="GetDurability"><h3>Method</h3><br><h2>GetDurability()</h2>
+<hr><a name="GetDurationRemaining"><h3>Method</h3><br><h2>GetDurationRemaining()</h2>
+<hr><a name="GetDurationTotal"><h3>Method</h3><br><h2>GetDurationTotal()</h2>
+<hr><a name="GetEffectiveLevel"><h3>Method</h3><br><h2>GetEffectiveLevel()</h2>
+<hr><a name="GetEmptySockets"><h3>Method</h3><br><h2>GetEmptySockets() (Deprecated)</h2>
+<hr><a name="GetEquippedCount"><h3>Method</h3><br><h2>GetEquippedCount()</h2>
+<hr><a name="GetEquippedItemForItemType"><h3>Method</h3><br><h2>GetEquippedItemForItemType()</h2>
+<h3>Description</h3>
+<p>Returns a new item that is a copy of the equipped item at a type specified by itemData, or nil if null.</p>
+<hr><a name="GetEquipSpell"><h3>Method</h3><br><h2>GetEquipSpell() (Deprecated)</h2>
+<h3>Description</h3>
+<p>Currently has no implementation</p>
+<hr><a name="GetGivenQuest"><h3>Method</h3><br><h2>GetGivenQuest()</h2>
+<h3>Description</h3>
+<p>Does a LuaGameTypes_Quest::New of the quest specified by itemData, or nil if null.</p>
+<hr><a name="GetGlobalCatalystInfo"><h3>Method</h3><br><h2>GetGlobalCatalystInfo()</h2>
+<hr><a name="GetGlyphBonus"><h3>Method</h3><br><h2>GetGlyphBonus() (Deprecated)</h2>
+<hr><a name="GetGlyphInfo"><h3>Method</h3><br><h2>GetGlyphInfo() (Deprecated)</h2>
+<hr><a name="GetHousingDecorInfoId"><h3>Method</h3><br><h2>GetHousingDecorInfoId()</h2>
+<hr><a name="GetIcon"><h3>Method</h3><br><h2>GetIcon()</h2>
+<h3>Description</h3>
+<p>Does a lua_pushwstring of buttonIcon specified by itemData, or empty string if null.</p>
+<hr><a name="GetInventoryId"><h3>Method</h3><br><h2>GetInventoryId()</h2>
+<hr><a name="GetItemCategory"><h3>Method</h3><br><h2>GetItemCategory()</h2>
+<hr><a name="GetItemCategoryName"><h3>Method</h3><br><h2>GetItemCategoryName()</h2>
+<hr><a name="GetItemFamily"><h3>Method</h3><br><h2>GetItemFamily()</h2>
+<hr><a name="GetItemFamilyName"><h3>Method</h3><br><h2>GetItemFamilyName()</h2>
+<hr><a name="GetItemFlavor"><h3>Method</h3><br><h2>GetItemFlavor()</h2>
+<h3>Description</h3>
+<p>Does a lua_pushwstring of the localized tooltip specified by itemData, or nil if null.</p>
+<hr><a name="GetItemId"><h3>Method</h3><br><h2>GetItemId()</h2>
+<hr><a name="GetItemPower"><h3>Method</h3><br><h2>GetItemPower()</h2>
+<hr><a name="GetItemQuality"><h3>Method</h3><br><h2>GetItemQuality()</h2>
+<h3>Description</h3>
+<p>Does a lua_pushinteger of the item quality specified by itemData, or nil if null.</p>
+<hr><a name="GetItemType"><h3>Method</h3><br><h2>GetItemType()</h2>
+<h3>Description</h3>
+<p>Does a lua_pushinteger of item2Type specified by itemData, or nil if null.</p>
+<hr><a name="GetItemTypeName"><h3>Method</h3><br><h2>GetItemTypeName()</h2>
+<hr><a name="GetMaxCharges"><h3>Method</h3><br><h2>GetMaxCharges()</h2>
+<h3>Description</h3>
+<p>Does a lua_pushinteger of batteryChargeMax specified by itemData, or nil if null.</p>
+<hr><a name="GetMaxDurability"><h3>Method</h3><br><h2>GetMaxDurability()</h2>
+<hr><a name="GetMaxStackCount"><h3>Method</h3><br><h2>GetMaxStackCount()</h2>
+<h3>Description</h3>
+<p>Does a lua_pushinteger of maxStackCount specified by itemData, or nil if null.</p>
+<hr><a name="GetMicrochipInfo"><h3>Method</h3><br><h2>GetMicrochipInfo() (Deprecated)</h2>
+<hr><a name="GetName"><h3>Method</h3><br><h2>GetName()</h2>
+<h3>Description</h3>
+<p>Does a lua_pushwstring of the localized string id name specified by itemData, or empty string if null.</p>
+<hr><a name="GetPowerLevel"><h3>Method</h3><br><h2>GetPowerLevel()</h2>
+<h3>Description</h3>
+<p>Does a lua_pushinteger of the item power level specified by itemData, or nil if null.</p>
+<hr><a name="GetProcSpell"><h3>Method</h3><br><h2>GetProcSpell() (Deprecated)</h2>
+<hr><a name="GetProficiencyInfo"><h3>Method</h3><br><h2>GetProficiencyInfo()</h2>
+<h3>Description</h3>
+<p>Does a lua_newtable with id, has, and name specified by itemData, or nil if null.</p>
+<hr><a name="GetRepairCost"><h3>Method</h3><br><h2>GetRepairCost()</h2>
+<hr><a name="GetRequiredClass"><h3>Method</h3><br><h2>GetRequiredClass()</h2>
+<h3>Description</h3>
+<p>Does a lua_newtable of the required classes specified by itemData, or nil if null.</p>
+<hr><a name="GetRequiredFaction"><h3>Method</h3><br><h2>GetRequiredFaction()</h2>
+<hr><a name="GetRequiredLevel"><h3>Method</h3><br><h2>GetRequiredLevel()</h2>
+<h3>Description</h3>
+<p>Does a lua_pushinteger of the item level specified by itemData, or nil if null.</p>
+<hr><a name="GetRequiredRace"><h3>Method</h3><br><h2>GetRequiredRace()</h2>
+<h3>Description</h3>
+<p>Does a lua_newtable of the required races specified by itemData, or nil if null.</p>
+<hr><a name="GetReturnTimeRemaining"><h3>Method</h3><br><h2>GetReturnTimeRemaining()</h2>
+<hr><a name="GetRuneInfo"><h3>Method</h3><br><h2>GetRuneInfo() (Deprecated)</h2>
+<hr><a name="GetRuneSlots"><h3>Method</h3><br><h2>GetRuneSlots()</h2>
+<hr><a name="GetSellPrice"><h3>Method</h3><br><h2>GetSellPrice()</h2>
+<h3>Description</h3>
+<p>Returns the success of a new LuaGameTypes_Money with SellToVendorPrice specified by itemData, or nil if null.</p>
+<hr><a name="GetSetBonuses"><h3>Method</h3><br><h2>GetSetBonuses()</h2>
+<hr><a name="GetSigils"><h3>Method</h3><br><h2>GetSigils() (Deprecated)</h2>
+<hr><a name="GetSlot"><h3>Method</h3><br><h2>GetSlot()</h2>
+<h3>Description</h3>
+<p>Does a lua_pushinteger of slotId specified by itemData, or nil if null.</p>
+<hr><a name="GetSlotName"><h3>Method</h3><br><h2>GetSlotName()</h2>
+<h3>Description</h3>
+<p>Does a lua_pushwstring of the slot name specified by itemData, or nil if null.</p>
+<hr><a name="GetStackCount"><h3>Method</h3><br><h2>GetStackCount(itemInstance)</h2>
+<h3>Description</h3>
+<p>Does a lua_pushinteger of GetStackCount specified by itemData, or nil if null.</p>
+<h3>Params</h3>
+<ul>
+<li><b>itemInstance</b><b> (LuaItemInstance)</b>
+</ul>
+<hr><a name="GetTradeskillSchematicId"><h3>Method</h3><br><h2>GetTradeskillSchematicId()</h2>
+<hr><a name="GetWeaponDamageMax"><h3>Method</h3><br><h2>GetWeaponDamageMax() (Deprecated)</h2>
+<hr><a name="GetWeaponDamageMin"><h3>Method</h3><br><h2>GetWeaponDamageMin() (Deprecated)</h2>
+<hr><a name="GetWeaponPower"><h3>Method</h3><br><h2>GetWeaponPower() (Deprecated)</h2>
+<h3>Description</h3>
+<p>Does a lua_pushnumber of weapon power specified by itemData, or 0.0f if null.</p>
+<hr><a name="GetWeaponSpeed"><h3>Method</h3><br><h2>GetWeaponSpeed() (Deprecated)</h2>
+<h3>Description</h3>
+<p>Does a lua_pushnumber of weapon speed specified by itemData, or 0.0f if null.</p>
+<hr><a name="HasRestockingFee"><h3>Method</h3><br><h2>HasRestockingFee()</h2>
+<hr><a name="IsAlwaysTradeable"><h3>Method</h3><br><h2>IsAlwaysTradeable()</h2>
+<hr><a name="IsAuctionable"><h3>Method</h3><br><h2>IsAuctionable()</h2>
+<hr><a name="IsCommodity"><h3>Method</h3><br><h2>IsCommodity()</h2>
+<hr><a name="isData"><h3>Method</h3><br><h2>isData()</h2>
+<hr><a name="IsDeprecated"><h3>Method</h3><br><h2>IsDeprecated()</h2>
+<hr><a name="IsDestroyOnLogout"><h3>Method</h3><br><h2>IsDestroyOnLogout()</h2>
+<hr><a name="IsDestroyOnZone"><h3>Method</h3><br><h2>IsDestroyOnZone()</h2>
+<hr><a name="IsEquippable"><h3>Method</h3><br><h2>IsEquippable()</h2>
+<hr><a name="isGlyphData"><h3>Method</h3><br><h2>isGlyphData() (Deprecated)</h2>
+<hr><a name="isInstance"><h3>Method</h3><br><h2>isInstance()</h2>
+<hr><a name="isModdableData"><h3>Method</h3><br><h2>isModdableData()</h2>
+<hr><a name="isRuneData"><h3>Method</h3><br><h2>isRuneData()</h2>
+<hr><a name="IsSalvagedLootSoulbound"><h3>Method</h3><br><h2>IsSalvagedLootSoulbound()</h2>
+<hr><a name="IsSoulbound"><h3>Method</h3><br><h2>IsSoulbound()</h2>
+<hr><a name="IsTradeableTo"><h3>Method</h3><br><h2>IsTradeableTo()</h2>
+<hr><a name="IsUnique"><h3>Method</h3><br><h2>IsUnique()</h2>
+<h3>Description</h3>
+<p>Does a lua_pushboolean of the item bind flag specified by itemData, or nil if null.</p>
+<hr><a name="MoveToSupplySatchel"><h3>Method</h3><br><h2>MoveToSupplySatchel()</h2>
+<hr><a name="PlayEquipSound"><h3>Method</h3><br><h2>PlayEquipSound()</h2>
+<hr><a name="TakeFromSupplySatchel"><h3>Method</h3><br><h2>TakeFromSupplySatchel()</h2>
+	</body>
+</html>

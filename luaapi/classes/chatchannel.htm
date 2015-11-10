@@ -1,0 +1,255 @@
+<html>
+	<head>
+	<link rel="stylesheet" type="text/css" href="/style.css">
+	</head>
+	<body><script language="javascript">
+		if ((window.name != "content") && (navigator.userAgent.indexOf("Opera") <= -1) )
+		document.write("<center><a href='../../index.html?page=LuaAPI/Classes/ChatChannel.htm'>show framing</a></center>")
+		</script>
+	<h1>
+		ChatChannel (Deprecated)	</h1>
+<h3>Prefix: chan</h3>
+<h3>Description</h3>
+<p>One of the channels that chat messages can be sent to.</p>
+<a name=">Functions"/>
+<hr><a name="is"><h3>Function</h3><br><h2>is(oVariable) (Deprecated)</h2>
+<h3>Description</h3>
+<p>Checks whether a variable is a ChatChannel or not.</p>
+<h3>Params</h3>
+<ul>
+<li><b>oVariable</b><b> (Variable)</b> - The function will verify that this variable is a ChatChannel.
+</ul>
+<h3>Return Value</h3>
+<ul>
+<li><b>Boolean</b> - Whether the variable is a ChatChannel or not.
+</ul>
+<a name=">Methods"/>
+<hr><a name="__eq"><h3>Method</h3><br><h2>__eq(chanComparison) (Deprecated)</h2>
+<h3>Description</h3>
+<p>Checks whether a ChatChannel is equal to the ChatChannel that called this function.</p>
+<h3>Params</h3>
+<ul>
+<li><b>chanComparison</b><b> (<a href="../classes/chatchannel.htm">ChatChannel</a>)</b> - The ChatChannel that will be compared to the one that called this function.
+</ul>
+<h3>Return Value</h3>
+<ul>
+<li><b>Boolean</b> - Whether the two ChatChannels are equal or not.
+</ul>
+<hr><a name="__gc"><h3>Method</h3><br><h2>__gc() (Deprecated)</h2>
+<h3>Description</h3>
+<p>ChatChannel's garbage collection function.  This will delete the ChatChannel from memory.</p>
+<hr><a name="CanLeave"><h3>Method</h3><br><h2>CanLeave() (Deprecated)</h2>
+<h3>Description</h3>
+<p>Checks if the player is able to leave the ChatChannel.</p>
+<h3>Return Value</h3>
+<ul>
+<li><b>Boolean</b> - Whether the player is able to leave the ChatChannel or not.
+</ul>
+<hr><a name="CanSend"><h3>Method</h3><br><h2>CanSend() (Deprecated)</h2>
+<h3>Description</h3>
+<p>Determines if the player is able to send messages on this ChatChannel.</p>
+<h3>Return Value</h3>
+<ul>
+<li><b>Boolean</b> - Whether the player is able to send chat messages on this ChatChannel or not.
+</ul>
+<hr><a name="GetAbbreviation"><h3>Method</h3><br><h2>GetAbbreviation() (Deprecated)</h2>
+<h3>Description</h3>
+<p>Gets an abbreviation for the ChatChannel that can be used in slash commands to quickly select the channel.</p>
+<h3>Return Value</h3>
+<ul>
+<li><b>String</b> - The ChatChannel's abbreviation.
+</ul>
+<hr><a name="GetAlternate"><h3>Method</h3><br><h2>GetAlternate(nIndex) (Deprecated)</h2>
+<h3>Description</h3>
+<p>Checks for alternate abbreviations for the ChatChannel.</p>
+<h3>Params</h3>
+<ul>
+<li><b>nIndex</b><b> (Integer)</b> - The index of the alternate abbreviation for the ChatChannel.
+</ul>
+<h3>Return Value</h3>
+<ul>
+<li><b>String</b> - The alternate abbreviation for the ChatChannel.
+</ul>
+<hr><a name="GetBans"><h3>Method</h3><br><h2>GetBans() (Deprecated)</h2>
+<h3>Description</h3>
+<p>Gets a list of players who are banned in this ChatChannel.</p>
+<h3>Return Value</h3>
+<ul>
+<li><b>Array of Table</b> - An array of information about the players that have been banned from the channel.
+<ul>
+<li><b>strMemberName</b><b> (String)</b> - The player's name.
+<li><b>bIsChannelOwner</b><b> (Boolean)</b> - Whether the player owns the channel or not.
+<li><b>bIsModerator</b><b> (Boolean)</b> - Whether the player is a moderator of the channel or not.
+<li><b>bIsMuted</b><b> (Boolean)</b> - Whether the player is muted in the channel or not.
+</ul>
+</ul>
+<hr><a name="GetCommand"><h3>Method</h3><br><h2>GetCommand() (Deprecated)</h2>
+<h3>Description</h3>
+<p>Gets the slash command used to select the ChatChannel.</p>
+<h3>Return Value</h3>
+<ul>
+<li><b>String</b> - The command used to select the ChatChannel.
+</ul>
+<hr><a name="GetData"><h3>Method</h3><br><h2>GetData() (Deprecated)</h2>
+<h3>Description</h3>
+<p>Gets the data that was added to the channel with SetData()</p>
+<h3>Return Value</h3>
+<ul>
+<li><b>Variable</b> - The data that was added to the ChatChannel with SetData.
+</ul>
+<hr><a name="GetMembers"><h3>Method</h3><br><h2>GetMembers() (Deprecated)</h2>
+<h3>Description</h3>
+<p>Gets a list of players that are in the ChatChannel.</p>
+<h3>Return Value</h3>
+<ul>
+<li><b>Array of Table</b> - An array that contains information on all of the players that are in the ChatChannel.
+<ul>
+<li><b>strMemberName</b><b> (String)</b> - The name of the player.
+<li><b>bIsChannelOwner</b><b> (Boolean)</b> - Whether the player owns the channel.
+<li><b>bIsModerator</b><b> (Boolean)</b> - Whether the player is a moderator of the channel.
+<li><b>bIsMuted</b><b> (Boolean)</b> - Whether the character has been muted.
+</ul>
+</ul>
+<hr><a name="GetName"><h3>Method</h3><br><h2>GetName() (Deprecated)</h2>
+<h3>Description</h3>
+<p>Gets the ChatChannel's name.</p>
+<h3>Return Value</h3>
+<ul>
+<li><b>String</b> - The name of the ChatChannel.
+</ul>
+<hr><a name="GetProfanity"><h3>Method</h3><br><h2>GetProfanity() (Deprecated)</h2>
+<h3>Description</h3>
+<p>Checks whether the Profanity Filter is turned on for the ChatChannel.</p>
+<h3>Return Value</h3>
+<ul>
+<li><b>Boolean</b> - Whether the Profanity Filter is turned on for the ChatChannel.
+</ul>
+<hr><a name="GetType"><h3>Method</h3><br><h2>GetType() (Deprecated)</h2>
+<h3>Description</h3>
+<p>Gets the ChatChannel's id number.</p>
+<h3>Return Value</h3>
+<ul>
+<li><b>Integer</b> - The channel's id number.
+</ul>
+<hr><a name="IsCustom"><h3>Method</h3><br><h2>IsCustom() (Deprecated)</h2>
+<h3>Description</h3>
+<p>Determines if the ChatChannel is a player made channel.</p>
+<h3>Return Value</h3>
+<ul>
+<li><b>Boolean</b> - Whether the ChatChannel is a player made channel or not.
+</ul>
+<hr><a name="IsModerator"><h3>Method</h3><br><h2>IsModerator() (Deprecated)</h2>
+<h3>Description</h3>
+<p>Checks if the player is a moderator of the ChatChannel.</p>
+<h3>Return Value</h3>
+<ul>
+<li><b>Boolean</b> - Whether the player is a moderator of the ChatChannel.
+</ul>
+<hr><a name="IsMuted"><h3>Method</h3><br><h2>IsMuted() (Deprecated)</h2>
+<h3>Description</h3>
+<p>Determines if the player is muted in the ChatChannel.</p>
+<h3>Return Value</h3>
+<ul>
+<li><b>Boolean</b> - Whether the player is muted or not.
+</ul>
+<hr><a name="IsOwner"><h3>Method</h3><br><h2>IsOwner() (Deprecated)</h2>
+<h3>Description</h3>
+<p>Determines if the player owns the ChatChannel.</p>
+<h3>Return Value</h3>
+<ul>
+<li><b>Boolean</b> - Whether the player owns the ChatChannel.
+</ul>
+<hr><a name="Kick"><h3>Method</h3><br><h2>Kick(strPlayerName) (Deprecated)</h2>
+<h3>Description</h3>
+<p>Attempts to remove a player from the ChatChannel.</p>
+<h3>Params</h3>
+<ul>
+<li><b>strPlayerName</b><b> (String)</b> - The name of the player that the function will attempt to remove from the ChatChannel.
+</ul>
+<h3>Usage/Example</h3>
+<pre>If this call is successful, players will receive the ChatAction event.</pre>
+<hr><a name="Leave"><h3>Method</h3><br><h2>Leave() (Deprecated)</h2>
+<h3>Description</h3>
+<p>Attempts to remove the player from the ChatChannel.</p>
+<h3>Usage/Example</h3>
+<pre>If the attempt was successful, the player will receive the ChatLeave event.</pre>
+<hr><a name="PassOwner"><h3>Method</h3><br><h2>PassOwner(strPlayerName) (Deprecated)</h2>
+<h3>Description</h3>
+<p>Attempts to make another player the owner of the ChatChannel.</p>
+<h3>Params</h3>
+<ul>
+<li><b>strPlayerName</b><b> (String)</b> - The name of the player that the function will attempt to transfer ownership to.
+</ul>
+<h3>Usage/Example</h3>
+<pre>If ownership was successfully passed, the ChatAction event will fire.</pre>
+<hr><a name="Post"><h3>Method</h3><br><h2>Post(strMessage, strSenderName, unitSpeaker, bTextBubble) (Deprecated)</h2>
+<h3>Description</h3>
+<p>Attempts to send a string to all members of the ChatChannel.</p>
+<h3>Params</h3>
+<ul>
+<li><b>strMessage</b><b> (String)</b> - The message that will be sent through the ChatChannel.
+<li><b>strSenderName</b><b> (String)</b> - The name of the player that sent the message.  This value defaults to an empty string.
+<li><b>unitSpeaker</b><b> (<a href="../classes/unit.htm">Unit</a>)</b> - The unit that entered the message.
+<li><b>bTextBubble</b><b> (Boolean)</b> - Whether a text bubble should be shown for this piece of text.
+</ul>
+<h3>Usage/Example</h3>
+<pre>If this function is successful, then players in the channel will receive the ChatMessage event.</pre>
+<hr><a name="RequestMembers"><h3>Method</h3><br><h2>RequestMembers() (Deprecated)</h2>
+<h3>Description</h3>
+<p>Requests a list of the players in the ChatChannel.</p>
+<h3>Usage/Example</h3>
+<pre>If this is successful, the player will receive the ChatList event.</pre>
+<hr><a name="Send"><h3>Method</h3><br><h2>Send(strMessage) (Deprecated)</h2>
+<h3>Description</h3>
+<p>Sends a message over the ChatChannel.</p>
+<h3>Params</h3>
+<ul>
+<li><b>strMessage</b><b> (String)</b> - The message that will be sent over the ChatChannel.
+</ul>
+<h3>Usage/Example</h3>
+<pre>Players in the ChatChannel will receive the ChatMessage event after this function has finished.</pre>
+<hr><a name="SetData"><h3>Method</h3><br><h2>SetData(oVariable) (Deprecated)</h2>
+<h3>Description</h3>
+<p>Saves data in the ChatChannel.  This data can be accessed again by calling the GetData function.</p>
+<h3>Params</h3>
+<ul>
+<li><b>oVariable</b><b> (Variable)</b> - The data that will be tied to the ChatChannel.
+</ul>
+<hr><a name="SetModerator"><h3>Method</h3><br><h2>SetModerator(strPlayerName, bMakeModerator) (Deprecated)</h2>
+<h3>Description</h3>
+<p>Attempts to set a player's Moderator status in the ChatChannel.</p>
+<h3>Params</h3>
+<ul>
+<li><b>strPlayerName</b><b> (String)</b> - The name of the player whose Moderator status will be updated by this function.
+<li><b>bMakeModerator</b><b> (Boolean)</b> - Whether the player's Moderator flag should be granted (true) or removed (false).  This defaults to false if no value is passed in.
+</ul>
+<h3>Usage/Example</h3>
+<pre>If the player's Moderator status was successfully changed, the ChatAction event will be fired.</pre>
+<hr><a name="SetMute"><h3>Method</h3><br><h2>SetMute(strPlayerName, bMuted) (Deprecated)</h2>
+<h3>Description</h3>
+<p>Attempts to set a player's Mute status for the ChatChannel.</p>
+<h3>Params</h3>
+<ul>
+<li><b>strPlayerName</b><b> (String)</b> - The player whose Mute flag should be changed by the function.
+<li><b>bMuted</b><b> (Boolean)</b> - Whether the Mute flag should be added to the player (true) or removed (false).  This defaults to false if no value is passed in.
+</ul>
+<h3>Usage/Example</h3>
+<pre>If this function is successful, the ChatAction event will be fired.</pre>
+<hr><a name="SetPassword"><h3>Method</h3><br><h2>SetPassword(strPassword) (Deprecated)</h2>
+<h3>Description</h3>
+<p>Attempts to add a password to the ChatChannel or modify an existing one.</p>
+<h3>Params</h3>
+<ul>
+<li><b>strPassword</b><b> (String)</b> - The ChatChannel's new password.
+</ul>
+<h3>Usage/Example</h3>
+<pre>If this is successful, the ChatAction event will be fired.</pre>
+<hr><a name="SetProfanity"><h3>Method</h3><br><h2>SetProfanity(bProfanityFilterOn) (Deprecated)</h2>
+<h3>Description</h3>
+<p>Attempts to change the ChatChannel's Profanity Filter status.</p>
+<h3>Params</h3>
+<ul>
+<li><b>bProfanityFilterOn</b><b> (Boolean)</b> - Whether the Profanity Filter should be turned on or off for the channel.
+</ul>
+	</body>
+</html>

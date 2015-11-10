@@ -1,0 +1,130 @@
+<html>
+	<head>
+	<link rel="stylesheet" type="text/css" href="/style.css">
+	</head>
+	<body><script language="javascript">
+		if ((window.name != "content") && (navigator.userAgent.indexOf("Opera") <= -1) )
+		document.write("<center><a href='../../index.html?page=LuaAPI/Classes/CharacterTitle.htm'>show framing</a></center>")
+		</script>
+	<h1>
+		CharacterTitle	</h1>
+<h3>Prefix: title</h3>
+<h3>Description</h3>
+<p>These are the titles that the character can set for themselves.  These do not include guild tags.</p>
+<a name=">Functions"/>
+<hr><a name="CanUseTitle"><h3>Function</h3><br><h2>CanUseTitle()</h2>
+<h3>Description</h3>
+<p>Determines whether or not the player can use the specified title.</p>
+<h3>Return Value</h3>
+<ul>
+<li><b>Boolean</b> - Whether the player can use the title or not.
+</ul>
+<hr><a name="GetAvailableTitles"><h3>Function</h3><br><h2>GetAvailableTitles()</h2>
+<h3>Description</h3>
+<p>Gets a list of all of the titles that the player has unlocked.</p>
+<h3>Return Value</h3>
+<ul>
+<li><b>Array of <a href="../classes/charactertitle.htm">CharacterTitle</a></b> - An array of all of the titles that the player has unlocked.
+</ul>
+<hr><a name="is"><h3>Function</h3><br><h2>is(oVariable)</h2>
+<h3>Description</h3>
+<p>Determines whether a variable is a CharacterTitle or not.</p>
+<h3>Params</h3>
+<ul>
+<li><b>oVariable</b><b> (Variable)</b> - The variable that the function will check.
+</ul>
+<h3>Return Value</h3>
+<ul>
+<li><b>Boolean</b> - Whether the variable is a CharacterTitle or not.
+</ul>
+<hr><a name="IsActiveTitle"><h3>Function</h3><br><h2>IsActiveTitle(titleChecked)</h2>
+<h3>Description</h3>
+<p>Checks whether the a title is the one that the player has set as the active title.</p>
+<h3>Params</h3>
+<ul>
+<li><b>titleChecked</b><b> (<a href="../classes/charactertitle.htm">CharacterTitle</a>)</b> - The function will check if this title is currently active.
+</ul>
+<h3>Return Value</h3>
+<ul>
+<li><b>Boolean</b> - Whether the CharacterTitle is the active title.
+</ul>
+<hr><a name="SetTitle"><h3>Function</h3><br><h2>SetTitle(titleActivated)</h2>
+<h3>Description</h3>
+<p>Sends a request to the server to make a CharacterTitle the active title.</p>
+<h3>Params</h3>
+<ul>
+<li><b>titleActivated</b><b> (<a href="../classes/charactertitle.htm">CharacterTitle</a>)</b> - The title that the function will make active.
+</ul>
+<h3>Usage/Example</h3>
+<pre>If this is successful, the PlayerTitleChange event will be sent to the player.</pre>
+<a name=">Methods"/>
+<hr><a name="__eq"><h3>Method</h3><br><h2>__eq(titleComparison) (Deprecated)</h2>
+<h3>Description</h3>
+<p>Compares a CharacterTitle to the one that called this function to make sure that they are equal.</p>
+<h3>Params</h3>
+<ul>
+<li><b>titleComparison</b><b> (<a href="../classes/charactertitle.htm">CharacterTitle</a>)</b> - The function will compare this CharacterTitle to the one that the function was called from.
+</ul>
+<h3>Return Value</h3>
+<ul>
+<li><b>Boolean</b> - Whether the CharacterTitles were the same or not.
+</ul>
+<hr><a name="__gc"><h3>Method</h3><br><h2>__gc() (Deprecated)</h2>
+<h3>Description</h3>
+<p>CharacterTitle's garbage collection function.  This will delete the CharacterTitle from memory.</p>
+<hr><a name="CannotRemove"><h3>Method</h3><br><h2>CannotRemove()</h2>
+<h3>Description</h3>
+<p>Determines whether the player is able to remove this CharacterTitle.</p>
+<h3>Return Value</h3>
+<ul>
+<li><b>Boolean</b> - Whether the player is able to remove this CharacterTitle or not
+</ul>
+<h3>Remarks</h3>
+<p>This will very very rarely be true.</p>
+<hr><a name="GetCategory"><h3>Method</h3><br><h2>GetCategory()</h2>
+<h3>Description</h3>
+<p>Gets the category that the CharacterTitle falls under.</p>
+<h3>Return Value</h3>
+<ul>
+<li><b>String</b> - The CharacterTitle's category.
+</ul>
+<hr><a name="GetForUnit"><h3>Method</h3><br><h2>GetForUnit(unitChecked)</h2>
+<h3>Description</h3>
+<p>Checks what a unit's name would look like with the CharacterTitle.</p>
+<h3>Params</h3>
+<ul>
+<li><b>unitChecked</b><b> (<a href="../classes/unit.htm">Unit</a>)</b> - The function will add the CharacterTitle to this unit's name.
+</ul>
+<h3>Return Value</h3>
+<ul>
+<li><b>String</b> - The unit's name, if the CharacterTitle was applyed to it.
+</ul>
+<h3>Usage/Example</h3>
+<pre>If no unit is passed in, this will return a blank string.</pre>
+<hr><a name="GetLifetime"><h3>Method</h3><br><h2>GetLifetime()</h2>
+<h3>Description</h3>
+<p>Gets the amount of time, in milliseconds, that the title will be active before it is removed from the player.</p>
+<h3>Return Value</h3>
+<ul>
+<li><b>Integer</b> - How long the title will remain active, in milliseconds.
+</ul>
+<h3>Usage/Example</h3>
+<pre>If this returns 0, the title will remain available to the player indefinitely.</pre>
+<hr><a name="GetSpell"><h3>Method</h3><br><h2>GetSpell()</h2>
+<h3>Description</h3>
+<p>Gets the spell that is granted to the player while the title is active.</p>
+<h3>Return Value</h3>
+<ul>
+<li><b><a href="../classes/spell.htm">Spell</a></b> - The spell that is granted to the player while the title is active.
+</ul>
+<h3>Usage/Example</h3>
+<pre>If there is no associated spell, this will return nil.</pre>
+<hr><a name="GetTitle"><h3>Method</h3><br><h2>GetTitle()</h2>
+<h3>Description</h3>
+<p>Gets the string that is added to the player's name while the title is active.</p>
+<h3>Return Value</h3>
+<ul>
+<li><b>String</b> - The string that is added to the player's name when the title is active.
+</ul>
+	</body>
+</html>
